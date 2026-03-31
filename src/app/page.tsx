@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Activity, Zap, Shield, Beaker, Flame, Brain, BookOpen, ChevronRight, Dna, GitBranch, Heart, Target, Clock, Star, Quote, Droplets, Dumbbell, Download } from "lucide-react";
+import { ArrowRight, Activity, Zap, Shield, Beaker, Flame, Brain, BookOpen, ChevronRight, Dna, GitBranch, Heart, Target, Clock, Star, Quote, Droplets, Dumbbell, Download, DollarSign } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
@@ -119,59 +119,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. SAND/CREAM - BEGINNER'S TRACK (HIGH CONTRAST) */}
+      {/* 4. SAND/CREAM - COMPREHENSIVE KNOWLEDGE PLUS (EXPANDED BEGINNER TRACK) */}
       <section className="py-32 bg-[#F5F2EB] px-6 lg:px-12 text-[#2C2A20]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-          <div className="md:w-1/3">
-             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 text-[#1A1913]">New to Longevity?</h2>
-             <p className="text-lg font-light mb-8">You do not need a degree in molecular biology to halt cellular aging. Start with our simplified, extremely actionable beginner's track.</p>
-             <Link href="/blog" className="bg-[#1A1913] text-white px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#8B7355] transition-colors shadow-xl">
-               Read The Basics
-             </Link>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="md:w-1/2">
+              <span className="text-[#8B7355] font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">Comprehensive Knowledge Plus</span>
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 text-[#1A1913]">The <br/>Foundation.</h2>
+              <p className="text-lg font-light">Before you deploy advanced peptides or manipulate your epigenetic aging clock, secure the absolute basics. These 5 simplistic guides provide 80% of the physiological results.</p>
+            </div>
           </div>
-          <div className="md:w-2/3 grid sm:grid-cols-2 gap-6">
-             <Link href="/blog/longevity-101-beginners-guide" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group">
-               <span className="text-[#8B7355] font-bold text-[10px] tracking-widest uppercase mb-4 block">101 Start Here</span>
-               <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">Longevity 101: The Absolute Basics</h3>
-               <p className="font-light text-gray-600 text-sm">Sleep hygiene, simple nutrition, and light exposure. The 80/20 rule of extreme health.</p>
+          <div className="grid md:grid-cols-3 gap-6">
+             <Link href="/blog/longevity-101-beginners-guide" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533]">
+               <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">Longevity 101: Absolute Basics</h3>
+               <p className="font-light text-gray-600 text-sm">Sleep hygiene, simple nutrition, and light exposure. The 80/20 rule.</p>
              </Link>
-             <Link href="/blog/simple-morning-reset" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group">
-               <span className="text-[#8B7355] font-bold text-[10px] tracking-widest uppercase mb-4 block">Daily Habits</span>
-               <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">The 10-Minute Morning Reset</h3>
-               <p className="font-light text-gray-600 text-sm">A scientifically backed, incredibly simple routine to set up your entire day for autonomic success.</p>
+             <Link href="/blog/simple-morning-reset" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533]">
+               <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">10-Minute Morning Reset</h3>
+               <p className="font-light text-gray-600 text-sm">A scientifically backed, incredibly simple routine to set up your day.</p>
+             </Link>
+             <Link href="/blog/intermittent-fasting-101" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533]">
+               <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">Intermittent Fasting 101</h3>
+               <p className="font-light text-gray-600 text-sm">The exact 16:8 method to naturally reduce inflammation without starving.</p>
+             </Link>
+             <Link href="/blog/beginner-supplements" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533] md:col-span-2">
+               <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">The 3 Baseline Supplements</h3>
+               <p className="font-light text-gray-600 text-sm">Don't waste money. Master Magnesium, Vitamin D3+K2, and Omega-3s.</p>
+             </Link>
+             <Link href="/blog/sleep-hygiene-basics" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533]">
+               <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">Sleep Architecture 101</h3>
+               <p className="font-light text-gray-600 text-sm">Why the 65-deg rule and morning light are better than sleeping pills.</p>
              </Link>
           </div>
         </div>
       </section>
 
-      {/* 5. BLACK/NEON - INLINE LEAD CAPTURE CALCULATORS */}
-      <section id="hydration-tool" className="py-32 bg-brand-black px-6 lg:px-12 relative">
-        <div className="max-w-7xl mx-auto">
+      {/* 5. BLACK/NEON - COMPREHENSIVE KNOWLEDGE PLUS (MASSIVE TOOL INJECTIONS) */}
+      <section id="hydration-tool" className="py-32 bg-brand-black px-6 lg:px-12 relative overflow-hidden shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)]">
+        <div className="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80')] bg-cover opacity-5 pointer-events-none mix-blend-screen"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <span className="text-rose-500 font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">Interactive Compute</span>
-            <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6">Unlock Your <br/>Clinical <span className="text-rose-500">Parameters.</span></h2>
-            <p className="text-xl text-brand-cream/60 font-light max-w-2xl mx-auto">Calculate your exact biochemical deficits via our high-speed embedded diagnostic tools. Receive your massive PDF protocol via encrypted email.</p>
+            <span className="text-[#00F59B] font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block bg-[#00F59B]/10 border border-[#00F59B]/20 px-4 py-2 rounded-full inline-block">Comprehensive Knowledge Plus</span>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter mb-6">Interactive <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon-cyan to-[#00F59B]">Compute.</span></h2>
+            <p className="text-xl text-brand-cream/60 font-light max-w-3xl mx-auto leading-relaxed">Instantly calculate your exact biochemical deficits via our embedded diagnostic suite. Every baseline preview below links to an expanded, highly detailed algorithmic application.</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Tool 1: Hydration */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+            {/* Tool 1: Hydration Lead Capture */}
             <div className="glass-card p-10 md:p-14 rounded-[3rem] border border-blue-500/20 relative shadow-[0_0_50px_rgba(59,130,246,0.05)]">
               <Droplets className="w-12 h-12 text-blue-400 mb-6"/>
-              <h3 className="text-3xl font-black text-white mb-2">Cellular Hydration Estimator</h3>
-              <p className="text-sm text-brand-cream/60 mb-10 font-light">Determine precise osmotic water and sodium requirements based on massive physical parameters.</p>
+              <h3 className="text-3xl font-black text-white mb-2">Daily Hydration Calculator</h3>
+              <p className="text-sm text-brand-cream/60 mb-10 font-light">Find out exactly how much water and salt your body needs to feel energized, based simply on your weight.</p>
               
               <form onSubmit={calculateHydration} className="space-y-6">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Bodyweight (lbs)</label>
-                  <input type="range" min="100" max="300" value={hydrationWeight} onChange={(e)=>setHydrationWeight(Number(e.target.value))} className="w-full accent-blue-400"/>
-                  <div className="text-right text-white font-mono font-bold">{hydrationWeight} lbs</div>
+                   <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Bodyweight (lbs)</label>
+                   <input type="range" min="100" max="300" value={hydrationWeight} onChange={(e)=>setHydrationWeight(Number(e.target.value))} className="w-full accent-blue-400"/>
+                   <div className="text-right text-white font-mono font-bold">{hydrationWeight} lbs</div>
                 </div>
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Secure Email Delivery</label>
-                  <input type="email" required placeholder="Enter email address" className="w-full bg-black/50 border border-white/20 rounded-xl py-4 px-6 text-white outline-none focus:border-blue-400" value={hydrationEmail} onChange={(e)=>setHydrationEmail(e.target.value)} />
+                   <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Secure Email Delivery</label>
+                   <input type="email" required placeholder="Enter email address" className="w-full bg-black/50 border border-white/20 rounded-xl py-4 px-6 text-white outline-none focus:border-blue-400" value={hydrationEmail} onChange={(e)=>setHydrationEmail(e.target.value)} />
                 </div>
                 <button type="submit" className="w-full bg-blue-500 text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-white hover:text-black transition-all flex justify-center items-center gap-2">
-                  <Download className="w-4 h-4"/> Generate Hydration Protocol
+                  <Download className="w-5 h-5"/> Generate Protocol
                 </button>
               </form>
               
@@ -179,29 +190,29 @@ export default function Home() {
                 <div className="mt-8 p-6 bg-blue-500/10 border border-blue-500/30 rounded-2xl animate-fade-in text-center">
                    <p className="text-xs text-brand-cream/60 uppercase tracking-widest mb-2">Baseline Computation</p>
                    <p className="text-lg font-bold text-white">{hydrationResult}</p>
-                   <p className="text-[#00F59B] text-xs font-bold mt-2">Full PDF Protocol sent to {hydrationEmail}</p>
+                   <p className="text-[#00F59B] text-xs font-bold mt-2">Full PDF sent to {hydrationEmail}</p>
                 </div>
               )}
             </div>
 
-            {/* Tool 2: Protein (id="protein-tool") */}
+            {/* Tool 2: Protein Lead Capture */}
             <div id="protein-tool" className="glass-card p-10 md:p-14 rounded-[3rem] border border-orange-500/20 relative shadow-[0_0_50px_rgba(249,115,22,0.05)]">
               <Dumbbell className="w-12 h-12 text-orange-400 mb-6"/>
-              <h3 className="text-3xl font-black text-white mb-2">Myofibrillar Protein Matrix</h3>
-              <p className="text-sm text-brand-cream/60 mb-10 font-light">Calculate the exact biological value of leucine and dense amino acids required to force mTOR activation.</p>
+              <h3 className="text-3xl font-black text-white mb-2">Daily Protein Calculator</h3>
+              <p className="text-sm text-brand-cream/60 mb-10 font-light">Find out exactly how much protein you need to eat every day to maintain healthy muscle and burn fat.</p>
               
               <form onSubmit={calculateProtein} className="space-y-6">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Lean Body Mass (lbs)</label>
-                  <input type="range" min="90" max="250" value={proteinWeight} onChange={(e)=>setProteinWeight(Number(e.target.value))} className="w-full accent-orange-400"/>
-                  <div className="text-right text-white font-mono font-bold">{proteinWeight} lbs</div>
+                   <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Lean Mass (lbs)</label>
+                   <input type="range" min="90" max="250" value={proteinWeight} onChange={(e)=>setProteinWeight(Number(e.target.value))} className="w-full accent-orange-400"/>
+                   <div className="text-right text-white font-mono font-bold">{proteinWeight} lbs</div>
                 </div>
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Secure Email Delivery</label>
-                  <input type="email" required placeholder="Enter email address" className="w-full bg-black/50 border border-white/20 rounded-xl py-4 px-6 text-white outline-none focus:border-orange-400" value={proteinEmail} onChange={(e)=>setProteinEmail(e.target.value)} />
+                   <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Secure Email Delivery</label>
+                   <input type="email" required placeholder="Enter email address" className="w-full bg-black/50 border border-white/20 rounded-xl py-4 px-6 text-white outline-none focus:border-orange-400" value={proteinEmail} onChange={(e)=>setProteinEmail(e.target.value)} />
                 </div>
                 <button type="submit" className="w-full bg-orange-500 text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-white hover:text-black transition-all flex justify-center items-center gap-2">
-                  <Download className="w-4 h-4"/> Generate Protein Syntax
+                  <Download className="w-5 h-5"/> Generate Matrix
                 </button>
               </form>
 
@@ -209,11 +220,50 @@ export default function Home() {
                 <div className="mt-8 p-6 bg-orange-500/10 border border-orange-500/30 rounded-2xl animate-fade-in text-center">
                    <p className="text-xs text-brand-cream/60 uppercase tracking-widest mb-2">Baseline Computation</p>
                    <p className="text-lg font-bold text-white">{proteinResult}</p>
-                   <p className="text-[#00F59B] text-xs font-bold mt-2">Full Dietary Matrix sent to {proteinEmail}</p>
+                   <p className="text-[#00F59B] text-xs font-bold mt-2">Dietary Matrix sent to {proteinEmail}</p>
                 </div>
               )}
             </div>
           </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+             {/* Tool 3 Preview: Circadian */}
+             <div className="bg-black/80 border border-yellow-400/20 p-10 rounded-[2.5rem] flex flex-col items-center text-center shadow-xl hover:border-yellow-400/50 hover:-translate-y-2 transition-all group">
+               <div className="p-5 bg-yellow-400/10 rounded-full mb-6 group-hover:scale-110 transition-transform">
+                 <Clock className="w-10 h-10 text-yellow-400"/>
+               </div>
+               <h3 className="text-2xl font-black text-white mb-4 leading-tight">Daily Energy Schedule</h3>
+               <p className="text-sm font-light text-brand-cream/60 mb-8 h-20">Tell us when you want to wake up, and we will build you the perfect daily schedule to maximize your energy and sleep.</p>
+               <Link href="/tools/circadian" className="mt-auto w-full bg-yellow-400/10 border border-yellow-400/30 text-yellow-400 font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-yellow-400 hover:text-black transition-colors flex justify-center items-center gap-2">
+                 Launch App <ArrowRight className="w-4 h-4"/>
+               </Link>
+             </div>
+
+             {/* Tool 4 Preview: Biological Age */}
+             <div className="bg-black/80 border border-brand-neon-cyan/20 p-10 rounded-[2.5rem] flex flex-col items-center text-center shadow-xl hover:border-brand-neon-cyan/50 hover:-translate-y-2 transition-all group">
+               <div className="p-5 bg-brand-neon-cyan/10 rounded-full mb-6 group-hover:scale-110 transition-transform">
+                 <Dna className="w-10 h-10 text-brand-neon-cyan"/>
+               </div>
+               <h3 className="text-2xl font-black text-white mb-4 leading-tight">True Biological Age Quiz</h3>
+               <p className="text-sm font-light text-brand-cream/60 mb-8 h-20">Take this simple quiz to find out if your body is aging faster or slower than your actual calendar age, and how to fix it.</p>
+               <Link href="/tools/biological-age" className="mt-auto w-full bg-brand-neon-cyan/10 border border-brand-neon-cyan/30 text-brand-neon-cyan font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-brand-neon-cyan hover:text-black transition-colors flex justify-center items-center gap-2">
+                 Take Quiz <ArrowRight className="w-4 h-4"/>
+               </Link>
+             </div>
+
+             {/* Tool 5 Preview: Supplement ROI */}
+             <div className="bg-black/80 border border-[#00F59B]/20 p-10 rounded-[2.5rem] flex flex-col items-center text-center shadow-xl hover:border-[#00F59B]/50 hover:-translate-y-2 transition-all group">
+               <div className="p-5 bg-[#00F59B]/10 rounded-full mb-6 group-hover:scale-110 transition-transform">
+                 <DollarSign className="w-10 h-10 text-[#00F59B]"/>
+               </div>
+               <h3 className="text-2xl font-black text-white mb-4 leading-tight">Supplement Budget Calculator</h3>
+               <p className="text-sm font-light text-brand-cream/60 mb-8 h-20">Stop wasting money on useless vitamins. Type in your monthly budget to see exactly which simple supplements you actually need.</p>
+               <Link href="/tools/supplement-roi" className="mt-auto w-full bg-[#00F59B]/10 border border-[#00F59B]/30 text-[#00F59B] font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-[#00F59B] hover:text-black transition-colors flex justify-center items-center gap-2">
+                 Analyze Cost <ArrowRight className="w-4 h-4"/>
+               </Link>
+             </div>
+          </div>
+
         </div>
       </section>
 
@@ -297,14 +347,14 @@ export default function Home() {
         <div className="max-w-4xl relative z-10">
           <Dna className="w-16 h-16 text-brand-neon mx-auto mb-8 opacity-80" />
           <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-[0.85]">
-            Override The <br/><span className="text-gradient-emerald">Decay Function.</span>
+            Start Your <br/><span className="text-gradient-emerald">Health Journey.</span>
           </h2>
           <p className="text-xl md:text-2xl text-brand-cream/60 font-light mb-12 max-w-2xl mx-auto">
-            Stop waiting. Access the 2026 pharmacological architecture today and actively engineer extreme biological resilience.
+            Stop waiting. Get access to our simple, proven health plans today and start feeling your best.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
              <button className="bg-brand-neon text-brand-black px-12 py-6 rounded-full text-md font-black uppercase tracking-[0.2em] shadow-[0_0_50px_rgba(0,245,155,0.4)] hover:bg-white hover:scale-105 transition-all">
-              Initialize Protocol
+              Get Started
             </button>
           </div>
         </div>
@@ -312,7 +362,7 @@ export default function Home() {
         {/* Actual Footer links area */}
         <div className="w-full max-w-7xl mx-auto mt-40 pt-10 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-10 relative z-10">
           <div className="font-black text-3xl tracking-tighter uppercase text-white">HEBE<span className="text-brand-neon">.W</span></div>
-          <div className="flex flex-wrapjustify-center gap-x-8 gap-y-4 text-[10px] md:text-xs uppercase tracking-widest text-brand-cream/60 font-bold">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[10px] md:text-xs uppercase tracking-widest text-brand-cream/60 font-bold">
             <Link href="/about" className="hover:text-white transition-colors">Philosophy</Link>
             <Link href="/protocols" className="hover:text-white transition-colors">Protocols</Link>
             <Link href="/tools" className="hover:text-brand-neon transition-colors">Diagnostics</Link>

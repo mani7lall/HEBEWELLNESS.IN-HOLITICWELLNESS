@@ -1,0 +1,37 @@
+name: Hebe Continuous Intelligence Pipeline
+
+on:
+  schedule:
+    # Run every single day at Midnight UTC (0 0 * * *)
+    - cron: '0 0 * * *' 
+  workflow_dispatch: 
+    # Allows you to manually click a "Run Workflow" button in GitHub to force the AI to write an article instantly.
+
+permissions:
+  contents: write
+
+jobs:
+  autonomous-write:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Execute Autonomous LLM Engine (Writes the Article)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}  # You must add this to GitHub Repo Secrets!
+        run: node scripts/autonomous_writer.mjs
+
+      - name: Auto-Commit & Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "[Autonomous Pipeline] Wrote and published new intelligence dossier"
+          commit_user_name: "Hebe-CIP-Agent"
+          commit_user_email: "cip@hebewellness.com"

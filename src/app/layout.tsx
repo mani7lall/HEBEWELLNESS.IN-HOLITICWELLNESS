@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Fira_Code } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import ChatWidget from '@/components/chat/ChatWidget';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -34,6 +35,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ChatWidget />
       </body>
     </html>
   );
