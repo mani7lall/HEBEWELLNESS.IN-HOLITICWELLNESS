@@ -5,6 +5,15 @@ import { useParams } from "next/navigation";
 import { Moon, Zap, Sparkles, Wind, ArrowRight, Shield, Beaker, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
+export async function generateStaticParams() {
+  return [
+    { category: 'sleep' },
+    { category: 'stress' },
+    { category: 'hair' },
+    { category: 'skin' },
+  ];
+}
+
 const categoryData = {
   sleep: {
     title: "Deep Sleep Architecture",

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Play, Pause, RefreshCw, Terminal, CheckCircle, AlertTriangle, Activity, Database, FileText, Cpu } from "lucide-react";
+import { Play, Pause, RefreshCw, Terminal, CheckCircle, AlertTriangle, Activity, Database, FileText, Cpu, Shield } from "lucide-react";
 
 export default function AutoblogAdmin() {
   const [isRunning, setIsRunning] = useState(true);
