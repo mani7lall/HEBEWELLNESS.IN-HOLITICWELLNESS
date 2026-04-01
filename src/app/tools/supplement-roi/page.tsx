@@ -39,9 +39,9 @@ export default function SupplementROI() {
 
       <div className="text-center mb-16">
         <DollarSign className="w-16 h-16 text-[#00F59B] mx-auto mb-6 opacity-80"/>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-4">Supplement <br/><span className="text-[#00F59B]">ROI Analyzer.</span></h1>
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-4">Supplement <br/><span className="text-[#00F59B]">Guide.</span></h1>
         <p className="text-lg md:text-xl text-brand-cream/60 font-light max-w-2xl mx-auto leading-relaxed">
-          Stop wasting money on marketing hype. Enter your monthly budget, and we will algorithmically generate the highest biological return-on-investment stack.
+          Enter your monthly budget, and we will highlight the most effective, research-backed supplements for your foundation.
         </p>
       </div>
 
@@ -78,7 +78,7 @@ export default function SupplementROI() {
                  {item.roi === "Extreme" && <BadgeCheck className="w-5 h-5 text-[#00F59B]"/>}
                  {item.roi === "High" && <Beaker className="w-5 h-5 text-brand-neon-cyan"/>}
                  {item.roi === "Medium" && <ShieldAlert className="w-5 h-5 text-yellow-400"/>}
-                 <span className="text-[10px] uppercase font-bold tracking-widest text-brand-cream/80">{item.roi} Clinical Yield</span>
+                 <span className="text-[10px] uppercase font-bold tracking-widest text-brand-cream/80">{item.roi} Impact</span>
               </div>
            </div>
          ))}

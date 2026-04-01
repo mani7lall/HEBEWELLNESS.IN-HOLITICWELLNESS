@@ -61,10 +61,10 @@ export default function BiologicalAgeQuiz() {
   };
 
   const getResult = () => {
-    if (score > 10) return { title: "Accelerated Decay", text: "Your cellular age is likely 5-10 years older than your chronological calendar age. Immediate protocol intervention required to halt severe metabolic decline.", color: "text-red-500" };
-    if (score > 0) return { title: "Baseline Aging", text: "You are aging at the standard societal rate. While not disastrous, you are not actively suppressing the decay function.", color: "text-yellow-400" };
-    if (score > -8) return { title: "Optimal Preservation", text: "Your cellular age is likely 2-4 years younger than your chronological age. Your habits are actively delaying senescence.", color: "text-[#00F59B]" };
-    return { title: "Biological Escape Velocity", text: "Exceptional metabolic parameters. You are operating at the bleeding-edge of longevity, actively reversing epigenetic markers.", color: "text-brand-neon-cyan" };
+    if (score > 10) return { title: "Faster Aging", text: "Your lifestyle habits suggest your body is aging faster than your actual age. Making a few key adjustments can significantly improve your health span.", color: "text-red-500" };
+    if (score > 0) return { title: "Standard Aging", text: "You are aging at a typical rate. While you have healthy foundations, there is room to optimize your routine for better long-term vitality.", color: "text-yellow-400" };
+    if (score > -8) return { title: "Slower Aging", text: "Excellent work. Your habits are supporting a biological age that is likely younger than your calendar age.", color: "text-[#00F59B]" };
+    return { title: "Optimal Longevity", text: "Exceptional lifestyle parameters! You are actively supporting your body's repair processes and maximizing your health span.", color: "text-brand-neon-cyan" };
   };
 
   return (
@@ -73,9 +73,9 @@ export default function BiologicalAgeQuiz() {
 
       <div className="text-center mb-12">
         <Dna className="w-16 h-16 text-brand-neon-cyan mx-auto mb-6 opacity-80 animate-pulse"/>
-        <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">Epigenetic <span className="text-brand-neon-cyan">Aging Quiz.</span></h1>
+        <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">Biological <span className="text-brand-neon-cyan">Aging Quiz.</span></h1>
         <p className="text-brand-cream/60 font-light">
-          A rapid algorithmic assessment of your DNA methylation trajectory based on behavioral inputs. Calculate your true biological decay rate.
+          A quick assessment of your lifestyle habits to estimate your body's true biological age.
         </p>
       </div>
 

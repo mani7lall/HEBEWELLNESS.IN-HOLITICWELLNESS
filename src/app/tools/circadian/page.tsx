@@ -8,7 +8,7 @@ export default function CircadianOptimizer() {
   const [wakeTime, setWakeTime] = useState(6); // 6 AM
 
   const schedule = [
-    { offset: 0, title: "Wake Phase & Hydrate", desc: "Drink 20oz water with 1g sea salt. Immediate vagal tone reset. Do not check phone.", icon: <Droplets className="w-6 h-6 text-blue-400"/> },
+    { offset: 0, title: "Wake Phase & Hydrate", desc: "Drink 20oz water with a pinch of sea salt. Take a moment to wake up. Do not check phone.", icon: <Droplets className="w-6 h-6 text-blue-400"/> },
     { offset: 0.5, title: "Photoreceptor Sunlight Exposure", desc: "10-20 minutes of 100,000 lux outdoor natural light to halt melatonin production and start the 14-hour biological timer.", icon: <Sun className="w-6 h-6 text-yellow-400"/> },
     { offset: 1.5, title: "Caffeine Intake & Dopamine", desc: "Delay coffee 90 mins to allow natural cortisol to clear adenosine. Avoids the 2 PM crash entirely.", icon: <Zap className="w-6 h-6 text-orange-400"/> },
     { offset: 4, title: "Peak Cognitive Window", desc: "Deep work phase. Maximum executive function, alertness, and analytical problem solving.", icon: <Activity className="w-6 h-6 text-brand-neon-cyan"/> },
@@ -32,9 +32,9 @@ export default function CircadianOptimizer() {
 
       <div className="text-center mb-16">
         <Clock className="w-16 h-16 text-yellow-400 mx-auto mb-6 opacity-80"/>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-4">Circadian <br/><span className="text-yellow-400">Rhythm Optimizer.</span></h1>
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-4">Circadian <br/><span className="text-yellow-400">Rhythm Guide.</span></h1>
         <p className="text-lg md:text-xl text-brand-cream/60 font-light max-w-2xl mx-auto leading-relaxed">
-          Algorithms for aligning your autonomic nervous system with the planetary solar day. Select your ideal wake time to auto-generate the perfect 16-hour biological architecture.
+          A guide to aligning your daily routine with your natural body clock. Select your ideal wake time to see your optimal schedule.
         </p>
       </div>
 
