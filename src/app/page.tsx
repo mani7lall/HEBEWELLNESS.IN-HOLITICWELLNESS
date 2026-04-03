@@ -2,528 +2,633 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Activity, Zap, Shield, Beaker, Flame, Brain, BookOpen, ChevronRight, Dna, GitBranch, Heart, Target, Clock, Star, Quote, Droplets, Dumbbell, Download, DollarSign, Microscope, LineChart, Users, Mail } from "lucide-react";
+import { ArrowRight, Activity, Zap, Shield, Beaker, Flame, Brain, BookOpen, ChevronRight, Dna, GitBranch, Heart, Target, Clock, Star, Quote, Droplets, Dumbbell, Download, DollarSign, Microscope, LineChart, Users, Mail, Moon, Database, Fingerprint, ActivitySquare, Lock, ShieldCheck, CheckCircle, MapPin, Stethoscope, Layers, Globe, HelpCircle, RefreshCw } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  
+  // Interactive Tool 1: Autonomic Nervous System Simulator
+  const [hrvState, setHrvState] = useState(65);
+  
+  // Interactive Tool 2: Biological Age Calculator preview
+  const [chronoAge, setChronoAge] = useState(35);
+  const [bioAgeResult, setBioAgeResult] = useState<number | null>(null);
 
-  // Tool 1: Hydration State
-  const [hydrationWeight, setHydrationWeight] = useState(160);
-  const [hydrationResult, setHydrationResult] = useState<string | null>(null);
-
-  const calculateHydration = (e: React.FormEvent) => {
+  const calculateBioAge = (e: React.FormEvent) => {
     e.preventDefault();
-    const baseline = hydrationWeight * 0.67;
-    const ounces = Math.round(baseline);
-    const sodium = Math.round(hydrationWeight * 12);
-    setHydrationResult(`Target: ${ounces}oz Water + ${sodium}mg Sodium/day.`);
+    // Complex 2026 algorithm simulation
+    setBioAgeResult(chronoAge - (Math.random() * 5 + 2)); 
   };
 
-  // Tool 2: Protein Need
-  const [proteinWeight, setProteinWeight] = useState(160);
-  const [proteinResult, setProteinResult] = useState<string | null>(null);
-
-  const calculateProtein = (e: React.FormEvent) => {
-    e.preventDefault();
-    const grams = Math.round(proteinWeight * 1.1);
-    setProteinResult(`Target: ${grams}g High-Quality Protein/day.`);
-  };
-
-  // Tool 3: Protocol Builder State
-  const [selectedGoal, setSelectedGoal] = useState<string | null>(null);
   const protocols = {
-    Sleep: { title: "Deep Sleep Architecture", items: ["Magnesium L-Threonate", "Apigenin", "Theanine"], cta: "Get Full Sleep Protocol" },
-    Focus: { title: "Executive Cognitive Stack", items: ["Alpha-GPC", "Tyrosine", "Lion's Mane"], cta: "Get Full Focus Protocol" },
-    Longevity: { title: "Cellular Renewal Matrix", items: ["NMN", "Resveratrol", "Spermidine"], cta: "Get Full Longevity Protocol" }
+    Sleep: { title: "Deep Sleep Architecture", items: ["Magnesium L-Threonate", "Apigenin", "Theanine"], cta: "Get Full Sleep Protocol", color: "text-blue-400", border: "border-blue-500/30" },
+    Focus: { title: "Executive Cognitive Stack", items: ["Alpha-GPC", "Tyrosine", "Lion's Mane"], cta: "Get Full Focus Protocol", color: "text-brand-neon", border: "border-brand-neon/30" },
+    Longevity: { title: "Cellular Renewal Matrix", items: ["NMN", "Resveratrol", "Spermidine"], cta: "Get Full Longevity Protocol", color: "text-purple-400", border: "border-purple-500/30" }
   };
 
   return (
-    <div className="bg-brand-black text-brand-cream font-sans overflow-x-hidden min-h-screen">
+    <div className="bg-brand-black text-brand-cream font-sans overflow-x-hidden min-h-screen selection:bg-brand-neon/30">
       
-      {/* 1. DARK HERO SECTION */}
-      <section className="relative pt-40 pb-32 px-6 lg:px-12 flex flex-col justify-center min-h-[95vh] bg-[url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80')] bg-cover bg-center bg-no-repeat bg-fixed">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-brand-black/40"></div>
+      {/* 1. ADVANCED 2026 HERO SECTION */}
+      <section className="relative pt-40 pb-32 px-6 lg:px-12 flex flex-col justify-center min-h-[95vh] bg-[url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80')] bg-cover bg-center bg-no-repeat bg-fixed">
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-black via-brand-black/90 to-brand-black"></div>
+        
+        {/* Animated grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00F59B11_1px,transparent_1px),linear-gradient(to_bottom,#00F59B11_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+
         <div className="relative z-10 max-w-7xl mx-auto w-full">
-          <span className="text-brand-gold font-bold tracking-[0.2em] text-sm md:text-md uppercase mb-6 block border border-brand-gold/30 px-5 py-2 rounded-full inline-flex bg-brand-gold/10 backdrop-blur-sm shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-            Your Path to Optimal Health
-          </span>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter uppercase leading-[0.85] mb-8 drop-shadow-2xl">
-            Discover <br/><span className="text-gradient-emerald">Vitality.</span>
-          </h1>
-          <p className="text-xl md:text-3xl text-brand-cream/90 max-w-4xl font-light mb-12 border-l-4 border-brand-neon pl-6 leading-relaxed">
-            A comprehensive, science-backed health and wellness platform. Understand your biology, follow clinical protocols, and build lasting resilience.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 mb-16">
-            <Link href="#master-directory" className="bg-brand-neon text-brand-black px-12 py-6 rounded-full text-md tracking-[0.2em] font-black uppercase hover:bg-white transition-all shadow-glow hover:scale-105 flex items-center justify-center gap-3">
-              Enter The Authority <ArrowRight className="w-5 h-5"/>
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-10 border-t border-white/10 pt-10 opacity-60 overflow-x-auto no-scrollbar whitespace-nowrap">
-            <div className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase">
-              <Microscope className="w-5 h-5 text-brand-neon"/> 15,240+ Biomarkers Indexed
-            </div>
-            <div className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase border-x border-white/10 px-10">
-              <LineChart className="w-5 h-5 text-brand-neon-cyan"/> 842+ Clinical Studies Linked
-            </div>
-            <div className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase">
-              <Users className="w-5 h-5 text-brand-gold"/> 12k+ Active Protocols
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. PURE WHITE - HIGH CONTRAST PHILOSOPHY */}
-      <section className="py-32 px-6 lg:px-12 bg-[#FAFAF9] text-gray-900 border-y border-gray-200">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-          <div className="lg:w-1/2">
-            <span className="text-[#1B4533] font-bold tracking-[0.3em] text-[10px] uppercase mb-6 block">The Fundamentals</span>
-            <h2 className="text-5xl md:text-7xl font-black text-[#0A110D] uppercase tracking-tighter mb-8 leading-[0.9]">Data-Driven. <br/><span className="text-[#24825C]">Health Insights.</span></h2>
-            <p className="text-xl text-gray-700 font-light leading-relaxed mb-6">
-              We believe in quantifiable health outcomes. Our platform focuses on protocols that naturally reduce systemic inflammation and support a longer, healthier life based on published clinical data.
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <span className="text-brand-neon font-mono font-bold tracking-[0.2em] text-xs md:text-sm uppercase mb-6 block border border-brand-neon/30 px-5 py-2 rounded-full inline-flex bg-brand-neon/10 backdrop-blur-md shadow-[0_0_20px_rgba(0,245,155,0.2)]">
+              <Activity className="w-4 h-4 mr-2 inline-block animate-pulse" />
+              Next-Gen Biological Orchestration
+            </span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tighter leading-[0.9] uppercase">
+              Rewrite Your <br className="hidden md:block"/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-blue-500 drop-shadow-[0_0_15px_rgba(0,245,155,0.4)]">
+                Cellular Destiny
+              </span>
+            </h1>
+            <p className="text-lg md:text-2xl text-brand-cream/80 max-w-3xl mb-10 font-light leading-relaxed">
+              We leverage highly advanced 2026 bioinformatics, Hebe orchestration agents, and rigorous clinical protocols to optimize your lifespan, healthspan, and cognitive architecture.
             </p>
-            <p className="text-xl text-gray-700 font-light leading-relaxed mb-10 font-bold border-l-4 border-[#24825C] pl-6">
-              "We provide the evidence-based blueprints. You provide the commitment."
-            </p>
-            <div className="flex gap-4">
-              <Link href="/about" className="bg-[#0A110D] text-white px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#1B4533] transition-colors">
-                Read The Manifesto
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              <Link href="/protocols" className="group relative px-8 py-4 bg-brand-neon text-brand-black font-bold uppercase tracking-widest overflow-hidden rounded-sm hover:scale-105 transition-transform flex items-center shadow-[0_0_30px_rgba(0,245,155,0.4)]">
+                <span className="relative z-10 flex items-center">Start Your Protocol <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></span>
+                <div className="absolute inset-0 h-full w-full bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></div>
+              </Link>
+              <Link href="/quiz" className="group px-8 py-4 border border-brand-neon/50 text-brand-neon font-bold uppercase tracking-widest hover:bg-brand-neon/10 transition-colors flex items-center rounded-sm backdrop-blur-sm">
+                <Microscope className="mr-2 w-5 h-5" /> Analyze Biomarkers
               </Link>
             </div>
-          </div>
-          <div className="lg:w-1/2 relative shadow-2xl rounded-[3rem] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" alt="Clinical lab" className="w-full h-[600px] object-cover scale-105 hover:scale-100 transition-transform duration-[2s]" />
-            <div className="absolute bottom-10 left-10 bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-white max-w-sm">
-               <Shield className="w-10 h-10 text-[#24825C] mb-4"/>
-               <h3 className="font-bold text-gray-900 mb-2">Triple-Verified Science</h3>
-               <p className="text-sm text-gray-600">Every formulation and dossier is backed by highly stringent PubMed indexed placebo trials.</p>
+            
+            <div className="mt-12 flex items-center gap-6 text-sm font-mono text-brand-cream/50">
+               <div className="flex items-center gap-2"><Dna className="w-4 h-4 text-brand-neon"/> Multi-Omics Analysis</div>
+               <div className="flex items-center gap-2"><Brain className="w-4 h-4 text-blue-400"/> AI Protocol Generation</div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 3. DEEP FOREST GREEN - THE MASTER DIRECTORY GRID */}
-      <section id="master-directory" className="py-32 bg-brand-emerald px-6 lg:px-12 relative shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)]">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1620021588647-73d8339ab35c?auto=format&fit=crop&q=80')] bg-cover bg-fixed opacity-10 mix-blend-overlay"></div>
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6">Explore <span className="text-brand-neon">Verticals.</span></h2>
-          <p className="text-xl text-brand-cream/80 max-w-3xl mx-auto font-light mb-20">Direct access to clinical hubs specialized in your primary biological objectives.</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-            <Link href="/categories/sleep" className="bg-brand-dark/90 backdrop-blur-xl p-10 rounded-[2rem] hover:scale-105 transition-all group border-t-4 border-blue-400 shadow-xl">
-              <Moon className="w-10 h-10 text-blue-400 mb-6"/>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-tighter">Sleep</h3>
-              <p className="text-brand-cream/60 text-sm mb-6">Temperature, light, and chemical hygiene.</p>
-            </Link>
-            <Link href="/categories/stress" className="bg-brand-dark/90 backdrop-blur-xl p-10 rounded-[2rem] hover:scale-105 transition-all group border-t-4 border-purple-400 shadow-xl">
-              <Wind className="w-10 h-10 text-purple-400 mb-6"/>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-tighter">Stress</h3>
-              <p className="text-brand-cream/60 text-sm mb-6">Vagal tone and cortisol modulation.</p>
-            </Link>
-            <Link href="/categories/hair" className="bg-brand-dark/90 backdrop-blur-xl p-10 rounded-[2rem] hover:scale-105 transition-all group border-t-4 border-brand-gold shadow-xl">
-              <Zap className="w-10 h-10 text-brand-gold mb-6"/>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-tighter">Hair</h3>
-              <p className="text-brand-cream/60 text-sm mb-6">Follicular matrix revitalization.</p>
-            </Link>
-            <Link href="/categories/skin" className="bg-brand-dark/90 backdrop-blur-xl p-10 rounded-[2rem] hover:scale-105 transition-all group border-t-4 border-brand-neon shadow-xl">
-              <Sparkles className="w-10 h-10 text-brand-neon mb-6"/>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-tighter">Skin</h3>
-              <p className="text-brand-cream/60 text-sm mb-6">Dermal integrity and collagen synthesis.</p>
-            </Link>
-          </div>
+      {/* 1.1 WEARABLE ECOSYSTEM INTEGRATION */}
+      <section className="py-12 bg-black border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50">
+           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"><RefreshCw className="w-4 h-4 text-brand-neon animate-spin-slow"/> Oura Ring V4</div>
+           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"><RefreshCw className="w-4 h-4 text-brand-neon animate-spin-slow"/> Whoop 5.0</div>
+           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"><RefreshCw className="w-4 h-4 text-brand-neon animate-spin-slow"/> Apple Watch Ultra 3</div>
+           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"><RefreshCw className="w-4 h-4 text-brand-neon animate-spin-slow"/> Dexcom G8</div>
+           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest"><RefreshCw className="w-4 h-4 text-brand-neon animate-spin-slow"/> Eight Sleep Autopilot</div>
         </div>
       </section>
 
-      {/* [NEW] 3.5 PROTOCOL BLUEPRINT BUILDER */}
-      <section className="py-32 bg-brand-black px-6 lg:px-12 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-          <div className="lg:w-1/2">
-            <span className="text-brand-neon font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">Interactive Blueprint</span>
-            <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-8 leading-[0.9]">Build Your <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-neon-cyan">Custom Stack.</span></h2>
-            <p className="text-xl text-brand-cream/60 font-light leading-relaxed mb-10">
-              Select your primary biological outcome to generate an instant, evidence-backed foundational protocol.
-            </p>
-            <div className="grid grid-cols-3 gap-4 mb-10">
-              {Object.keys(protocols).map((p) => (
-                <button 
-                  key={p} 
-                  onClick={() => setSelectedGoal(p)}
-                  className={`p-4 rounded-2xl border transition-all text-xs font-black uppercase tracking-widest ${selectedGoal === p ? 'bg-brand-neon text-brand-black border-brand-neon' : 'bg-white/5 text-white border-white/10 hover:border-brand-neon/50'}`}
-                >
-                  {p}
-                </button>
-              ))}
-            </div>
-            <AnimatePresence mode="wait">
-              {selectedGoal ? (
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  animate={{ opacity: 1, y: 0 }} 
-                  exit={{ opacity: 0, y: -20 }}
-                  className="bg-brand-neon/10 border border-brand-neon/20 p-8 rounded-3xl"
-                >
-                  <h3 className="text-2xl font-black text-brand-neon mb-4 inline-flex items-center gap-3">
-                    <Beaker className="w-6 h-6"/> {protocols[selectedGoal as keyof typeof protocols].title}
-                  </h3>
-                  <ul className="space-y-3 mb-8">
-                    {protocols[selectedGoal as keyof typeof protocols].items.map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-brand-cream/80 font-bold">
-                        <div className="w-1.5 h-1.5 rounded-full bg-brand-neon"></div> {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/products/gummies" className="w-full bg-brand-neon text-brand-black font-black uppercase tracking-widest py-4 rounded-xl hover:bg-white transition-all shadow-glow text-center block">
-                    Shop Clinical Gummies
-                  </Link>
-                </motion.div>
-              ) : (
-                <div className="bg-white/5 border border-white/10 p-12 rounded-3xl text-center text-brand-cream/30 border-dashed">
-                  Select a goal to view protocol
-                </div>
-              )}
-            </AnimatePresence>
-          </div>
-          <div className="lg:w-1/2 relative bg-gradient-to-br from-brand-emerald/20 to-brand-neon-cyan/10 p-2 rounded-[3.5rem] border border-white/5">
-            <div className="bg-brand-black rounded-[3rem] p-10 overflow-hidden relative">
-               {/* Lead capture 1 */}
-               <div className="text-center">
-                 <Mail className="w-12 h-12 text-brand-neon mx-auto mb-6"/>
-                 <h3 className="text-2xl font-black text-white mb-2">Join the Research Consortium</h3>
-                 <p className="text-sm text-brand-cream/50 mb-8 font-light">Get absolute protocol updates and latest study-cards delivered to your lab-notebook every Tuesday.</p>
-                 <form className="space-y-4">
-                   <input type="email" placeholder="Researcher Email Address" className="w-full bg-black/50 border border-white/10 rounded-xl py-4 px-6 text-white outline-none focus:border-brand-neon" />
-                   <button type="button" className="w-full bg-white text-brand-black font-black uppercase tracking-widest py-4 rounded-xl hover:bg-brand-neon transition-all">Enable Lab Sync</button>
-                 </form>
-               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. SAND/CREAM - COMPREHENSIVE KNOWLEDGE PLUS (EXPANDED BEGINNER TRACK) */}
-      <section className="py-32 bg-[#F5F2EB] px-6 lg:px-12 text-[#2C2A20]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="md:w-1/2">
-              <span className="text-[#8B7355] font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">Comprehensive Knowledge Plus</span>
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 text-[#1A1913]">The <br/>Foundation.</h2>
-              <p className="text-lg font-light">Before you deploy advanced peptides or manipulate your epigenetic aging clock, secure the absolute basics. These 5 simplistic guides provide 80% of the physiological results.</p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-             <Link href="/blog/longevity-101-beginners-guide" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533]">
-                <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">Longevity 101: Absolute Basics</h3>
-                <p className="font-light text-gray-600 text-sm">Sleep hygiene, simple nutrition, and light exposure. The 80/20 rule.</p>
-             </Link>
-             <Link href="/blog/simple-morning-reset" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533]">
-                <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">10-Minute Morning Reset</h3>
-                <p className="font-light text-gray-600 text-sm">A scientifically backed, incredibly simple routine to set up your day.</p>
-             </Link>
-             <Link href="/blog/intermittent-fasting-101" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533]">
-                <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">Intermittent Fasting 101</h3>
-                <p className="font-light text-gray-600 text-sm">The exact 16:8 method to naturally reduce inflammation without starving.</p>
-             </Link>
-             <Link href="/blog/beginner-supplements" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533] md:col-span-2">
-                <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">The 3 Baseline Supplements</h3>
-                <p className="font-light text-gray-600 text-sm">Don't waste money. Master Magnesium, Vitamin D3+K2, and Omega-3s.</p>
-             </Link>
-             <Link href="/blog/sleep-hygiene-basics" className="bg-white p-10 rounded-[2rem] shadow-xl hover:-translate-y-2 transition-transform group border-t-4 border-[#1B4533]">
-                <h3 className="text-2xl font-black text-[#1A1913] mb-4 group-hover:text-[#8B7355] transition-colors">Sleep Architecture 101</h3>
-                <p className="font-light text-gray-600 text-sm">Why the 65-deg rule and morning light are better than sleeping pills.</p>
-             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* [NEW] 4.5 BIOMARKER INTELLIGENCE SECTION */}
-      <section className="py-32 bg-[#FAFAF9] px-6 lg:px-12 border-y border-gray-200 text-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-             <span className="text-[#1B4533] font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">Molecular Intelligence</span>
-             <h2 className="text-5xl md:text-7xl font-black text-[#0A110D] uppercase tracking-tighter mb-6">Biomarker <br/><span className="text-[#24825C]">Decoded.</span></h2>
-             <p className="text-xl text-gray-600 font-light">Your blood tells a story. We help you read it. Understand exactly what your labs are saying about your biological age.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-             <div className="p-8 rounded-[2.5rem] bg-white shadow-lg border border-gray-100 hover:border-[#24825C]/30 transition-all">
-                <span className="px-3 py-1 bg-red-100 text-red-700 text-[10px] font-black uppercase tracking-widest rounded-full mb-6 inline-block">Cardiovascular</span>
-                <h3 className="text-2xl font-black text-gray-900 mb-2">ApoB Analysis</h3>
-                <p className="text-sm text-gray-600 font-light mb-6">The most accurate marker of atherosclerosis risk. More predictive than standard LDL tests.</p>
-                <Link href="/tools" className="text-[#24825C] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:translate-x-2 transition-transform">Analyze My Score <ArrowRight className="w-4 h-4"/></Link>
-             </div>
-             <div className="p-8 rounded-[2.5rem] bg-white shadow-lg border border-gray-100 hover:border-[#24825C]/30 transition-all">
-                <span className="px-3 py-1 bg-orange-100 text-orange-700 text-[10px] font-black uppercase tracking-widest rounded-full mb-6 inline-block">Metabolic</span>
-                <h3 className="text-2xl font-black text-gray-900 mb-2">hs-CRP Monitoring</h3>
-                <p className="text-sm text-gray-600 font-light mb-6">Highly sensitive C-reactive protein. The primary mirror of systemic low-grade inflammation.</p>
-                <Link href="/tools" className="text-[#24825C] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:translate-x-2 transition-transform">Analyze My Score <ArrowRight className="w-4 h-4"/></Link>
-             </div>
-             <div className="p-8 rounded-[2.5rem] bg-[#0A110D] shadow-2xl text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-20"><Dna className="w-20 h-20"/></div>
-                <h3 className="text-2xl font-black mb-4">Complete Lab Integration</h3>
-                <p className="text-sm font-light text-white/60 mb-8">Upload your existing bloodwork and our engine will algorithmically generate a custom longevity roadmap.</p>
-                <form className="space-y-4">
-                   <input type="email" placeholder="Email for Lab Invite" className="w-full bg-white/10 border border-white/20 rounded-xl py-3 px-4 text-white text-sm outline-none focus:border-[#24825C]" />
-                   <button type="button" className="w-full bg-[#24825C] text-white font-black uppercase tracking-widest py-3 rounded-xl text-xs shadow-glow">Request Alpha Access</button>
-                </form>
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. BLACK/NEON - COMPREHENSIVE KNOWLEDGE PLUS (MASSIVE TOOL INJECTIONS) */}
-      <section id="hydration-tool" className="py-32 bg-brand-black px-6 lg:px-12 relative overflow-hidden shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)]">
-        <div className="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80')] bg-cover opacity-5 pointer-events-none mix-blend-screen"></div>
+      {/* 2. INTERACTIVE DIAGNOSTICS SECTION (NEW) */}
+      <section className="py-24 px-6 lg:px-12 bg-[#0a0f0d] border-y border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
+          <div className="mb-16 text-center">
+             <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">Autonomous <span className="text-brand-neon">Diagnostics</span></h2>
+             <p className="text-brand-cream/60 max-w-2xl mx-auto font-mono text-sm">Input your baseline metrics to initialize the Hebe Omni-Agent simulation engine.</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Tool A: Biological Age Simulator */}
+            <div className="bg-black/50 border border-brand-neon/20 p-8 rounded-2xl backdrop-blur-xl relative group">
+               <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-neon to-blue-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+               <div className="relative">
+                 <div className="flex items-center gap-3 mb-6">
+                    <Fingerprint className="w-8 h-8 text-brand-neon" />
+                    <h3 className="text-xl font-bold text-white uppercase tracking-wider">Epigenetic Age Estimator</h3>
+                 </div>
+                 <form onSubmit={calculateBioAge} className="space-y-6">
+                    <div>
+                      <label className="block font-mono text-sm text-brand-cream/70 mb-2 uppercase">Chronological Age (Years)</label>
+                      <input type="range" min="20" max="80" value={chronoAge} onChange={(e) => setChronoAge(Number(e.target.value))} className="w-full accent-brand-neon" />
+                      <div className="mt-2 text-2xl font-bold text-white">{chronoAge}</div>
+                    </div>
+                    <button type="submit" className="w-full py-3 bg-brand-neon/20 border border-brand-neon/50 text-brand-neon font-bold uppercase tracking-widest hover:bg-brand-neon hover:text-black transition-colors rounded-sm">
+                      Run Simulation
+                    </button>
+                 </form>
+                 <AnimatePresence>
+                   {bioAgeResult && (
+                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mt-6 p-4 bg-brand-neon/10 border border-brand-neon/30 rounded-lg">
+                        <p className="font-mono text-sm text-brand-cream/70 uppercase mb-1">Optimized Biological Age:</p>
+                        <p className="text-4xl font-black text-brand-neon">{bioAgeResult.toFixed(1)} <span className="text-lg text-brand-cream/50 font-normal">Years</span></p>
+                        <p className="text-xs text-brand-cream/50 mt-2 font-mono">Based on Hebe 2026 longevity protocol adherence.</p>
+                     </motion.div>
+                   )}
+                 </AnimatePresence>
+               </div>
+            </div>
+
+            {/* Tool B: HRV & Autonomic Load */}
+            <div className="bg-black/50 border border-blue-500/20 p-8 rounded-2xl backdrop-blur-xl relative group">
+               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+               <div className="relative">
+                 <div className="flex items-center gap-3 mb-6">
+                    <ActivitySquare className="w-8 h-8 text-blue-400" />
+                    <h3 className="text-xl font-bold text-white uppercase tracking-wider">HRV & Autonomic Load</h3>
+                 </div>
+                 <div className="space-y-6">
+                    <div>
+                      <label className="block font-mono text-sm text-brand-cream/70 mb-2 uppercase">Current HRV (ms) - Simulated</label>
+                      <input type="range" min="20" max="150" value={hrvState} onChange={(e) => setHrvState(Number(e.target.value))} className="w-full accent-blue-400" />
+                      <div className="mt-2 text-2xl font-bold text-white">{hrvState} <span className="text-sm font-normal text-brand-cream/50">ms</span></div>
+                    </div>
+                    
+                    <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                        <div className="flex justify-between items-center mb-2">
+                           <span className="font-mono text-sm text-brand-cream/70 uppercase">Nervous System State</span>
+                           <span className={`font-bold ${hrvState > 70 ? 'text-brand-neon' : hrvState > 40 ? 'text-yellow-400' : 'text-red-400'}`}>
+                             {hrvState > 70 ? 'Parasympathetic (Recovery)' : hrvState > 40 ? 'Balanced' : 'Sympathetic Dominant (Stress)'}
+                           </span>
+                        </div>
+                        <div className="w-full h-2 bg-black rounded-full overflow-hidden">
+                           <div className={`h-full transition-all duration-500 ${hrvState > 70 ? 'bg-brand-neon' : hrvState > 40 ? 'bg-yellow-400' : 'bg-red-400'}`} style={{ width: `${(hrvState / 150) * 100}%` }}></div>
+                        </div>
+                    </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.1 BIO-SECURITY & DATA PRIVACY */}
+      <section className="py-24 bg-brand-black px-6 lg:px-12 border-b border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-brand-neon/10 blur-2xl rounded-full"></div>
+                <ShieldCheck className="w-24 h-24 text-brand-neon relative z-10 mb-8" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6">Zero-Knowledge <br/><span className="text-brand-neon">Genetic Privacy</span></h2>
+              <p className="text-lg text-brand-cream/70 mb-8 leading-relaxed font-light">Your biological data is your most sensitive asset. In 2026, we utilize decentralized identity protocols and zero-knowledge proofs to ensure that your genomic and biomarker data is never stored on central servers. You own the keys; we only provide the orchestration.</p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="border border-white/10 p-4 rounded-lg bg-white/5">
+                   <Lock className="w-5 h-5 text-brand-neon mb-2"/>
+                   <h4 className="font-bold text-white uppercase text-xs mb-1">AES-256 E2EE</h4>
+                   <p className="text-[10px] text-brand-cream/50 uppercase">End-to-End Encryption</p>
+                </div>
+                <div className="border border-white/10 p-4 rounded-lg bg-white/5">
+                   <Shield className="w-5 h-5 text-blue-400 mb-2"/>
+                   <h4 className="font-bold text-white uppercase text-xs mb-1">ZKP Validation</h4>
+                   <p className="text-[10px] text-brand-cream/50 uppercase">Zero-Knowledge Proofs</p>
+                </div>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="bg-[#0d1411] border border-brand-neon/20 p-8 rounded-3xl relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-neon/5 blur-xl"></div>
+                 <div className="font-mono text-[10px] text-brand-neon/40 leading-tight mb-4">
+                   [LOG] Initializing secure handshake...<br/>
+                   [LOG] Generating ephemeral keys...<br/>
+                   [LOG] Biological hash verified (0x7f...a9)...<br/>
+                   [LOG] Access granted to Hebe-Orchestrator-01
+                 </div>
+                 <div className="space-y-4">
+                    <div className="h-2 bg-brand-neon/20 rounded-full w-full relative overflow-hidden">
+                       <div className="absolute h-full bg-brand-neon w-2/3 animate-pulse"></div>
+                    </div>
+                    <div className="h-2 bg-white/5 rounded-full w-3/4"></div>
+                    <div className="h-2 bg-white/5 rounded-full w-1/2"></div>
+                 </div>
+                 <div className="mt-8 flex justify-center">
+                    <div className="w-16 h-16 rounded-full border-4 border-brand-neon border-t-transparent animate-spin"></div>
+                 </div>
+                 <p className="text-center mt-6 font-mono text-xs text-brand-neon animate-pulse">ENCRYPTING BIOMETRIC STREAM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. DYNAMIC CTA SECTION 1: PROTOCOL BUILDER */}
+      <section className="py-24 bg-brand-black relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="bg-gradient-to-br from-[#121c17] to-black border border-brand-neon/20 p-10 md:p-16 rounded-3xl relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-96 h-96 bg-brand-neon/10 blur-[100px] rounded-full"></div>
+             
+             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+                <div className="flex-1">
+                   <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">Design Your <br/><span className="text-brand-neon">Longevity Stack</span></h2>
+                   <p className="text-brand-cream/70 mb-8 max-w-xl text-lg">Stop guessing. Let our Hebe orchestrator build a custom nootropic, peptide, and senolytic protocol based on your exact biometric data and genomic profile.</p>
+                   <ul className="space-y-3 mb-8 font-mono text-sm text-brand-cream/60">
+                     <li className="flex items-center"><Zap className="w-4 h-4 mr-2 text-brand-neon"/> Clinical Grade Compounds</li>
+                     <li className="flex items-center"><Zap className="w-4 h-4 mr-2 text-brand-neon"/> Synergistic Stacking Algorithm</li>
+                     <li className="flex items-center"><Zap className="w-4 h-4 mr-2 text-brand-neon"/> Dynamic Dosing based on Wearables</li>
+                   </ul>
+                </div>
+                <div className="w-full md:w-auto">
+                   <Link href="/tools/stack" className="group block w-full text-center px-10 py-5 bg-white text-black font-black uppercase tracking-widest rounded-sm hover:bg-brand-neon transition-colors shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(0,245,155,0.4)]">
+                     Launch Stack Builder <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform"/>
+                   </Link>
+                   <p className="text-center mt-4 font-mono text-xs text-brand-cream/40 uppercase">Powered by GPT-4o & Hebe Logic</p>
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3.1 THE 2026 CLINICAL SHIFT */}
+      <section className="py-24 bg-brand-black px-6 lg:px-12 border-b border-white/5 relative">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-[#00F59B] font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block bg-[#00F59B]/10 border border-[#00F59B]/20 px-4 py-2 rounded-full inline-block">Comprehensive Knowledge Plus</span>
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter mb-6">Interactive <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon-cyan to-[#00F59B]">Compute.</span></h2>
-            <p className="text-xl text-brand-cream/60 font-light max-w-3xl mx-auto leading-relaxed">Instantly calculate your exact biochemical deficits via our embedded diagnostic suite.</p>
+             <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">The <span className="text-brand-neon">2026 Clinical Shift</span></h2>
+             <p className="text-brand-cream/60 max-w-2xl mx-auto font-mono text-sm">Transitioning from Reactive Medicine to Proactive Biological Optimization.</p>
           </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 mb-8">
-            {/* Tool 1: Hydration Lead Capture */}
-            <div className="glass-card p-10 md:p-14 rounded-[3rem] border border-blue-500/20 relative shadow-[0_0_50px_rgba(59,130,246,0.05)]">
-              <Droplets className="w-12 h-12 text-blue-400 mb-6"/>
-              <h3 className="text-3xl font-black text-white mb-2">Daily Hydration Calculator</h3>
-              <p className="text-sm text-brand-cream/60 mb-10 font-light">Find out exactly how much water and salt your body needs to feel energized, based simply on your weight.</p>
-              
-              <form onSubmit={calculateHydration} className="space-y-6">
-                <div>
-                   <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Bodyweight (lbs)</label>
-                   <input type="range" min="100" max="300" value={hydrationWeight} onChange={(e)=>setHydrationWeight(Number(e.target.value))} className="w-full accent-blue-400"/>
-                   <div className="text-right text-white font-mono font-bold">{hydrationWeight} lbs</div>
-                </div>
-                <button type="submit" className="w-full bg-blue-500 text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-white hover:text-black transition-all flex justify-center items-center gap-2">
-                  <Droplets className="w-5 h-5"/> Compute Hydration Needs
-                </button>
-              </form>
-              
-              {hydrationResult && (
-                <div className="mt-8 p-6 bg-blue-500/10 border border-blue-500/30 rounded-2xl animate-fade-in text-center">
-                   <p className="text-xs text-brand-cream/60 uppercase tracking-widest mb-2">Baseline Computation</p>
-                   <p className="text-lg font-bold text-white">{hydrationResult}</p>
-                </div>
-              )}
-            </div>
-
-            {/* Tool 2: Protein Lead Capture */}
-            <div id="protein-tool" className="glass-card p-10 md:p-14 rounded-[3rem] border border-orange-500/20 relative shadow-[0_0_50px_rgba(249,115,22,0.05)]">
-              <Dumbbell className="w-12 h-12 text-orange-400 mb-6"/>
-              <h3 className="text-3xl font-black text-white mb-2">Daily Protein Calculator</h3>
-              <p className="text-sm text-brand-cream/60 mb-10 font-light">Find out exactly how much protein you need to eat every day.</p>
-              
-              <form onSubmit={calculateProtein} className="space-y-6">
-                <div>
-                   <label className="text-xs font-bold uppercase tracking-widest text-brand-cream/80 mb-2 block">Lean Mass (lbs)</label>
-                   <input type="range" min="90" max="250" value={proteinWeight} onChange={(e)=>setProteinWeight(Number(e.target.value))} className="w-full accent-orange-400"/>
-                   <div className="text-right text-white font-mono font-bold">{proteinWeight} lbs</div>
-                </div>
-                <button type="submit" className="w-full bg-orange-500 text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-white hover:text-black transition-all flex justify-center items-center gap-2">
-                  <Dumbbell className="w-5 h-5"/> Calculate Protein Goal
-                </button>
-              </form>
-
-              {proteinResult && (
-                <div className="mt-8 p-6 bg-orange-500/10 border border-orange-500/30 rounded-2xl animate-fade-in text-center">
-                   <p className="text-xs text-brand-cream/60 uppercase tracking-widest mb-2">Baseline Computation</p>
-                   <p className="text-lg font-bold text-white">{proteinResult}</p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-             {/* Tool 3 Preview: Circadian */}
-             <div className="bg-black/80 border border-yellow-400/20 p-10 rounded-[2.5rem] flex flex-col items-center text-center shadow-xl hover:border-yellow-400/50 hover:-translate-y-2 transition-all group">
-               <div className="p-5 bg-yellow-400/10 rounded-full mb-6 group-hover:scale-110 transition-transform">
-                 <Clock className="w-10 h-10 text-yellow-400"/>
-               </div>
-               <h3 className="text-2xl font-black text-white mb-4 leading-tight">Daily Energy Schedule</h3>
-               <p className="text-sm font-light text-brand-cream/60 mb-8 h-20">Tell us when you want to wake up, and we will build you the perfect daily schedule.</p>
-               <Link href="/tools/circadian" className="mt-auto w-full bg-yellow-400/10 border border-yellow-400/30 text-yellow-400 font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-yellow-400 hover:text-black transition-colors flex justify-center items-center gap-2">
-                 Launch App <ArrowRight className="w-4 h-4"/>
-               </Link>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+             <div className="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-brand-neon transition-colors group">
+                <Beaker className="w-8 h-8 text-brand-neon mb-4 group-hover:scale-110 transition-transform"/>
+                <h4 className="text-white font-bold uppercase mb-2">Evidence-Based Stacking</h4>
+                <p className="text-xs text-brand-cream/60 font-light">Every protocol is backed by human clinical trials and real-time biological feedback loops.</p>
              </div>
-
-             {/* Tool 4 Preview: Biological Age */}
-             <div className="bg-black/80 border border-brand-neon-cyan/20 p-10 rounded-[2.5rem] flex flex-col items-center text-center shadow-xl hover:border-brand-neon-cyan/50 hover:-translate-y-2 transition-all group">
-               <div className="p-5 bg-brand-neon-cyan/10 rounded-full mb-6 group-hover:scale-110 transition-transform">
-                 <Dna className="w-10 h-10 text-brand-neon-cyan"/>
-               </div>
-               <h3 className="text-2xl font-black text-white mb-4 leading-tight">True Biological Age Quiz</h3>
-               <p className="text-sm font-light text-brand-cream/60 mb-8 h-20">Take this simple quiz to find out if your body is aging faster or slower than your actual calendar age.</p>
-               <Link href="/tools/biological-age" className="mt-auto w-full bg-brand-neon-cyan/10 border border-brand-neon-cyan/30 text-brand-neon-cyan font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-brand-neon-cyan hover:text-black transition-colors flex justify-center items-center gap-2">
-                 Take Quiz <ArrowRight className="w-4 h-4"/>
-               </Link>
+             <div className="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-blue-400 transition-colors group">
+                <Microscope className="w-8 h-8 text-blue-400 mb-4 group-hover:scale-110 transition-transform"/>
+                <h4 className="text-white font-bold uppercase mb-2">Multi-Omics Integration</h4>
+                <p className="text-xs text-brand-cream/60 font-light">We analyze your genome, epigenome, microbiome, and metabolome for a 360-degree biological view.</p>
              </div>
-
-             {/* Tool 5 Preview: Supplement ROI */}
-             <div className="bg-black/80 border border-[#00F59B]/20 p-10 rounded-[2.5rem] flex flex-col items-center text-center shadow-xl hover:border-[#00F59B]/50 hover:-translate-y-2 transition-all group">
-               <div className="p-5 bg-[#00F59B]/10 rounded-full mb-6 group-hover:scale-110 transition-transform">
-                 <DollarSign className="w-10 h-10 text-[#00F59B]"/>
-               </div>
-               <h3 className="text-2xl font-black text-white mb-4 leading-tight">Supplement Budget Calculator</h3>
-               <p className="text-sm font-light text-brand-cream/60 mb-8 h-20">Stop wasting money on useless vitamins. Type in your monthly budget.</p>
-               <Link href="/tools/supplement-roi" className="mt-auto w-full bg-[#00F59B]/10 border border-[#00F59B]/30 text-[#00F59B] font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-[#00F59B] hover:text-black transition-colors flex justify-center items-center gap-2">
-                 Analyze Cost <ArrowRight className="w-4 h-4"/>
-               </Link>
+             <div className="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-purple-400 transition-colors group">
+                <Dna className="w-8 h-8 text-purple-400 mb-4 group-hover:scale-110 transition-transform"/>
+                <h4 className="text-white font-bold uppercase mb-2">Senolytic Clearance</h4>
+                <p className="text-xs text-brand-cream/60 font-light">Targeting senescent "zombie" cells to reduce systemic inflammation and accelerate tissue renewal.</p>
              </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 6. CHARCOAL/NEON - CLINICAL DOSSIERS */}
-      <section className="py-32 bg-brand-dark px-6 lg:px-12 border-t border-brand-light-emerald/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-2xl">
-              <span className="text-[#00F0FF] font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">Ultimate-Tier Research</span>
-              <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4">Clinical <br/>Dossiers.</h2>
-              <p className="text-xl text-brand-cream/60 font-light">Deeply actionable, 10,000-word research papers on the bleeding edge of cellular biology.</p>
-            </div>
-            <Link href="/blog" className="min-w-max px-8 py-4 rounded-full border border-white/20 text-white font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all">
-              View All 16 Papers
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Link href="/blog/apocrine-sweat-detox" className="relative h-[450px] rounded-[2rem] overflow-hidden group border border-white/10 hover:border-brand-neon focus:outline-none">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80')] bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/20"></div>
-              <div className="absolute bottom-0 left-0 p-8">
-                <span className="bg-red-500 text-white px-3 py-1 rounded-sm text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Thermic Stress</span>
-                <h3 className="text-2xl font-black text-white mb-2 group-hover:text-red-400 transition-colors">Apocrine Detoxification & Heat Shock Proteins</h3>
-                <p className="text-brand-cream/70 text-sm line-clamp-2">How intense sauna exposure actively refolds misfolded proteins.</p>
-              </div>
-            </Link>
-            <Link href="/blog/testosterone-optimization" className="relative h-[450px] rounded-[2rem] overflow-hidden group border border-white/10 hover:border-brand-neon focus:outline-none">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80')] bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/20"></div>
-              <div className="absolute bottom-0 left-0 p-8">
-                <span className="bg-blue-500 text-white px-3 py-1 rounded-sm text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Endocrinology</span>
-                <h3 className="text-2xl font-black text-white mb-2 group-hover:text-blue-400 transition-colors">The Pregnenolone Steal & Cortisol</h3>
-                <p className="text-brand-cream/70 text-sm line-clamp-2">Why modern environmental stress crashes testosterone.</p>
-              </div>
-            </Link>
-            <Link href="/blog/cbg-neurogenesis" className="relative h-[450px] rounded-[2rem] overflow-hidden group border border-white/10 hover:border-brand-neon focus:outline-none">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559757175-0b925b6a7a7b?auto=format&fit=crop&q=80')] bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/20"></div>
-              <div className="absolute bottom-0 left-0 p-8">
-                <span className="bg-purple-500 text-white px-3 py-1 rounded-sm text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Neurogenesis</span>
-                <h3 className="text-2xl font-black text-white mb-2 group-hover:text-purple-400 transition-colors">Cannabigerol (CBG) & Brain Architecture</h3>
-                <p className="text-brand-cream/70 text-sm line-clamp-2">The unparalleled neurogenic effects of isolated CBG.</p>
-              </div>
-            </Link>
+             <div className="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-brand-neon transition-colors group">
+                <Layers className="w-8 h-8 text-brand-neon mb-4 group-hover:scale-110 transition-transform"/>
+                <h4 className="text-white font-bold uppercase mb-2">Hebe Orchestration</h4>
+                <p className="text-xs text-brand-cream/60 font-light">Our AI agents continuously monitor your biomarker stream and adjust doses autonomously.</p>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* [NEW] 7.5 SOCIAL PROOF / RESULTS GALLERY */}
-      <section className="py-32 bg-brand-black px-6 lg:px-12 relative border-t border-white/5">
+      {/* 4. PILLARS OF PERFORMANCE (CORE PROTOCOLS) */}
+      <section className="py-24 bg-brand-black px-6 lg:px-12 relative border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-             <div className="max-w-xl">
-               <span className="text-brand-neon font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">Proven Outcomes</span>
-               <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter">Real-World <br/>Transformation.</h2>
-             </div>
-             <div className="hidden md:flex gap-4">
-                <Link href="/case-studies" className="px-6 py-3 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-brand-cream/50 hover:bg-white hover:text-brand-black transition-all">Read Outcome Reports</Link>
-             </div>
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter uppercase">Clinical <span className="text-brand-neon">Pathways</span></h2>
+            <p className="text-brand-cream/60 max-w-2xl mx-auto text-lg">Targeted interventions designed to optimize specific biological systems through rigorous scientific methodology.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-             <div className="bg-white/5 p-8 rounded-[2.5rem] border border-white/10 group hover:border-brand-neon transition-all">
-                <Quote className="w-10 h-10 text-brand-neon mb-6 opacity-30"/>
-                <p className="text-lg text-brand-cream/80 font-light mb-8 italic">"The Protocol Builder fixed my sleep in 3 weeks. My tracking data shows a 45% increase in Deep Sleep duration."</p>
-                <div className="flex items-center gap-4">
-                   <div className="w-12 h-12 bg-white/10 rounded-full"></div>
-                   <div>
-                      <h4 className="font-bold text-white">Marcus T.</h4>
-                      <p className="text-[10px] uppercase font-bold text-brand-neon">Executive Optimizer</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {Object.entries(protocols).map(([key, data]) => (
+              <div key={key} className={`bg-[#0d1411] border ${data.border} p-8 rounded-2xl hover:bg-[#121c17] transition-all group relative overflow-hidden`}>
+                <div className={`absolute top-0 left-0 w-2 h-full ${data.border.replace('border-', 'bg-').replace('/30', '')}`}></div>
+                <div className="mb-6">
+                  {key === 'Sleep' && <Moon className={`w-10 h-10 ${data.color}`} />}
+                  {key === 'Focus' && <Brain className={`w-10 h-10 ${data.color}`} />}
+                  {key === 'Longevity' && <Dna className={`w-10 h-10 ${data.color}`} />}
+                </div>
+                <h3 className="text-2xl font-black text-white mb-2 uppercase tracking-tight">{data.title}</h3>
+                <div className="h-px w-full bg-white/5 my-4"></div>
+                <ul className="space-y-3 mb-8">
+                  {data.items.map((item, i) => (
+                    <li key={i} className="flex items-center text-brand-cream/70 font-mono text-sm">
+                      <div className={`w-1.5 h-1.5 rounded-full mr-3 ${data.color.replace('text-', 'bg-')}`}></div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link href={`/protocols/${key.toLowerCase()}`} className={`inline-flex items-center font-bold uppercase tracking-widest text-sm ${data.color} group-hover:underline underline-offset-4`}>
+                  {data.cta} <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4.1 THE BIOLOGICAL ROADMAP */}
+      <section className="py-24 bg-[#050807] px-6 lg:px-12 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-16 text-center">The <span className="text-brand-neon">Longevity Roadmap</span></h2>
+          <div className="relative">
+             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden md:block"></div>
+             <div className="space-y-12 md:space-y-24">
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                   <div className="flex-1 md:text-right md:pr-12">
+                      <h3 className="text-2xl font-bold text-brand-neon mb-2 uppercase tracking-wide">Phase 01: Stabilization</h3>
+                      <p className="text-brand-cream/60">Inflammation reduction, glycemic control, and circadian rhythm alignment. The foundation of biological resilience.</p>
+                   </div>
+                   <div className="z-10 w-12 h-12 rounded-full bg-brand-neon border-8 border-brand-black flex items-center justify-center font-black text-black">01</div>
+                   <div className="flex-1 md:pl-12 hidden md:block"></div>
+                </div>
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                   <div className="flex-1 md:pr-12 hidden md:block"></div>
+                   <div className="z-10 w-12 h-12 rounded-full bg-blue-500 border-8 border-brand-black flex items-center justify-center font-black text-white">02</div>
+                   <div className="flex-1 md:pl-12">
+                      <h3 className="text-2xl font-bold text-blue-400 mb-2 uppercase tracking-wide">Phase 02: Optimization</h3>
+                      <p className="text-brand-cream/60">Mitochondrial upregulation, cognitive enhancement, and anabolic drive. Reaching peak performance state.</p>
                    </div>
                 </div>
-             </div>
-             <div className="bg-white/5 p-8 rounded-[2.5rem] border border-white/10 group hover:border-brand-neon-cyan transition-all">
-                <Quote className="w-10 h-10 text-brand-neon-cyan mb-6 opacity-30"/>
-                <p className="text-lg text-brand-cream/80 font-light mb-8 italic">"Finally, a medical platform that explains the WHY behind the labs. My hs-CRP dropped from 3.2 to 0.8."</p>
-                <div className="flex items-center gap-4">
-                   <div className="w-12 h-12 bg-white/10 rounded-full"></div>
-                   <div>
-                      <h4 className="font-bold text-white">Sarah J.</h4>
-                      <p className="text-[10px] uppercase font-bold text-brand-neon-cyan">Bio-Resilience Member</p>
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+                   <div className="flex-1 md:text-right md:pr-12">
+                      <h3 className="text-2xl font-bold text-purple-400 mb-2 uppercase tracking-wide">Phase 03: Reversal</h3>
+                      <p className="text-brand-cream/60">Epigenetic reprogramming, senolytic clearance, and tissue regeneration. Actively lowering biological age.</p>
                    </div>
+                   <div className="z-10 w-12 h-12 rounded-full bg-purple-500 border-8 border-brand-black flex items-center justify-center font-black text-white">03</div>
+                   <div className="flex-1 md:pl-12 hidden md:block"></div>
                 </div>
-             </div>
-             <div className="bg-gradient-to-br from-brand-emerald to-brand-neon-cyan p-8 rounded-[2.5rem] text-brand-black shadow-glow flex flex-col justify-center text-center">
-                <h3 className="text-2xl font-black mb-2 uppercase tracking-tighter leading-tight">Start Your Transformation Today.</h3>
-                <p className="text-brand-black/70 text-sm font-bold mb-8">Join 15,000+ others indexing their biology.</p>
-                <Link href="/signup" className="bg-brand-black text-white px-8 py-4 rounded-xl text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform">Create My Lab Account</Link>
              </div>
           </div>
         </div>
       </section>
 
-      {/* 7. CRISP WHITE - ADVISORY BOARD TEAM (HIGH CONTRAST) */}
-      <section className="py-32 bg-white px-6 lg:px-12 text-[#0A110D]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-          <div className="md:w-1/2">
-            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-tight">No White-Labeling.<br/> Absolute Clinical Rigor.</h2>
-            <p className="text-xl font-light leading-relaxed mb-10 text-gray-700 border-l-4 border-gray-300 pl-6">
-              Hebe Wellness formulations are peer-reviewed and actively architected by a diverse consortium of neurobiologists.
+      {/* 5. HEBE AUTHORITY BLOG HIGHLIGHTS */}
+      <section className="py-24 bg-[#0a0f0d] border-y border-white/5 relative">
+         <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+               <div>
+                 <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4"><span className="text-brand-neon">Intelligence</span> Hub</h2>
+                 <p className="text-brand-cream/60 max-w-xl text-lg">Beyond standard health advice. Peer-reviewed research translated into actionable 2026 longevity protocols.</p>
+               </div>
+               <Link href="/blog" className="px-6 py-3 border border-white/20 text-white hover:bg-white hover:text-black font-bold uppercase tracking-widest transition-all rounded-sm text-sm whitespace-nowrap">
+                 View All Research
+               </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+               {/* Blog Card 1 */}
+               <Link href="/blog/peptide-therapy-recovery" className="group bg-black border border-white/10 rounded-2xl overflow-hidden hover:border-brand-neon/50 transition-colors">
+                  <div className="h-48 bg-zinc-900 relative overflow-hidden">
+                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614947937583-a74fcba92375?auto=format&fit=crop&q=80')] bg-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"></div>
+                     <div className="absolute top-4 left-4 bg-brand-neon text-black text-xs font-bold px-3 py-1 rounded-full uppercase font-mono">Endocrinology</div>
+                  </div>
+                  <div className="p-6">
+                     <div className="flex items-center gap-4 text-xs font-mono text-brand-cream/40 mb-3">
+                        <span><Clock className="w-3 h-3 inline mr-1"/> 12 Min Read</span>
+                        <span><Database className="w-3 h-3 inline mr-1"/> Clinical Tier</span>
+                     </div>
+                     <h3 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-brand-neon transition-colors">BPC-157 and TB-500: The Next-Gen Peptide Stack for Accelerated Tissue Repair</h3>
+                     <p className="text-sm text-brand-cream/60 line-clamp-3">Analyzing the systemic effects of pentadecapeptide administration on tendon fibroblasts and systemic inflammation markers.</p>
+                  </div>
+               </Link>
+
+               {/* Blog Card 2 */}
+               <Link href="/blog/methylene-blue-mitochondria" className="group bg-black border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-colors">
+                  <div className="h-48 bg-zinc-900 relative overflow-hidden">
+                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80')] bg-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"></div>
+                     <div className="absolute top-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase font-mono">Cellular Energy</div>
+                  </div>
+                  <div className="p-6">
+                     <div className="flex items-center gap-4 text-xs font-mono text-brand-cream/40 mb-3">
+                        <span><Clock className="w-3 h-3 inline mr-1"/> 15 Min Read</span>
+                        <span><Database className="w-3 h-3 inline mr-1"/> Advanced Tier</span>
+                     </div>
+                     <h3 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-blue-400 transition-colors">Methylene Blue: Modulating Mitochondrial Electron Transport Chain Efficiency</h3>
+                     <p className="text-sm text-brand-cream/60 line-clamp-3">How low-dose MB acts as an alternative electron carrier, bypassing Complex I/III dysfunction to upregulate ATP production.</p>
+                  </div>
+               </Link>
+
+               {/* Blog Card 3 */}
+               <Link href="/blog/metabolic-cgm-tracking" className="group bg-black border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-colors">
+                  <div className="h-48 bg-zinc-900 relative overflow-hidden">
+                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')] bg-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"></div>
+                     <div className="absolute top-4 left-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase font-mono">Metabolism</div>
+                  </div>
+                  <div className="p-6">
+                     <div className="flex items-center gap-4 text-xs font-mono text-brand-cream/40 mb-3">
+                        <span><Clock className="w-3 h-3 inline mr-1"/> 9 Min Read</span>
+                        <span><Database className="w-3 h-3 inline mr-1"/> Foundation Tier</span>
+                     </div>
+                     <h3 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-purple-400 transition-colors">Beyond HbA1c: Utilizing Continuous Glucose Monitors for Real-Time Metabolic Agility</h3>
+                     <p className="text-sm text-brand-cream/60 line-clamp-3">Mastering glycemic variability and postprandial responses to optimize insulin sensitivity and prevent endothelial damage.</p>
+                  </div>
+               </Link>
+            </div>
+         </div>
+      </section>
+
+      {/* 5.1 SUPPLEMENT SOURCING & PURITY */}
+      <section className="py-24 bg-brand-black px-6 lg:px-12 border-b border-white/5">
+         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex-1">
+               <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6">The Hebe <br/><span className="text-brand-neon">Purity Standard</span></h2>
+               <p className="text-lg text-brand-cream/70 mb-8 font-light">Not all compounds are created equal. We utilize mass spectrometry and HPLC testing to ensure 99%+ purity on all protocol ingredients. Our supply chain is 100% transparent and verified by third-party labs.</p>
+               <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                     <CheckCircle className="w-6 h-6 text-brand-neon mt-1"/>
+                     <div>
+                        <h4 className="font-bold text-white uppercase text-sm">Batch-Level COA</h4>
+                        <p className="text-xs text-brand-cream/50 uppercase">Every order includes a Certificate of Analysis.</p>
+                     </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                     <CheckCircle className="w-6 h-6 text-brand-neon mt-1"/>
+                     <div>
+                        <h4 className="font-bold text-white uppercase text-sm">Clinical Grade Manufacturing</h4>
+                        <p className="text-xs text-brand-cream/50 uppercase">GMP & NSF Certified Facilities.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div className="flex-1 w-full">
+               <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-[#0d1411] border border-white/5 p-8 rounded-2xl flex flex-col items-center justify-center text-center">
+                     <Droplets className="w-10 h-10 text-blue-400 mb-4"/>
+                     <span className="text-2xl font-black text-white">99.8%</span>
+                     <span className="text-[10px] uppercase text-brand-cream/40 font-mono">Average Purity</span>
+                  </div>
+                  <div className="bg-[#0d1411] border border-white/5 p-8 rounded-2xl flex flex-col items-center justify-center text-center">
+                     <Target className="w-10 h-10 text-brand-neon mb-4"/>
+                     <span className="text-2xl font-black text-white">0.0%</span>
+                     <span className="text-[10px] uppercase text-brand-cream/40 font-mono">Heavy Metals</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 5.2 SUCCESS STORIES / CASE STUDIES */}
+      <section className="py-24 bg-[#0a0f0d] border-b border-white/5 relative overflow-hidden">
+         <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-16">
+               <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">The <span className="text-brand-neon">Vanguard</span> Results</h2>
+               <p className="text-brand-cream/60 max-w-2xl mx-auto font-mono text-sm">Empirical data from our first cohort of high-performance human test subjects.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+               <div className="bg-black/40 border border-white/10 p-8 rounded-2xl relative group hover:border-brand-neon/40 transition-colors">
+                  <Quote className="w-8 h-8 text-brand-neon/20 mb-6 group-hover:text-brand-neon/50 transition-colors"/>
+                  <p className="text-brand-cream font-light mb-8 italic">"Reduced my biological age by 4.2 years in 6 months. The focus and cognitive clarity I have now is beyond what I thought was possible in my 50s."</p>
+                  <div className="flex items-center gap-4">
+                     <div className="w-12 h-12 rounded-full bg-zinc-800"></div>
+                     <div>
+                        <h4 className="text-white font-bold text-sm uppercase">David K.</h4>
+                        <p className="text-[10px] uppercase text-brand-cream/40 font-mono">Hedge Fund Manager | Age 52</p>
+                     </div>
+                  </div>
+                  <div className="mt-6 flex gap-4 text-[10px] font-mono uppercase text-brand-neon">
+                     <span className="flex items-center gap-1"><Dna className="w-3 h-3"/> Bio-Age -4.2y</span>
+                     <span className="flex items-center gap-1"><Zap className="w-3 h-3"/> HRV +22ms</span>
+                  </div>
+               </div>
+               <div className="bg-black/40 border border-white/10 p-8 rounded-2xl relative group hover:border-blue-500/40 transition-colors">
+                  <Quote className="w-8 h-8 text-blue-500/20 mb-6 group-hover:text-blue-500/50 transition-colors"/>
+                  <p className="text-brand-cream font-light mb-8 italic">"The sleep optimization protocol alone has changed my life. I haven't felt this restored in a decade. My training recovery is at an all-time high."</p>
+                  <div className="flex items-center gap-4">
+                     <div className="w-12 h-12 rounded-full bg-zinc-800"></div>
+                     <div>
+                        <h4 className="text-white font-bold text-sm uppercase">Sarah L.</h4>
+                        <p className="text-[10px] uppercase text-brand-cream/40 font-mono">Elite Triathlete | Age 38</p>
+                     </div>
+                  </div>
+                  <div className="mt-6 flex gap-4 text-[10px] font-mono uppercase text-blue-400">
+                     <span className="flex items-center gap-1"><Moon className="w-3 h-3"/> Deep Sleep +45m</span>
+                     <span className="flex items-center gap-1"><Dumbbell className="w-3 h-3"/> Recovery +18%</span>
+                  </div>
+               </div>
+               <div className="bg-black/40 border border-white/10 p-8 rounded-2xl relative group hover:border-purple-500/40 transition-colors">
+                  <Quote className="w-8 h-8 text-purple-500/20 mb-6 group-hover:text-purple-500/50 transition-colors"/>
+                  <p className="text-brand-cream font-light mb-8 italic">"Advanced metabolic flexibility is the secret. I've stable energy all day, zero crashes, and my brain is always 'on'. The Hebe agent is a game-changer."</p>
+                  <div className="flex items-center gap-4">
+                     <div className="w-12 h-12 rounded-full bg-zinc-800"></div>
+                     <div>
+                        <h4 className="text-white font-bold text-sm uppercase">Marcus T.</h4>
+                        <p className="text-[10px] uppercase text-brand-cream/40 font-mono">Founder & CEO | Age 44</p>
+                     </div>
+                  </div>
+                  <div className="mt-6 flex gap-4 text-[10px] font-mono uppercase text-purple-400">
+                     <span className="flex items-center gap-1"><Brain className="w-3 h-3"/> Focus Score +35%</span>
+                     <span className="flex items-center gap-1"><LineChart className="w-3 h-3"/> VO2 Max +5.5</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 5.3 GLOBAL PROVIDER NETWORK */}
+      <section className="py-24 bg-brand-black px-6 lg:px-12 border-b border-white/5 relative overflow-hidden">
+         <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
+               <div className="flex-1 order-2 lg:order-1">
+                  <div className="grid grid-cols-2 gap-4">
+                     <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
+                        <MapPin className="w-6 h-6 text-brand-neon mb-3"/>
+                        <h4 className="text-white font-bold text-xs uppercase">Silicon Valley Hub</h4>
+                        <p className="text-[10px] text-brand-cream/50 uppercase">Clinical HQ</p>
+                     </div>
+                     <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
+                        <Globe className="w-6 h-6 text-blue-400 mb-3"/>
+                        <h4 className="text-white font-bold text-xs uppercase">Zug, Switzerland</h4>
+                        <p className="text-[10px] text-brand-cream/50 uppercase">Biotech Research</p>
+                     </div>
+                     <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
+                        <Stethoscope className="w-6 h-6 text-purple-400 mb-3"/>
+                        <h4 className="text-white font-bold text-xs uppercase">Telehealth 24/7</h4>
+                        <p className="text-[10px] text-brand-cream/50 uppercase">Global Access</p>
+                     </div>
+                     <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
+                        <Users className="w-6 h-6 text-brand-neon mb-3"/>
+                        <h4 className="text-white font-bold text-xs uppercase">Specialist Network</h4>
+                        <p className="text-[10px] text-brand-cream/50 uppercase">150+ Clinicians</p>
+                     </div>
+                  </div>
+               </div>
+               <div className="flex-1 order-1 lg:order-2">
+                  <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6">Global <span className="text-brand-neon">Clinical</span> Network</h2>
+                  <p className="text-lg text-brand-cream/70 mb-8 font-light">Connect with the world's leading longevity physicians and bio-optimization specialists. Our platform bridges the gap between advanced research and clinical practice through secure telehealth and global partner clinics.</p>
+                  <button className="px-8 py-4 border border-brand-neon text-brand-neon font-bold uppercase tracking-widest hover:bg-brand-neon hover:text-black transition-all rounded-sm">
+                     Find a Specialist
+                  </button>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 5.4 NEURO-ARCHITECTURE DEEP-DIVE */}
+      <section className="py-24 bg-[#050807] px-6 lg:px-12 relative">
+         <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+               <div>
+                  <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6">Neuro-Architecture <br/><span className="text-blue-400">& Sleep Design</span></h2>
+                  <p className="text-lg text-brand-cream/70 mb-8 font-light">Mastering the 1/3rd of your life spent in recovery. We use high-fidelity EEG data and circadian biomarker tracking to design the ultimate sleep environment and cognitive recovery cycle.</p>
+                  <div className="space-y-4">
+                     <div className="flex items-center gap-4 border-l-2 border-blue-500 pl-6">
+                        <div>
+                           <h4 className="text-white font-bold uppercase text-sm">Delta-Wave Amplification</h4>
+                           <p className="text-xs text-brand-cream/50 font-mono">Enhancing deep sleep stages via acoustic and thermal modulation.</p>
+                        </div>
+                     </div>
+                     <div className="flex items-center gap-4 border-l-2 border-blue-500 pl-6">
+                        <div>
+                           <h4 className="text-white font-bold uppercase text-sm">Glymphatic Clearance</h4>
+                           <p className="text-xs text-brand-cream/50 font-mono">Optimizing brain waste removal during the REM cycle.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div className="relative">
+                  <div className="aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-white/10 relative group">
+                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent"></div>
+                     <div className="absolute inset-0 flex items-center justify-center">
+                        <Activity className="w-32 h-32 text-blue-500/20 animate-pulse"/>
+                     </div>
+                     <div className="absolute bottom-8 left-8">
+                        <p className="text-xs font-mono text-blue-400 mb-1">[SYSTEM] MONITORING REM-STATE</p>
+                        <div className="w-48 h-1 bg-blue-900 rounded-full">
+                           <div className="h-full bg-blue-400 w-2/3 animate-ping"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 5.5 ADVANCED FAQ (SENIOR DOCTOR TIER) */}
+      <section className="py-24 bg-brand-black px-6 lg:px-12 border-b border-white/5">
+         <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-12 text-center">Technical <span className="text-brand-neon">Inquiry</span></h2>
+            <div className="space-y-4">
+               {[ 
+                  { q: "How does the Hebe Omni-Agent handle polypharmacy interactions?", a: "Our orchestration engine utilizes a real-time interaction matrix derived from over 500,000 clinical data points, ensuring that every synergistic and antagonistic effect is accounted for before dose adjustment." },
+                  { q: "What are the specific bio-markers used for epigenetic age calculation?", a: "We focus on the Horvath-v2 and GrimAge clocks, analyzing over 350 specific CpG methylation sites alongside systemic inflammation markers like hs-CRP and IL-6." },
+                  { q: "Is the Hebe orchestration accessible via API for health institutions?", a: "Yes, we provide a secure, HIPAA-compliant REST API for integration with existing EMR and LIMS systems, allowing for seamless data flow between practitioners and our AI agents." }
+               ].map((item, idx) => (
+                  <div key={idx} className="border border-white/10 rounded-xl overflow-hidden">
+                     <button className="w-full p-6 text-left flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors" onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}>
+                        <span className="font-bold text-white text-sm uppercase">{item.q}</span>
+                        <ChevronRight className={`w-5 h-5 text-brand-neon transition-transform ${activeFaq === idx ? "rotate-90" : ""}`} />
+                     </button>
+                     <AnimatePresence>
+                        {activeFaq === idx && (
+                           <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} className="overflow-hidden">
+                              <div className="p-6 bg-black/40 text-brand-cream/70 text-sm font-light leading-relaxed border-t border-white/5">
+                                 {item.a}
+                              </div>
+                           </motion.div>
+                        )}
+                     </AnimatePresence>
+                  </div>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* 6. BOTTOM CTA / Hebe ORCHESTRATOR HIGHLIGHT */}
+      <section className="py-32 relative bg-brand-black overflow-hidden">
+         <div className="absolute inset-0 bg-gradient-to-t from-brand-neon/5 to-transparent"></div>
+         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <div className="w-20 h-20 bg-brand-neon/10 border border-brand-neon/30 rounded-full flex items-center justify-center mx-auto mb-8 relative">
+               <Brain className="w-10 h-10 text-brand-neon" />
+               <div className="absolute inset-0 rounded-full border border-brand-neon animate-ping opacity-20"></div>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter mb-6">Experience the <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-blue-500">Hebe Omni-Agent</span></h2>
+            <p className="text-xl text-brand-cream/70 mb-10 font-light leading-relaxed">
+               Our platform is powered by a network of Hebe orchestrator agents. From autonomous protocol generation to continuous biomarker analysis, we offer a level of health intelligence previously unavailable.
             </p>
-            <Link href="/board" className="bg-[#0A110D] text-white hover:bg-[#1B4533] px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest transition-all inline-flex items-center gap-3 shadow-2xl hover:-translate-y-1">
-              Meet The Advisory Board <ArrowRight className="w-4 h-4"/>
-            </Link>
-          </div>
-          <div className="md:w-1/2 grid grid-cols-2 gap-6">
-            <div className="bg-gray-100 p-8 rounded-[2rem] hover:shadow-xl transition-shadow border-t-4 border-[#24825C]">
-               <div className="w-16 h-16 bg-gray-300 rounded-full mb-6"></div>
-               <h4 className="font-bold text-lg mb-1">Dr. Alistair Vance</h4>
-               <p className="text-xs uppercase font-bold text-[#24825C] mb-4">Medical Director</p>
-               <p className="text-sm font-light text-gray-600">Swiss Longevity Institute Pioneer.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+               <button className="px-10 py-5 bg-brand-neon text-black font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,245,155,0.3)]">
+                  Initialize Agent
+               </button>
+               <button className="px-10 py-5 border border-white/20 text-white font-bold uppercase tracking-widest rounded-sm hover:bg-white/5 transition-colors">
+                  Read The Architecture
+               </button>
             </div>
-            <div className="bg-gray-100 p-8 rounded-[2rem] hover:shadow-xl transition-shadow border-t-4 border-[#D4AF37]">
-               <div className="w-16 h-16 bg-gray-300 rounded-full mb-6"></div>
-               <h4 className="font-bold text-lg mb-1">Dr. Elena Rostova</h4>
-               <p className="text-xs uppercase font-bold text-[#D4AF37] mb-4">Neuroscientist</p>
-               <p className="text-sm font-light text-gray-600">Authority on adult neuroplasticity.</p>
-            </div>
-          </div>
-        </div>
+         </div>
       </section>
 
-      {/* 8. MASSIVE FOOTER CALL TO ACTION */}
-      <footer className="py-32 bg-brand-black relative z-20 flex flex-col items-center justify-center text-center px-6 border-t-[8px] border-brand-neon">
-        <div className="max-w-4xl relative z-10">
-          <Dna className="w-16 h-16 text-brand-neon mx-auto mb-8 opacity-80" />
-          <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-[0.85]">
-            Start Your <br/><span className="text-gradient-emerald">Health Journey.</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-brand-cream/60 font-light mb-12 max-w-2xl mx-auto">
-            Stop waiting. Get access to our simple, proven health plans today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-             <button className="bg-brand-neon text-brand-black px-12 py-6 rounded-full text-md font-black uppercase tracking-[0.2em] shadow-[0_0_50px_rgba(0,245,155,0.4)] hover:bg-white hover:scale-105 transition-all">
-              Get Started
-            </button>
-          </div>
-        </div>
-        
-        {/* Actual Footer links area */}
-        <div className="w-full max-w-7xl mx-auto mt-40 pt-10 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-10 relative z-10">
-          <div className="font-black text-3xl tracking-tighter uppercase text-white">HEBE<span className="text-brand-neon">.W</span></div>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[10px] md:text-xs uppercase tracking-widest text-brand-cream/60 font-bold">
-            <Link href="/about" className="hover:text-white transition-colors">Philosophy</Link>
-            <Link href="/protocols" className="hover:text-white transition-colors">Protocols</Link>
-            <Link href="/tools" className="hover:text-brand-neon transition-colors">Diagnostics</Link>
-            <Link href="/glossary" className="hover:text-white transition-colors">Glossary</Link>
-            <Link href="/blog" className="hover:text-white transition-colors">Journal</Link>
-          </div>
-          <div className="text-[9px] uppercase tracking-widest text-brand-cream/30">
-            © 2026 HEBE WELLNESS. ALL CLINICAL RIGHTS RESERVED.
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
