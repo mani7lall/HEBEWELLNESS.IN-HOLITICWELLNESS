@@ -55,7 +55,7 @@ export default function ChatWidget() {
       } else if (lowerInput.includes('peptide')) {
         aiResponse = "Peptide therapy identified. BPC-157 and TB-500 are standard in our 2026 tissue repair matrix.";
       }
-      const aiMsg = { id: Date.now().toString(), text: aiResponse, sender: 'ai', timestamp: new Date() };
+      const aiMsg: Message = { id: Date.now().toString(), text: aiResponse, sender: 'ai', timestamp: new Date() };
       setMessages(prev => [...prev, aiMsg]);
       setIsTyping(false);
     }, 1000);
