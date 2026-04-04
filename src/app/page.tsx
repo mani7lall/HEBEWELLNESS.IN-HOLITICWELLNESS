@@ -136,7 +136,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Tool A: Biological Age Simulator */}
-            <div className="bg-slate-50 dark:bg-black/40/50 border border-brand-neon/20 p-8 rounded-2xl backdrop-blur-xl relative group">
+            <div className="bg-slate-50 dark:bg-black/40 border border-brand-neon/20 p-8 rounded-2xl backdrop-blur-xl relative group">
                <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-neon to-blue-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
                <div className="relative">
                  <div className="flex items-center gap-3 mb-6">
@@ -166,7 +166,7 @@ export default function Home() {
             </div>
 
             {/* Tool B: HRV & Autonomic Load */}
-            <div className="bg-slate-50 dark:bg-black/40/50 border border-blue-500/20 p-8 rounded-2xl backdrop-blur-xl relative group">
+            <div className="bg-slate-50 dark:bg-black/40 border border-blue-500/20 p-8 rounded-2xl backdrop-blur-xl relative group">
                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
                <div className="relative">
                  <div className="flex items-center gap-3 mb-6">
