@@ -13,27 +13,27 @@ export default function ToolsIndex() {
   ];
 
   return (
-    <div className="bg-brand-black min-h-screen text-brand-cream font-sans pt-32 pb-24">
+    <div className="bg-white dark:bg-white dark:bg-brand-black min-h-screen text-slate-900 dark:text-white font-sans pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 text-center">
           <div className="inline-flex items-center justify-center p-3 bg-brand-neon/10 border border-brand-neon/30 rounded-full mb-6">
             <Activity className="w-6 h-6 text-brand-neon" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6">Diagnostic <span className="text-brand-neon">Tools</span></h1>
-          <p className="text-xl text-brand-cream/60 max-w-2xl mx-auto font-light">Stop guessing about your health. Use our 2026 interactive simulators to establish your baseline and generate actionable protocols.</p>
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-6">Diagnostic <span className="text-brand-neon">Tools</span></h1>
+          <p className="text-xl text-slate-900 dark:text-white/60 max-w-2xl mx-auto font-light">Stop guessing about your health. Use our 2026 interactive simulators to establish your baseline and generate actionable protocols.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tools.map((t, i) => (
-            <Link key={i} href={`/tools/${t.id}`} className={`bg-[#121c17] border border-${t.color}-500/20 p-8 rounded-3xl hover:bg-[#1a2922] transition-all group relative overflow-hidden`}>
-              <div className={`absolute top-0 right-0 w-32 h-32 bg-${t.color}-500/10 blur-[50px] rounded-full group-hover:bg-${t.color}-500/20 transition-all`}></div>
+            <Link key={i} href={`/tools/${t.id}`} className="`bg-[#121c17] border border-${t.color}-500/20 p-8 rounded-3xl hover:bg-[#1a2922] transition-all group relative overflow-hidden`">
+              <div className="`absolute top-0 right-0 w-32 h-32 bg-${t.color}-500/10 blur-[50px] rounded-full group-hover:bg-${t.color}-500/20 transition-all`"></div>
               <div className="relative z-10">
-                <div className={`w-16 h-16 bg-black border border-${t.color}-500/30 rounded-2xl flex items-center justify-center mb-6`}>
+                <div className="`w-16 h-16 bg-gray-50 dark:bg-gray-50 dark:bg-black border border-${t.color}-500/30 rounded-2xl flex items-center justify-center mb-6`">
                   {t.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{t.name}</h3>
-                <p className="text-brand-cream/60 text-sm mb-8">{t.desc}</p>
-                <div className={`inline-flex items-center font-bold uppercase tracking-widest text-xs text-${t.color}-400 group-hover:translate-x-2 transition-transform`}>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">{t.name}</h3>
+                <p className="text-slate-900 dark:text-white/60 text-sm mb-8">{t.desc}</p>
+                <div className="`inline-flex items-center font-bold uppercase tracking-widest text-xs text-${t.color}-400 group-hover:translate-x-2 transition-transform`">
                   Launch Tool <ArrowRight className="ml-2 w-4 h-4" />
                 </div>
               </div>

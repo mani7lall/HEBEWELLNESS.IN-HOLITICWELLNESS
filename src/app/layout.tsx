@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/chat/ChatWidget';
+import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -28,14 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${plusJakarta.variable} ${firaCode.variable} font-sans antialiased text-brand-cream bg-brand-black`}>
-        <Navbar />
-        <main className="relative z-10 flex flex-col min-h-screen">
-          {children}
-        </main>
-        <Footer />
-        <ChatWidget />
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className="font-sans antialiased text-slate-900 dark:text-white bg-white dark:bg-brand-black transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Navbar />
+          <main className="relative z-10 flex flex-col min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <ChatWidget />
+        </ThemeProvider>
       </body>
     </html>
   );

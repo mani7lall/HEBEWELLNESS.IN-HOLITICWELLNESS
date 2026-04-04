@@ -83,14 +83,14 @@ export default function InteractiveQuiz() {
       >
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-emerald via-brand-neon to-brand-emerald"></div>
         <span className="text-brand-neon font-bold tracking-[0.2em] text-[10px] mb-4 block uppercase">Analysis Complete</span>
-        <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">Biological Age: <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-light-emerald drop-shadow-[0_0_15px_rgba(0,237,165,0.5)]">{result.age}</span></h3>
-        <p className="text-brand-cream/60 mb-8 max-w-md mx-auto text-sm leading-relaxed">Based on your neural, circadian, and recovery markers, your cellular age is tracking at {result.age} years. The following intervention is required:</p>
+        <h3 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">Biological Age: <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-light-emerald drop-shadow-[0_0_15px_rgba(0,237,165,0.5)]">{result.age}</span></h3>
+        <p className="text-slate-900 dark:text-white/60 mb-8 max-w-md mx-auto text-sm leading-relaxed">Based on your neural, circadian, and recovery markers, your cellular age is tracking at {result.age} years. The following intervention is required:</p>
         
-        <div className="glass p-6 rounded-2xl mb-8 border border-white/5 text-left flex gap-4 items-start bg-black/20">
+        <div className="glass p-6 rounded-2xl mb-8 border border-black/5 dark:border-black/5 dark:border-white/5 text-left flex gap-4 items-start bg-gray-50 dark:bg-gray-50 dark:bg-black/20">
           <Shield className="text-brand-neon w-8 h-8 shrink-0 mt-1 drop-shadow-[0_0_10px_rgba(0,237,165,0.4)]" />
           <div>
-            <h4 className="font-bold text-white mb-2 uppercase text-xs tracking-widest">Recommended Protocol</h4>
-            <p className="text-sm text-brand-cream/80 leading-relaxed font-light">{result.protocol}</p>
+            <h4 className="font-bold text-slate-900 dark:text-white mb-2 uppercase text-xs tracking-widest">Recommended Protocol</h4>
+            <p className="text-sm text-slate-900 dark:text-white/80 leading-relaxed font-light">{result.protocol}</p>
           </div>
         </div>
         
@@ -123,8 +123,8 @@ export default function InteractiveQuiz() {
             className="absolute inset-0 border-t-2 border-brand-neon rounded-full w-20 h-20 -top-2 -left-2 opacity-50"
           />
         </div>
-        <h3 className="text-3xl font-bold text-white mb-3">Processing Biomarkers...</h3>
-        <p className="text-brand-cream/40 text-sm font-light">Cross-referencing biological stress data with architectural longevity models.</p>
+        <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">Processing Biomarkers...</h3>
+        <p className="text-slate-900 dark:text-white/40 text-sm font-light">Cross-referencing biological stress data with architectural longevity models.</p>
       </motion.div>
     );
   }
@@ -142,7 +142,7 @@ export default function InteractiveQuiz() {
         <span className="text-brand-neon/60 text-[10px] font-bold tracking-[0.2em] uppercase mb-4 block">
           Diagnostic Marker 0{currentStep + 1} / 0{questions.length}
         </span>
-        <h3 className="text-2xl md:text-4xl font-bold text-white leading-tight">
+        <h3 className="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white leading-tight">
           {currentQ.question}
         </h3>
       </div>
@@ -156,9 +156,9 @@ export default function InteractiveQuiz() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               onClick={() => handleSelect(option.score)}
-              className="w-full text-left p-6 rounded-2xl border border-white/5 glass bg-black/10 hover:border-brand-neon/50 hover:bg-white/5 transition-all group flex justify-between items-center"
+              className="w-full text-left p-6 rounded-2xl border border-black/5 dark:border-black/5 dark:border-white/5 glass bg-gray-50 dark:bg-gray-50 dark:bg-black/10 hover:border-brand-neon/50 hover:bg-white/5 transition-all group flex justify-between items-center"
             >
-              <span className="text-white font-medium group-hover:text-brand-neon transition-colors">{option.label}</span>
+              <span className="text-slate-900 dark:text-white font-medium group-hover:text-brand-neon transition-colors">{option.label}</span>
               <ArrowRight className="w-5 h-5 text-brand-neon opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 transform" />
             </motion.button>
           ))}

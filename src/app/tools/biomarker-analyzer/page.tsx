@@ -26,15 +26,15 @@ export default function BiomarkerAnalyzer() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-black text-brand-cream py-32 px-6">
+    <div className="min-h-screen bg-white dark:bg-white dark:bg-brand-black text-slate-900 dark:text-white py-32 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <Microscope className="w-16 h-16 text-brand-neon mx-auto mb-6"/>
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">Biomarker <span className="text-brand-neon">Analyzer.</span></h1>
-          <p className="text-xl font-light text-brand-cream/60">Input your clinical markers for an instant biological optimization score.</p>
+          <p className="text-xl font-light text-slate-900 dark:text-white/60">Input your clinical markers for an instant biological optimization score.</p>
         </div>
 
-        <div className="glass-card p-10 rounded-[3rem] border border-white/10 shadow-2xl mb-12">
+        <div className="glass-card p-10 rounded-[3rem] border border-black/10 dark:border-black/10 dark:border-white/10 shadow-2xl mb-12">
           <div className="grid md:grid-cols-2 gap-10 mb-10">
             <div className="space-y-6">
               <div>
@@ -45,9 +45,9 @@ export default function BiomarkerAnalyzer() {
                   type="number" 
                   value={markers.apob} 
                   onChange={(e) => setMarkers({...markers, apob: Number(e.target.value)})}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white text-xl font-bold focus:border-brand-neon outline-none"
+                  className="w-full bg-white/5 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-xl py-4 px-6 text-slate-900 dark:text-white text-xl font-bold focus:border-brand-neon outline-none"
                 />
-                <p className="text-[10px] text-brand-cream/40 mt-2">Optimal range: Below 60-80 mg/dL</p>
+                <p className="text-[10px] text-slate-900 dark:text-white/40 mt-2">Optimal range: Below 60-80 mg/dL</p>
               </div>
               <div>
                 <label className="text-xs font-black uppercase tracking-widest text-[#00F59B] mb-2 block">hs-CRP (mg/L)</label>
@@ -56,9 +56,9 @@ export default function BiomarkerAnalyzer() {
                   step="0.1"
                   value={markers.hscrp} 
                   onChange={(e) => setMarkers({...markers, hscrp: Number(e.target.value)})}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white text-xl font-bold focus:border-brand-neon outline-none"
+                  className="w-full bg-white/5 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-xl py-4 px-6 text-slate-900 dark:text-white text-xl font-bold focus:border-brand-neon outline-none"
                 />
-                <p className="text-[10px] text-brand-cream/40 mt-2">Optimal range: Below 1.0 mg/L</p>
+                <p className="text-[10px] text-slate-900 dark:text-white/40 mt-2">Optimal range: Below 1.0 mg/L</p>
               </div>
             </div>
             <div className="space-y-6">
@@ -69,9 +69,9 @@ export default function BiomarkerAnalyzer() {
                   step="0.1"
                   value={markers.homa_ir} 
                   onChange={(e) => setMarkers({...markers, homa_ir: Number(e.target.value)})}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white text-xl font-bold focus:border-brand-neon outline-none"
+                  className="w-full bg-white/5 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-xl py-4 px-6 text-slate-900 dark:text-white text-xl font-bold focus:border-brand-neon outline-none"
                 />
-                <p className="text-[10px] text-brand-cream/40 mt-2">Optimal range: Below 1.5</p>
+                <p className="text-[10px] text-slate-900 dark:text-white/40 mt-2">Optimal range: Below 1.5</p>
               </div>
               <div>
                 <label className="text-xs font-black uppercase tracking-widest text-[#00F59B] mb-2 block">Vitamin D (ng/mL)</label>
@@ -79,9 +79,9 @@ export default function BiomarkerAnalyzer() {
                   type="number" 
                   value={markers.vitamin_d} 
                   onChange={(e) => setMarkers({...markers, vitamin_d: Number(e.target.value)})}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white text-xl font-bold focus:border-brand-neon outline-none"
+                  className="w-full bg-white/5 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-xl py-4 px-6 text-slate-900 dark:text-white text-xl font-bold focus:border-brand-neon outline-none"
                 />
-                <p className="text-[10px] text-brand-cream/40 mt-2">Optimal range: 50-80 ng/mL</p>
+                <p className="text-[10px] text-slate-900 dark:text-white/40 mt-2">Optimal range: 50-80 ng/mL</p>
               </div>
             </div>
           </div>
@@ -102,27 +102,27 @@ export default function BiomarkerAnalyzer() {
               className="bg-white/5 border border-brand-neon/30 p-12 rounded-[3.5rem] text-center"
             >
               <div className="relative inline-block mb-8">
-                 <div className="w-40 h-40 rounded-full border-[10px] border-brand-neon flex items-center justify-center text-5xl font-black text-white shadow-glow">
+                 <div className="w-40 h-40 rounded-full border-[10px] border-brand-neon flex items-center justify-center text-5xl font-black text-slate-900 dark:text-white shadow-glow">
                    {score}
                  </div>
                  <Dna className="absolute -top-4 -right-4 w-12 h-12 text-brand-neon opacity-50"/>
               </div>
-              <h2 className="text-3xl font-black text-white mb-4 uppercase tracking-tight">Optimization Score: {score < 70 ? 'Action Required' : 'Elite Status'}</h2>
-              <p className="text-brand-cream/60 max-w-xl mx-auto mb-10 font-light leading-relaxed">
+              <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tight">Optimization Score: {score < 70 ? 'Action Required' : 'Elite Status'}</h2>
+              <p className="text-slate-900 dark:text-white/60 max-w-xl mx-auto mb-10 font-light leading-relaxed">
                 Based on your markers, your cellular architecture is currently {score}% optimized for long-term longevity. We have generated a custom protocol to address your deficits.
               </p>
               
               <div className="bg-brand-neon/10 p-10 rounded-3xl border border-brand-neon/20 mb-10">
                  <Mail className="w-10 h-10 text-brand-neon mx-auto mb-4"/>
-                 <h3 className="text-xl font-bold text-white mb-2">Get Your Clinical PDF Report</h3>
-                 <p className="text-xs text-brand-cream/50 mb-6 font-light">Download the full 15-page biological deep-dive including exact reference studies.</p>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Get Your Clinical PDF Report</h3>
+                 <p className="text-xs text-slate-900 dark:text-white/50 mb-6 font-light">Download the full 15-page biological deep-dive including exact reference studies.</p>
                  <form className="flex flex-col sm:flex-row gap-4">
-                    <input type="email" placeholder="Enter Email for PDF" className="flex-1 bg-black/50 border border-white/10 rounded-xl px-6 py-4 text-white outline-none focus:border-brand-neon" />
+                    <input type="email" placeholder="Enter Email for PDF" className="flex-1 bg-gray-50 dark:bg-gray-50 dark:bg-black/50 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-xl px-6 py-4 text-slate-900 dark:text-white outline-none focus:border-brand-neon" />
                     <button type="button" className="bg-white text-brand-black px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:bg-brand-neon transition-colors">Send Report</button>
                  </form>
               </div>
               
-              <Link href="/" className="text-brand-cream/40 hover:text-brand-neon text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+              <Link href="/" className="text-slate-900 dark:text-white/40 hover:text-brand-neon text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
                 Return to Master Directory <ArrowRight className="w-4 h-4"/>
               </Link>
             </motion.div>

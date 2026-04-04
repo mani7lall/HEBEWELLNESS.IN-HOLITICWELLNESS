@@ -34,13 +34,13 @@ export default function SupplementROI() {
   const totalCost = stack.reduce((acc, curr) => acc + curr.cost, 0);
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-brand-black px-6 max-w-4xl mx-auto">
-      <Link href="/tools" className="text-brand-cream/50 text-xs font-bold uppercase tracking-widest hover:text-brand-neon mb-8 inline-block">&larr; Back to Tools</Link>
+    <div className="pt-32 pb-24 min-h-screen bg-white dark:bg-white dark:bg-brand-black px-6 max-w-4xl mx-auto">
+      <Link href="/tools" className="text-slate-900 dark:text-white/50 text-xs font-bold uppercase tracking-widest hover:text-brand-neon mb-8 inline-block">&larr; Back to Tools</Link>
 
       <div className="text-center mb-16">
         <DollarSign className="w-16 h-16 text-[#00F59B] mx-auto mb-6 opacity-80"/>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-4">Supplement <br/><span className="text-[#00F59B]">Guide.</span></h1>
-        <p className="text-lg md:text-xl text-brand-cream/60 font-light max-w-2xl mx-auto leading-relaxed">
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">Supplement <br/><span className="text-[#00F59B]">Guide.</span></h1>
+        <p className="text-lg md:text-xl text-slate-900 dark:text-white/60 font-light max-w-2xl mx-auto leading-relaxed">
           Enter your monthly budget, and we will highlight the most effective, research-backed supplements for your foundation.
         </p>
       </div>
@@ -48,8 +48,8 @@ export default function SupplementROI() {
       <div className="glass-card p-10 lg:p-14 rounded-[3rem] border border-[#00F59B]/20 mb-16 shadow-[0_0_50px_rgba(0,245,155,0.05)] text-center">
         <label className="text-xs lg:text-sm font-bold uppercase tracking-widest text-[#00F59B] mb-8 block">My Maximum Monthly Budget</label>
         <div className="flex items-center justify-center gap-4 mb-8">
-           <span className="text-4xl text-white/50">$</span>
-           <span className="text-7xl lg:text-9xl font-black text-white tracking-tighter drop-shadow-2xl">{budget}</span>
+           <span className="text-4xl text-slate-900 dark:text-white/50">$</span>
+           <span className="text-7xl lg:text-9xl font-black text-slate-900 dark:text-white tracking-tighter drop-shadow-2xl">{budget}</span>
         </div>
         <input 
           type="range" 
@@ -60,25 +60,25 @@ export default function SupplementROI() {
         />
       </div>
 
-      <div className="mb-8 flex justify-between items-end border-b border-white/10 pb-4">
-        <h2 className="text-2xl font-black text-white uppercase tracking-wide">Allocated Matrix</h2>
+      <div className="mb-8 flex justify-between items-end border-b border-black/10 dark:border-black/10 dark:border-white/10 pb-4">
+        <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-wide">Allocated Matrix</h2>
         <span className="text-sm font-bold text-[#00F59B] uppercase tracking-widest bg-[#00F59B]/10 px-4 py-2 rounded-lg">Estimated: ${totalCost}/mo</span>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
          {stack.map((item, i) => (
-           <div key={i} className="bg-black/40 border border-white/5 p-8 rounded-3xl hover:border-[#00F59B]/30 hover:bg-white/5 transition-all group relative overflow-hidden">
+           <div key={i} className="bg-gray-50 dark:bg-gray-50 dark:bg-black/40 border border-black/5 dark:border-black/5 dark:border-white/5 p-8 rounded-3xl hover:border-[#00F59B]/30 hover:bg-white/5 transition-all group relative overflow-hidden">
               <div className="flex justify-between items-start mb-6">
-                 <h3 className="text-xl font-bold text-white group-hover:text-[#00F59B] transition-colors pr-8">{item.name}</h3>
-                 <span className="font-mono text-lg font-black text-white/80">${item.cost}</span>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#00F59B] transition-colors pr-8">{item.name}</h3>
+                 <span className="font-mono text-lg font-black text-slate-900 dark:text-white/80">${item.cost}</span>
               </div>
-              <p className="text-brand-cream/60 text-sm font-light leading-relaxed mb-6 h-12">{item.reason}</p>
+              <p className="text-slate-900 dark:text-white/60 text-sm font-light leading-relaxed mb-6 h-12">{item.reason}</p>
               
               <div className="flex items-center gap-2 mt-auto">
                  {item.roi === "Extreme" && <BadgeCheck className="w-5 h-5 text-[#00F59B]"/>}
                  {item.roi === "High" && <Beaker className="w-5 h-5 text-brand-neon-cyan"/>}
                  {item.roi === "Medium" && <ShieldAlert className="w-5 h-5 text-yellow-400"/>}
-                 <span className="text-[10px] uppercase font-bold tracking-widest text-brand-cream/80">{item.roi} Impact</span>
+                 <span className="text-[10px] uppercase font-bold tracking-widest text-slate-900 dark:text-white/80">{item.roi} Impact</span>
               </div>
            </div>
          ))}

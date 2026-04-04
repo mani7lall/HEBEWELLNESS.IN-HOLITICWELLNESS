@@ -11,18 +11,18 @@ export default function Footer() {
         <div>
           <h4 className="text-sand-50 font-medium mb-6 uppercase tracking-wider text-sm">Biological Resources</h4>
           <ul className="space-y-4 text-sm">
-            <li><Link href="/blog" className="hover:text-white transition-colors">Scientific Intelligence</Link></li>
-            <li><Link href="/science" className="hover:text-white transition-colors">Clinical Dossiers</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Bio-Age Calculator</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Sleep Quality Quiz</Link></li>
+            <li><Link href="/blog" className="hover:text-slate-900 dark:text-white transition-colors">Scientific Intelligence</Link></li>
+            <li><Link href="/science" className="hover:text-slate-900 dark:text-white transition-colors">Clinical Dossiers</Link></li>
+            <li><Link href="#" className="hover:text-slate-900 dark:text-white transition-colors">Bio-Age Calculator</Link></li>
+            <li><Link href="#" className="hover:text-slate-900 dark:text-white transition-colors">Sleep Quality Quiz</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="text-sand-50 font-medium mb-6 uppercase tracking-wider text-sm">Connect</h4>
           <ul className="space-y-4 text-sm">
-            <li><a href="#" className="hover:text-white transition-colors">WhatsApp</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Telegram</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Sustainability</a></li>
+            <li><a href="#" className="hover:text-slate-900 dark:text-white transition-colors">WhatsApp</a></li>
+            <li><a href="#" className="hover:text-slate-900 dark:text-white transition-colors">Telegram</a></li>
+            <li><a href="#" className="hover:text-slate-900 dark:text-white transition-colors">Sustainability</a></li>
           </ul>
         </div>
       </div>

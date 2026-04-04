@@ -32,7 +32,7 @@ export default function Glossary() {
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
         <div>
           <span className="text-brand-neon font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block"><Database className="inline w-3 h-3 mr-2" /> Lexicon Database</span>
-          <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tighter uppercase leading-[0.9]">
             The <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-emerald">Pharmacopoeia</span> A-Z.
           </h1>
         </div>
@@ -43,9 +43,9 @@ export default function Glossary() {
             placeholder="Search compound, peptide, or mechanism..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-white/5 border border-white/20 rounded-full py-4 pl-12 pr-6 text-white placeholder-white/30 focus:outline-none focus:border-brand-neon focus:ring-1 focus:ring-brand-neon transition-all"
+            className="w-full bg-white/5 border border-white/20 rounded-full py-4 pl-12 pr-6 text-slate-900 dark:text-white placeholder-white/30 focus:outline-none focus:border-brand-neon focus:ring-1 focus:ring-brand-neon transition-all"
           />
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-900 dark:text-white/30" />
         </div>
       </div>
 
@@ -56,27 +56,27 @@ export default function Glossary() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: i * 0.05 }}
             key={i} 
-            className="glass-panel p-8 rounded-[2rem] border border-white/5 hover:border-brand-neon/30 hover:bg-brand-neon/5 transition-all duration-300 group relative"
+            className="glass-panel p-8 rounded-[2rem] border border-black/5 dark:border-black/5 dark:border-white/5 hover:border-brand-neon/30 hover:bg-brand-neon/5 transition-all duration-300 group relative"
           >
             <div className="flex justify-between items-start mb-6">
               <span className="text-[10px] uppercase tracking-widest font-bold text-brand-neon bg-brand-neon/10 px-3 py-1 rounded-full border border-brand-neon/20">{item.class}</span>
               {item.tier === "Clinical" && <Lock className="w-4 h-4 text-brand-emerald/50" />}
             </div>
             
-            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-neon transition-colors">{item.name}</h3>
-            <p className="text-sm text-brand-cream/60 leading-relaxed font-light">{item.desc}</p>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-brand-neon transition-colors">{item.name}</h3>
+            <p className="text-sm text-slate-900 dark:text-white/60 leading-relaxed font-light">{item.desc}</p>
             
             {(item.tier === "Clinical" || item.tier === "Scientific") && (
-              <div className="mt-6 pt-4 border-t border-dashed border-white/10">
+              <div className="mt-6 pt-4 border-t border-dashed border-black/10 dark:border-black/10 dark:border-white/10">
                 <span className="text-[9px] uppercase tracking-widest block text-[#14B897] font-bold">Requires Physician Review Before Synthesizing</span>
               </div>
             )}
           </motion.div>
         ))}
         {filtered.length === 0 && (
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 py-20 text-center border border-dashed border-white/10 rounded-3xl">
-            <Database className="w-12 h-12 text-white/20 mx-auto mb-4" />
-            <span className="text-white/40 uppercase tracking-widest text-sm block">No compounds found in database.</span>
+          <div className="col-span-1 md:col-span-2 lg:col-span-3 py-20 text-center border border-dashed border-black/10 dark:border-black/10 dark:border-white/10 rounded-3xl">
+            <Database className="w-12 h-12 text-slate-900 dark:text-white/20 mx-auto mb-4" />
+            <span className="text-slate-900 dark:text-white/40 uppercase tracking-widest text-sm block">No compounds found in database.</span>
             <span className="text-brand-neon text-xs mt-2 block">Clear search to reset index.</span>
           </div>
         )}

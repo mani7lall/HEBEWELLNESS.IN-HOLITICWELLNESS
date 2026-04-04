@@ -68,19 +68,19 @@ export default function BiologicalAgeQuiz() {
   };
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-brand-black px-6 max-w-3xl mx-auto flex flex-col justify-center">
-      <Link href="/tools" className="text-brand-cream/50 text-xs font-bold uppercase tracking-widest hover:text-brand-neon mb-8 block">&larr; Back to Tools</Link>
+    <div className="pt-32 pb-24 min-h-screen bg-white dark:bg-white dark:bg-brand-black px-6 max-w-3xl mx-auto flex flex-col justify-center">
+      <Link href="/tools" className="text-slate-900 dark:text-white/50 text-xs font-bold uppercase tracking-widest hover:text-brand-neon mb-8 block">&larr; Back to Tools</Link>
 
       <div className="text-center mb-12">
         <Dna className="w-16 h-16 text-brand-neon-cyan mx-auto mb-6 opacity-80 animate-pulse"/>
-        <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">Biological <span className="text-brand-neon-cyan">Aging Quiz.</span></h1>
-        <p className="text-brand-cream/60 font-light">
+        <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">Biological <span className="text-brand-neon-cyan">Aging Quiz.</span></h1>
+        <p className="text-slate-900 dark:text-white/60 font-light">
           A quick assessment of your lifestyle habits to estimate your body's true biological age.
         </p>
       </div>
 
       {step < questions.length ? (
-        <div className="glass-card p-10 rounded-[3rem] border border-white/10 shadow-2xl animate-fade-in relative overflow-hidden">
+        <div className="glass-card p-10 rounded-[3rem] border border-black/10 dark:border-black/10 dark:border-white/10 shadow-2xl animate-fade-in relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-white/10">
              <div className="h-full bg-brand-neon-cyan transition-all duration-500" style={{width: `${(step / questions.length) * 100}%`}}></div>
           </div>
@@ -88,8 +88,8 @@ export default function BiologicalAgeQuiz() {
           <div className="text-center mb-10 mt-4">
             {questions[step].icon}
             <span className="text-[10px] font-bold tracking-widest text-[#00F59B] uppercase mb-4 block">Parameter {step + 1} of {questions.length}</span>
-            <h2 className="text-2xl md:text-3xl font-black text-white leading-tight mb-4">{questions[step].q}</h2>
-            <p className="text-sm text-brand-cream/50 font-light">{questions[step].desc}</p>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white leading-tight mb-4">{questions[step].q}</h2>
+            <p className="text-sm text-slate-900 dark:text-white/50 font-light">{questions[step].desc}</p>
           </div>
 
           <div className="space-y-4">
@@ -97,21 +97,21 @@ export default function BiologicalAgeQuiz() {
               <button 
                 key={i} 
                 onClick={() => handleSelect(opt.val)}
-                className="w-full bg-black/50 border border-white/10 p-6 rounded-2xl text-left hover:border-brand-neon-cyan hover:bg-brand-neon-cyan/5 transition-all group flex justify-between items-center"
+                className="w-full bg-gray-50 dark:bg-gray-50 dark:bg-black/50 border border-black/10 dark:border-black/10 dark:border-white/10 p-6 rounded-2xl text-left hover:border-brand-neon-cyan hover:bg-brand-neon-cyan/5 transition-all group flex justify-between items-center"
               >
-                <span className="text-white font-bold tracking-wide group-hover:text-brand-neon-cyan transition-colors">{opt.text}</span>
-                <ArrowRight className="w-5 h-5 text-brand-cream/30 group-hover:text-brand-neon-cyan transform group-hover:translate-x-2 transition-all"/>
+                <span className="text-slate-900 dark:text-white font-bold tracking-wide group-hover:text-brand-neon-cyan transition-colors">{opt.text}</span>
+                <ArrowRight className="w-5 h-5 text-slate-900 dark:text-white/30 group-hover:text-brand-neon-cyan transform group-hover:translate-x-2 transition-all"/>
               </button>
             ))}
           </div>
         </div>
       ) : (
         <div className="glass-card p-12 text-center rounded-[3rem] border-t-[4px] border-brand-neon-cyan shadow-[0_0_100px_rgba(0,245,255,0.1)] animate-fade-in">
-          <span className="text-[10px] font-black tracking-[0.3em] uppercase text-white/50 mb-6 block">Diagnostic Complete</span>
+          <span className="text-[10px] font-black tracking-[0.3em] uppercase text-slate-900 dark:text-white/50 mb-6 block">Diagnostic Complete</span>
           <Dna className="w-20 h-20 text-brand-neon-cyan mx-auto mb-8"/>
           
           <h2 className={`text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 ${getResult().color}`}>{getResult().title}</h2>
-          <p className="text-lg text-brand-cream/80 font-light mb-12 max-w-lg mx-auto leading-relaxed">
+          <p className="text-lg text-slate-900 dark:text-white/80 font-light mb-12 max-w-lg mx-auto leading-relaxed">
             {getResult().text}
           </p>
 
@@ -119,7 +119,7 @@ export default function BiologicalAgeQuiz() {
             <Link href="/protocols" className="w-full bg-brand-neon-cyan text-brand-black font-black uppercase tracking-widest p-5 rounded-2xl hover:bg-white transition-all shadow-glow">
               View Intervention Protocols
             </Link>
-            <button onClick={() => {setStep(0); setScore(0);}} className="text-xs text-brand-cream/50 font-bold uppercase tracking-widest hover:text-white transition-colors py-4">
+            <button onClick={() => {setStep(0); setScore(0);}} className="text-xs text-slate-900 dark:text-white/50 font-bold uppercase tracking-widest hover:text-slate-900 dark:text-white transition-colors py-4">
               Recalculate Trajectory
             </button>
           </div>

@@ -20,16 +20,16 @@ export default function AutoblogAdmin() {
   ];
 
   return (
-    <div className="bg-brand-black min-h-screen text-brand-cream pt-32 pb-20 px-6 lg:px-12 font-mono">
+    <div className="bg-white dark:bg-white dark:bg-brand-black min-h-screen text-slate-900 dark:text-white pt-32 pb-20 px-6 lg:px-12 font-mono">
       <div className="max-w-7xl mx-auto">
         
         {/* HEADER */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div>
-            <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
+            <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">
               Autoblog <span className="text-brand-neon">4.0 GUI</span>
             </h1>
-            <p className="text-brand-cream/40 text-sm tracking-widest uppercase font-bold">
+            <p className="text-slate-900 dark:text-white/40 text-sm tracking-widest uppercase font-bold">
               Autonomous Research Command Center | OMO v3.14.0
             </p>
           </div>
@@ -40,7 +40,7 @@ export default function AutoblogAdmin() {
             >
               {isRunning ? <><Pause className="w-5 h-5"/> Stop Loop</> : <><Play className="w-5 h-5"/> Start Loop</>}
             </button>
-            <button className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white hover:text-brand-black transition-all">
+            <button className="bg-white/5 border border-black/10 dark:border-black/10 dark:border-white/10 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white hover:text-brand-black transition-all">
               Manual Trigger
             </button>
           </div>
@@ -49,18 +49,18 @@ export default function AutoblogAdmin() {
         {/* STATS GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {stats.map((s, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-3xl group hover:border-brand-neon transition-all">
+            <div key={i} className="bg-white/5 border border-black/10 dark:border-black/10 dark:border-white/10 p-8 rounded-3xl group hover:border-brand-neon transition-all">
               <s.icon className={`w-8 h-8 ${s.color} mb-6`} />
-              <div className="text-brand-cream/40 text-[10px] uppercase font-bold mb-2 tracking-widest">{s.label}</div>
-              <div className="text-xl font-black text-white uppercase tracking-tighter">{s.val}</div>
+              <div className="text-slate-900 dark:text-white/40 text-[10px] uppercase font-bold mb-2 tracking-widest">{s.label}</div>
+              <div className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tighter">{s.val}</div>
             </div>
           ))}
         </div>
 
         {/* LOG PANEL */}
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 bg-black/80 border border-white/10 rounded-[2.5rem] overflow-hidden flex flex-col h-[600px] shadow-2xl">
-             <div className="bg-white/5 p-6 border-b border-white/10 flex items-center justify-between">
+          <div className="lg:col-span-2 bg-gray-50 dark:bg-gray-50 dark:bg-black/80 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-[2.5rem] overflow-hidden flex flex-col h-[600px] shadow-2xl">
+             <div className="bg-white/5 p-6 border-b border-black/10 dark:border-black/10 dark:border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Terminal className="w-5 h-5 text-brand-neon" />
                   <span className="text-xs font-black uppercase tracking-widest">Live Research Log</span>
@@ -73,18 +73,18 @@ export default function AutoblogAdmin() {
              </div>
              <div className="p-8 space-y-4 overflow-y-auto font-mono text-sm leading-relaxed flex-grow scrollbar-thin">
                 {logs.map((log, i) => (
-                   <div key={i} className="flex gap-4 border-b border-white/5 pb-2">
-                      <span className="text-brand-cream/20 shrink-0">[{log.ts}]</span>
+                   <div key={i} className="flex gap-4 border-b border-black/5 dark:border-black/5 dark:border-white/5 pb-2">
+                      <span className="text-slate-900 dark:text-white/20 shrink-0">[{log.ts}]</span>
                       <span className={
                         log.type === 'success' ? 'text-brand-emerald' : 
-                        log.type === 'research' ? 'text-blue-400' : 'text-brand-cream/60'
+                        log.type === 'research' ? 'text-blue-400' : 'text-slate-900 dark:text-white/60'
                       }>
                         {log.msg}
                       </span>
                    </div>
                 ))}
                 <div className="flex gap-4 animate-pulse">
-                   <span className="text-brand-cream/20">[{new Date().toLocaleTimeString()}]</span>
+                   <span className="text-slate-900 dark:text-white/20">[{new Date().toLocaleTimeString()}]</span>
                    <span className="text-brand-neon">SYSTEM: Thinking... (Llama 3.1 405B Active)</span>
                 </div>
              </div>
@@ -92,7 +92,7 @@ export default function AutoblogAdmin() {
 
           <div className="space-y-8">
              <div className="bg-brand-emerald/10 border border-brand-emerald/20 p-10 rounded-[2.5rem]">
-                <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tighter flex items-center gap-3">
+                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-6 uppercase tracking-tighter flex items-center gap-3">
                    <CheckCircle className="w-6 h-6 text-brand-emerald"/> Strategy Health
                 </h3>
                 <div className="space-y-6">
@@ -117,14 +117,14 @@ export default function AutoblogAdmin() {
                 </div>
              </div>
 
-             <div className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem]">
-                <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tighter flex items-center gap-3">
+             <div className="bg-white/5 border border-black/10 dark:border-black/10 dark:border-white/10 p-10 rounded-[2.5rem]">
+                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-6 uppercase tracking-tighter flex items-center gap-3">
                    <Database className="w-6 h-6 text-brand-gold"/> Category Queue
                 </h3>
                 <div className="space-y-4">
                   {["Sleep", "Stress", "Hair", "Skin"].map(cat => (
-                    <div key={cat} className="flex justify-between items-center py-3 border-b border-white/5">
-                      <span className="text-sm font-bold text-white/60">{cat} Vertical</span>
+                    <div key={cat} className="flex justify-between items-center py-3 border-b border-black/5 dark:border-black/5 dark:border-white/5">
+                      <span className="text-sm font-bold text-slate-900 dark:text-white/60">{cat} Vertical</span>
                       <span className="px-3 py-1 bg-white/10 rounded-full text-[8px] font-black uppercase tracking-widest text-brand-gold">Next Session: 1hr</span>
                     </div>
                   ))}

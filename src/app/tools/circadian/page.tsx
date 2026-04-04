@@ -27,13 +27,13 @@ export default function CircadianOptimizer() {
   };
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-brand-black px-6 max-w-4xl mx-auto">
-      <Link href="/tools" className="text-brand-cream/50 text-xs font-bold uppercase tracking-widest hover:text-brand-neon mb-8 inline-block">&larr; Back to Tools</Link>
+    <div className="pt-32 pb-24 min-h-screen bg-white dark:bg-white dark:bg-brand-black px-6 max-w-4xl mx-auto">
+      <Link href="/tools" className="text-slate-900 dark:text-white/50 text-xs font-bold uppercase tracking-widest hover:text-brand-neon mb-8 inline-block">&larr; Back to Tools</Link>
 
       <div className="text-center mb-16">
         <Clock className="w-16 h-16 text-yellow-400 mx-auto mb-6 opacity-80"/>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-4">Circadian <br/><span className="text-yellow-400">Rhythm Guide.</span></h1>
-        <p className="text-lg md:text-xl text-brand-cream/60 font-light max-w-2xl mx-auto leading-relaxed">
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">Circadian <br/><span className="text-yellow-400">Rhythm Guide.</span></h1>
+        <p className="text-lg md:text-xl text-slate-900 dark:text-white/60 font-light max-w-2xl mx-auto leading-relaxed">
           A guide to aligning your daily routine with your natural body clock. Select your ideal wake time to see your optimal schedule.
         </p>
       </div>
@@ -49,23 +49,23 @@ export default function CircadianOptimizer() {
             onChange={(e) => setWakeTime(Number(e.target.value))} 
             className="w-full accent-yellow-400 mb-8 h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
           />
-          <div className="text-center text-5xl lg:text-7xl font-black text-white font-mono tracking-tighter drop-shadow-2xl">{formatTime(wakeTime, 0)}</div>
+          <div className="text-center text-5xl lg:text-7xl font-black text-slate-900 dark:text-white font-mono tracking-tighter drop-shadow-2xl">{formatTime(wakeTime, 0)}</div>
         </div>
       </div>
 
-      <div className="space-y-6 relative border-l-2 border-white/10 pl-6 lg:pl-10 ml-4 lg:ml-0">
+      <div className="space-y-6 relative border-l-2 border-black/10 dark:border-black/10 dark:border-white/10 pl-6 lg:pl-10 ml-4 lg:ml-0">
          {schedule.map((item, i) => (
-           <div key={i} className="relative bg-black/40 border border-white/5 p-6 lg:p-8 rounded-3xl flex flex-col md:flex-row items-start md:items-center gap-6 lg:gap-8 hover:border-yellow-400/30 hover:bg-white/5 transition-all group">
-              <div className="absolute -left-[30px] lg:-left-[42px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-brand-black border-2 border-yellow-400 group-hover:bg-yellow-400 transition-colors"></div>
+           <div key={i} className="relative bg-gray-50 dark:bg-gray-50 dark:bg-black/40 border border-black/5 dark:border-black/5 dark:border-white/5 p-6 lg:p-8 rounded-3xl flex flex-col md:flex-row items-start md:items-center gap-6 lg:gap-8 hover:border-yellow-400/30 hover:bg-white/5 transition-all group">
+              <div className="absolute -left-[30px] lg:-left-[42px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white dark:bg-white dark:bg-brand-black border-2 border-yellow-400 group-hover:bg-yellow-400 transition-colors"></div>
               
-              <div className="bg-white/5 p-4 rounded-full flex-shrink-0 border border-white/10 group-hover:scale-110 transition-transform">
+              <div className="bg-white/5 p-4 rounded-full flex-shrink-0 border border-black/10 dark:border-black/10 dark:border-white/10 group-hover:scale-110 transition-transform">
                 {item.icon}
               </div>
               <div className="flex-grow">
-                 <h3 className="text-xl lg:text-2xl font-black text-white tracking-tight mb-2 group-hover:text-yellow-400 transition-colors">{item.title}</h3>
-                 <p className="text-brand-cream/60 text-sm lg:text-base font-light leading-relaxed">{item.desc}</p>
+                 <h3 className="text-xl lg:text-2xl font-black text-slate-900 dark:text-white tracking-tight mb-2 group-hover:text-yellow-400 transition-colors">{item.title}</h3>
+                 <p className="text-slate-900 dark:text-white/60 text-sm lg:text-base font-light leading-relaxed">{item.desc}</p>
               </div>
-              <div className="text-left md:text-right flex-shrink-0 min-w-[120px] bg-black px-4 py-2 rounded-xl border border-white/10">
+              <div className="text-left md:text-right flex-shrink-0 min-w-[120px] bg-gray-50 dark:bg-gray-50 dark:bg-black px-4 py-2 rounded-xl border border-black/10 dark:border-black/10 dark:border-white/10">
                  <span className="font-mono text-lg lg:text-xl font-black text-[#00F59B]">{formatTime(wakeTime, item.offset)}</span>
               </div>
            </div>

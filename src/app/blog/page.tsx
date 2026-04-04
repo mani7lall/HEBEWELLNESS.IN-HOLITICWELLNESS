@@ -77,34 +77,34 @@ export default function BlogIndex() {
   ];
 
   return (
-    <div className="bg-brand-black min-h-screen text-brand-cream font-sans pt-32 pb-24 selection:bg-brand-neon/30">
+    <div className="bg-white dark:bg-white dark:bg-brand-black min-h-screen text-slate-900 dark:text-white font-sans pt-32 pb-24 selection:bg-brand-neon/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 text-center">
           <div className="inline-flex items-center justify-center p-3 bg-brand-neon/10 border border-brand-neon/30 rounded-full mb-6">
             <BookOpen className="w-6 h-6 text-brand-neon" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6 leading-tight">Intelligence <span className="text-brand-neon">Hub</span></h1>
-          <p className="text-xl text-brand-cream/60 max-w-2xl mx-auto font-light leading-relaxed">Highly actionable, science-backed protocols translated into accessible guides for immediate implementation.</p>
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-6 leading-tight">Intelligence <span className="text-brand-neon">Hub</span></h1>
+          <p className="text-xl text-slate-900 dark:text-white/60 max-w-2xl mx-auto font-light leading-relaxed">Highly actionable, science-backed protocols translated into accessible guides for immediate implementation.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {categories.map((cat, i) => (
-            <div key={i} className="bg-[#121c17] border border-white/5 rounded-3xl p-8 relative overflow-hidden group hover:border-brand-neon/30 transition-colors">
+            <div key={i} className="bg-[#121c17] border border-black/5 dark:border-black/5 dark:border-white/5 rounded-3xl p-8 relative overflow-hidden group hover:border-brand-neon/30 transition-colors">
                <div className={`absolute top-0 right-0 w-32 h-32 bg-${cat.color}-500/10 blur-[50px] rounded-full`}></div>
                
-               <h2 className={`text-2xl font-black text-white uppercase tracking-tighter mb-8 flex items-center`}>
+               <h2 className={`text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-8 flex items-center`}>
                   <div className={`w-3 h-3 rounded-full bg-${cat.color === "brand-neon" ? "brand-neon" : cat.color + "-500"} mr-3`}></div>
                   {cat.name}
                </h2>
 
                <div className="space-y-4">
                   {cat.articles.map((art, j) => (
-                     <Link key={j} href={`/blog/${art.id}`} className="block group bg-black/40 border border-white/5 p-5 rounded-xl hover:bg-white/5 transition-all">
+                     <Link key={j} href={`/blog/${art.id}`} className="block group bg-gray-50 dark:bg-gray-50 dark:bg-black/40 border border-black/5 dark:border-black/5 dark:border-white/5 p-5 rounded-xl hover:bg-white/5 transition-all">
                         <div className="flex justify-between items-center">
-                           <h3 className="text-lg font-bold text-brand-cream/90 group-hover:text-brand-neon transition-colors">{art.title}</h3>
-                           <ArrowRight className="w-5 h-5 text-white/20 group-hover:text-brand-neon transition-colors" />
+                           <h3 className="text-lg font-bold text-slate-900 dark:text-white/90 group-hover:text-brand-neon transition-colors">{art.title}</h3>
+                           <ArrowRight className="w-5 h-5 text-slate-900 dark:text-white/20 group-hover:text-brand-neon transition-colors" />
                         </div>
-                        <div className="flex items-center gap-4 mt-3 text-xs font-mono text-brand-cream/40">
+                        <div className="flex items-center gap-4 mt-3 text-xs font-mono text-slate-900 dark:text-white/40">
                            <span className="flex items-center"><Clock className="w-3 h-3 mr-1"/> {art.time}</span>
                            <span className="flex items-center text-brand-neon/70"><Sparkles className="w-3 h-3 mr-1"/> Actionable Protocol</span>
                         </div>

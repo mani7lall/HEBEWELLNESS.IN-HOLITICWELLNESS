@@ -90,7 +90,7 @@ export default function BodyMap() {
           
           <div className="text-center absolute top-0 left-0">
             <span className="text-brand-neon font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block"><GitBranch className="inline w-3 h-3 mr-2" /> System Architect</span>
-            <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+            <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter uppercase leading-[0.9]">
               Biological <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-neon-cyan">Topology.</span>
             </h1>
           </div>
@@ -103,15 +103,15 @@ export default function BodyMap() {
                 key={key}
                 onMouseEnter={() => setActiveSystem(key as System)}
                 onMouseLeave={() => setActiveSystem(null)}
-                className={`w-full relative glass-panel mb-4 p-6 rounded-3xl border flex items-center justify-between transition-all duration-500 hover:scale-105 active:scale-95 group overflow-hidden ${activeSystem === key ? 'border-brand-neon ' + sys.shadow : 'border-white/10 hover:border-white/30'}`}
+                className={`w-full relative glass-panel mb-4 p-6 rounded-3xl border flex items-center justify-between transition-all duration-500 hover:scale-105 active:scale-95 group overflow-hidden ${activeSystem === key ? 'border-brand-neon ' + sys.shadow : 'border-black/10 dark:border-black/10 dark:border-white/10 hover:border-white/30'}`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-700 ${sys.color}`}></div>
                 
                 <div className="flex items-center gap-6 relative z-10">
-                  <div className={`text-white/50 group-hover:text-white transition-colors duration-500 ${activeSystem === key ? 'text-brand-neon' : ''}`}>
+                  <div className={`text-slate-900 dark:text-white/50 group-hover:text-slate-900 dark:text-white transition-colors duration-500 ${activeSystem === key ? 'text-brand-neon' : ''}`}>
                     {sys.icon}
                   </div>
-                  <span className="font-bold tracking-widest uppercase text-left text-sm md:text-base text-white">{sys.title}</span>
+                  <span className="font-bold tracking-widest uppercase text-left text-sm md:text-base text-slate-900 dark:text-white">{sys.title}</span>
                 </div>
                 <div className={`w-3 h-3 rounded-full border border-white/20 transition-all ${activeSystem === key ? 'bg-brand-neon border-brand-neon animate-pulse shadow-[0_0_10px_#00EDA5]' : ''}`}></div>
               </button>
@@ -131,14 +131,14 @@ export default function BodyMap() {
               animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, x: -50, filter: "blur(10px)" }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="glass p-10 md:p-14 rounded-[3rem] border border-white/10 w-full relative overflow-hidden"
+              className="glass p-10 md:p-14 rounded-[3rem] border border-black/10 dark:border-black/10 dark:border-white/10 w-full relative overflow-hidden"
             >
               <div className={`absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br ${systemsData[activeSystem].color} blur-[100px] opacity-50 rounded-full pointer-events-none`}></div>
               
               <div className="relative z-10">
-                <span className="text-[10px] tracking-widest text-brand-cream/40 uppercase font-black block mb-4 border-b border-white/10 pb-4">Target Acquired</span>
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">{systemsData[activeSystem].title}</h2>
-                <p className="text-xl text-brand-cream/70 font-light mb-10 leading-relaxed">
+                <span className="text-[10px] tracking-widest text-slate-900 dark:text-white/40 uppercase font-black block mb-4 border-b border-black/10 dark:border-black/10 dark:border-white/10 pb-4">Target Acquired</span>
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">{systemsData[activeSystem].title}</h2>
+                <p className="text-xl text-slate-900 dark:text-white/70 font-light mb-10 leading-relaxed">
                   {systemsData[activeSystem].desc}
                 </p>
 
@@ -152,19 +152,19 @@ export default function BodyMap() {
                 </div>
 
                 <div>
-                  <span className="text-xs uppercase tracking-widest font-bold text-[#14B897] mb-6 block border-t border-white/10 pt-6">Hebe Countermeasures</span>
+                  <span className="text-xs uppercase tracking-widest font-bold text-[#14B897] mb-6 block border-t border-black/10 dark:border-black/10 dark:border-white/10 pt-6">Hebe Countermeasures</span>
                   <div className="space-y-4">
                     {systemsData[activeSystem].interventions.map((inv: any, i: number) => (
                       <Link 
                         href={inv.link} 
                         key={i} 
-                        className="block bg-black/40 border border-white/5 hover:border-brand-neon/50 p-4 rounded-2xl group transition-all"
+                        className="block bg-gray-50 dark:bg-gray-50 dark:bg-black/40 border border-black/5 dark:border-black/5 dark:border-white/5 hover:border-brand-neon/50 p-4 rounded-2xl group transition-all"
                       >
-                        <h4 className="text-white font-bold mb-1 flex justify-between items-center">
+                        <h4 className="text-slate-900 dark:text-white font-bold mb-1 flex justify-between items-center">
                           {inv.name}
                           <span className="text-[9px] text-brand-neon opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">Execute <ArrowRight className="inline w-3 h-3"/></span>
                         </h4>
-                        <p className="text-sm font-light text-brand-cream/50">{inv.action}</p>
+                        <p className="text-sm font-light text-slate-900 dark:text-white/50">{inv.action}</p>
                       </Link>
                     ))}
                   </div>
@@ -178,14 +178,14 @@ export default function BodyMap() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="w-full h-full flex flex-col items-center justify-center text-center p-12 glass border border-dashed border-white/10 rounded-[3rem]"
+              className="w-full h-full flex flex-col items-center justify-center text-center p-12 glass border border-dashed border-black/10 dark:border-black/10 dark:border-white/10 rounded-[3rem]"
             >
-              <div className="w-24 h-24 border border-white/10 rounded-full flex items-center justify-center mb-8 relative">
+              <div className="w-24 h-24 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-full flex items-center justify-center mb-8 relative">
                 <div className="absolute inset-0 bg-brand-neon/5 rounded-full animate-ping"></div>
-                <Activity className="w-8 h-8 text-white/20" />
+                <Activity className="w-8 h-8 text-slate-900 dark:text-white/20" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Awaiting Selection</h3>
-              <p className="text-brand-cream/50 font-light">Hover over any biological sub-system in the topology map to instantly decrypt threat vectors and matching peptide/botanical countermeasures.</p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Awaiting Selection</h3>
+              <p className="text-slate-900 dark:text-white/50 font-light">Hover over any biological sub-system in the topology map to instantly decrypt threat vectors and matching peptide/botanical countermeasures.</p>
             </motion.div>
           )}
         </AnimatePresence>
