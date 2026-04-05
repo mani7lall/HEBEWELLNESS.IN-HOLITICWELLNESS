@@ -9,10 +9,23 @@ export default function SleepDebtCalculator() {
   const [idealHours, setIdealHours] = useState(8);
   const [actualHours, setActualHours] = useState(6);
   const [days, setDays] = useState(7);
+  const [roomTemp, setRoomTemp] = useState(72);
+  const [lightExposure, setLightExposure] = useState(2); // hours before bed
   const [calculated, setCalculated] = useState(false);
 
   const debt = (idealHours - actualHours) * days;
   const severe = debt > 10;
+  
+  const getTempAdvice = () => {
+    if (roomTemp > 70) return "Too Warm: High temperatures fragment deep sleep. Aim for 65-68°F.";
+    if (roomTemp < 60) return "Too Cold: Your body may be using energy to stay warm. Aim for 65-68°F.";
+    return "Optimal: Your room temperature supports deep metabolic recovery.";
+  };
+
+  const getLightAdvice = () => {
+    if (lightExposure > 1) return "High Alert: Blue light suppresses melatonin. Use amber glasses 2 hours before bed.";
+    return "Optimal: Your low-light routine is preparing your brain for Delta-wave onset.";
+  };
 
   return (
     <div className="bg-white dark:bg-white dark:bg-brand-black min-h-screen text-slate-900 dark:text-white font-sans pt-32 pb-24">
@@ -52,6 +65,18 @@ export default function SleepDebtCalculator() {
                 <div className="text-2xl font-bold text-slate-900 dark:text-white mt-2">{days} days</div>
               </div>
 
+              <div>
+                <label className="block text-sm font-mono text-blue-400 mb-2 uppercase">Bedroom Temperature (°F)</label>
+                <input type="range" min="60" max="80" value={roomTemp} onChange={(e) => setRoomTemp(Number(e.target.value))} className="w-full accent-blue-500" />
+                <div className="text-2xl font-bold text-slate-900 dark:text-white mt-2">{roomTemp}°F</div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-mono text-blue-400 mb-2 uppercase">Blue Light Exposure (Hrs before bed)</label>
+                <input type="range" min="0" max="4" step="0.5" value={lightExposure} onChange={(e) => setLightExposure(Number(e.target.value))} className="w-full accent-blue-500" />
+                <div className="text-2xl font-bold text-slate-900 dark:text-white mt-2">{lightExposure} hrs</div>
+              </div>
+
               <button onClick={() => setCalculated(true)} className="w-full py-4 bg-blue-500 text-slate-900 dark:text-white font-bold uppercase tracking-widest rounded-lg hover:bg-blue-600 transition-colors mt-8">
                 Calculate Debt
               </button>
@@ -71,10 +96,23 @@ export default function SleepDebtCalculator() {
                       ? "Critical: Your cognitive function is severely impaired. Insulin sensitivity is dropping, and cortisol is chronically elevated. Immediate intervention required."
                       : "Moderate: Your immune system is compromised and physical recovery is stunted. You may experience brain fog and afternoon crashes."}
                   </p>
-                  <h3 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center"><RefreshCcw className="w-4 h-4 mr-2 text-brand-neon"/> Recovery Protocol</h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div className="p-4 bg-white/5 rounded-lg border border-white/10">
+                      <span className="text-[10px] font-bold uppercase text-blue-400 block mb-1">Thermal Environment</span>
+                      <p className="text-xs text-white/80">{getTempAdvice()}</p>
+                    </div>
+                    <div className="p-4 bg-white/5 rounded-lg border border-white/10">
+                      <span className="text-[10px] font-bold uppercase text-blue-400 block mb-1">Melatonin Protection</span>
+                      <p className="text-xs text-white/80">{getLightAdvice()}</p>
+                    </div>
+                  </div>
+
+                  <h3 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center"><RefreshCcw className="w-4 h-4 mr-2 text-brand-neon"/> Recovery Action Plan</h3>
                   <ul className="text-sm text-slate-900 dark:text-white/70 space-y-2 list-disc pl-5">
                     <li>Do not try to 'sleep in' for 14 hours. It disrupts your circadian rhythm.</li>
                     <li>Add exactly 30 minutes of extra sleep per night for the next {(debt * 2).toFixed(0)} days.</li>
+                    <li>**2026 Deep Sleep Stack**: 200mg Magnesium L-Threonate + 50mg Apigenin + 100mg L-Theanine.</li>
                     <li>Utilize a 20-minute Non-Sleep Deep Rest (NSDR) protocol or Yoga Nidra in the afternoon to clear adenosine buildup.</li>
                   </ul>
                 </div>

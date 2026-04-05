@@ -42,10 +42,10 @@ export default function ProtocolsLibrary() {
       category: "Cellular Repair",
       icon: <Droplet />,
       targets: ["Liver Health", "Old Cells", "Repair Pathways"],
-      compounds: ["Vitality Oil", "Spermidine", "Rapamycin"],
-      summary: "A powerful 'trash collection' plan for your body. Helps your system recycle damaged cells and clean out biological waste for better longevity.",
-      clinicalDose: "Daily Vitality Oil + Weekly Booster",
-      timing: "Oil daily. Booster strictly on Sunday mornings.",
+      compounds: ["Vitality Oil", "Spermidine", "Fisetin (Mayo Protocol)"],
+      summary: "A powerful 'trash collection' plan. Uses high-dose Fisetin (2000mg) for 2-3 days once a month to clear 'zombie cells' without hurting healthy ones. Boosted by Spermidine to mimic the benefits of deep fasting.",
+      clinicalDose: "Mayo Pulsed Protocol + Daily Spermidine",
+      timing: "Fisetin monthly pulse. Spermidine daily.",
       synergyLevel: 10
     },
     {
@@ -54,9 +54,9 @@ export default function ProtocolsLibrary() {
       category: "Brain & Focus",
       icon: <Flame />,
       targets: ["Sleep Gland", "Brain Cleanup", "Nervous System"],
-      compounds: ["High-Dose CBN", "Magnesium"],
-      summary: "A strong plan to shut down a racing mind. Designed for those who struggle to fall asleep. Helps you reach the deepest stages of sleep where your brain cleans itself.",
-      clinicalDose: "50mg CBN + 200mg Magnesium",
+      compounds: ["High-Dose CBN", "Magnesium L-Threonate", "Apigenin"],
+      summary: "A strong plan to shut down a racing mind. Uses Magnesium L-Threonate for brain penetration and Apigenin to bind to GABA receptors. Helps you reach the deepest stages of sleep where your brain cleans itself of biological waste.",
+      clinicalDose: "50mg CBN + 200mg Mag-Threonate + 50mg Apigenin",
       timing: "60 minutes before you want to be asleep.",
       synergyLevel: 8
     },
@@ -74,14 +74,14 @@ export default function ProtocolsLibrary() {
     },
     {
       id: "p5",
-      name: "Blood Sugar Control",
+      name: "Circadian Fasting Plan",
       category: "Metabolism",
       icon: <Zap />,
-      targets: ["Liver", "Blood Sugar"],
-      compounds: ["Full-Spectrum Oil", "Glucose Tracking"],
-      summary: "Uses simple tracking to help keep your blood sugar steady. Helps stop energy crashes by balancing how your body handles stress and sugar.",
-      clinicalDose: "1ml Vitality Oil in the morning",
-      timing: "Every 12 hours to keep your levels steady.",
+      targets: ["Insulin Levels", "Body Fat", "Heart Health"],
+      compounds: ["Whole-Food Nutrition", "Timed Eating Window"],
+      summary: "Aligns your eating with your body's natural clock. Finish dinner early and wait 12 hours for breakfast to naturally boost autophagy and improve insulin sensitivity.",
+      clinicalDose: "12-14 hour fasting window",
+      timing: "Finish dinner by 7 PM, breakfast after 7-9 AM.",
       synergyLevel: 7
     }
   ];
