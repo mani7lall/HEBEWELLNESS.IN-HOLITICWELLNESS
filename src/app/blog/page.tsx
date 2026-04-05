@@ -10,6 +10,8 @@ export default function BlogIndex() {
       color: "purple",
       articles: [
         { id: "autophagy-induction-fasting", title: "AUTOPHAGY INDUCTION FASTING", time: "10 Min" },
+        { id: "senolytics-epigenetic-reprogramming-2026", title: "SENOLYTIC THERAPIES & EPIGENETIC REPROGRAMMING", time: "18 Min" },
+        { id: "neuroplasticity-peptides-bdnf-upregulation", title: "BDNF UPREGULATION: PEPTIDE PATHWAYS FOR NEUROPLASTICITY", time: "14 Min" },
         { id: "cellular-hydration-mechanisms", title: "CELLULAR HYDRATION MECHANISMS", time: "10 Min" },
         { id: "curcumin-bioavailability-optimization", title: "CURCUMIN BIOAVAILABILITY OPTIMIZATION", time: "10 Min" },
         { id: "foxo3-gene-longevity", title: "FOXO3 GENE LONGEVITY", time: "10 Min" },
@@ -26,6 +28,7 @@ export default function BlogIndex() {
       color: "brand-neon",
       articles: [
         { id: "biological-age-reversal-metrics", title: "BIOLOGICAL AGE REVERSAL METRICS", time: "10 Min" },
+        { id: "advanced-microbiome-metabolomics", title: "ADVANCED MICROBIOME METABOLOMICS & THE GUT-BRAIN AXIS", time: "16 Min" },
         { id: "circadian-biology-architecture", title: "CIRCADIAN BIOLOGY ARCHITECTURE", time: "10 Min" },
         { id: "dna-repair-mechanisms-2026", title: "DNA REPAIR MECHANISMS 2026", time: "10 Min" },
         { id: "exosome-therapy-regenerative", title: "EXOSOME THERAPY REGENERATIVE", time: "10 Min" },
@@ -77,7 +80,7 @@ export default function BlogIndex() {
   ];
 
   return (
-    <div className="bg-white dark:bg-white dark:bg-brand-black min-h-screen text-slate-900 dark:text-white font-sans pt-32 pb-24 selection:bg-brand-neon/30">
+    <div className="bg-white dark:bg-brand-black min-h-screen text-slate-900 dark:text-white font-sans pt-32 pb-24 selection:bg-brand-neon/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 text-center">
           <div className="inline-flex items-center justify-center p-3 bg-brand-neon/10 border border-brand-neon/30 rounded-full mb-6">
@@ -99,7 +102,7 @@ export default function BlogIndex() {
 
                <div className="space-y-4">
                   {cat.articles.map((art, j) => (
-                     <Link key={j} href={`/blog/${art.id}`} className="block group bg-gray-50 dark:bg-gray-50 dark:bg-black/40 border border-black/5 dark:border-black/5 dark:border-white/5 p-5 rounded-xl hover:bg-white/5 transition-all">
+                     <Link key={j} href={`/blog/${art.id}`} className="block group bg-gray-50 dark:bg-black/40 border border-black/5 dark:border-white/5 p-5 rounded-xl hover:bg-white/5 transition-all">
                         <div className="flex justify-between items-center">
                            <h3 className="text-lg font-bold text-slate-900 dark:text-white/90 group-hover:text-brand-neon transition-colors">{art.title}</h3>
                            <ArrowRight className="w-5 h-5 text-slate-900 dark:text-white/20 group-hover:text-brand-neon transition-colors" />

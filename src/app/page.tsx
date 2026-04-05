@@ -380,71 +380,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. HEBE AUTHORITY BLOG HIGHLIGHTS */}
-      <section className="py-24 bg-white dark:bg-black/20 border-y border-black/5 dark:border-black/5 dark:border-white/5 relative">
-         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-               <div>
-                 <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4"><span className="text-brand-neon">Intelligence</span> Hub</h2>
-                 <p className="text-slate-900 dark:text-white/60 max-w-xl text-lg">Beyond standard health advice. Peer-reviewed research translated into actionable 2026 longevity protocols.</p>
-               </div>
-               <Link href="/blog" className="px-6 py-3 border border-white/20 text-slate-900 dark:text-white hover:bg-white hover:text-black font-bold uppercase tracking-widest transition-all rounded-sm text-sm whitespace-nowrap">
-                 View All Research
-               </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-               {/* Blog Card 1 */}
-               <Link href="/blog/peptide-therapy-recovery" className="group bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-2xl overflow-hidden hover:border-brand-neon/50 transition-colors">
-                  <div className="h-48 bg-zinc-100 dark:bg-zinc-900 relative overflow-hidden">
-                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614947937583-a74fcba92375?auto=format&fit=crop&q=80')] bg-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"></div>
-                     <div className="absolute top-4 left-4 bg-brand-neon text-black text-xs font-bold px-3 py-1 rounded-full uppercase font-mono">Endocrinology</div>
-                  </div>
-                  <div className="p-6">
-                     <div className="flex items-center gap-4 text-xs font-mono text-slate-900 dark:text-white/40 mb-3">
-                        <span><Clock className="w-3 h-3 inline mr-1"/> 12 Min Read</span>
-                        <span><Database className="w-3 h-3 inline mr-1"/> Clinical Tier</span>
-                     </div>
-                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 leading-snug group-hover:text-brand-neon transition-colors">BPC-157 and TB-500: The Next-Gen Peptide Stack for Accelerated Tissue Repair</h3>
-                     <p className="text-sm text-slate-900 dark:text-white/60 line-clamp-3">Analyzing the systemic effects of pentadecapeptide administration on tendon fibroblasts and systemic inflammation markers.</p>
-                  </div>
-               </Link>
-
-               {/* Blog Card 2 */}
-               <Link href="/blog/methylene-blue-mitochondria" className="group bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-colors">
-                  <div className="h-48 bg-zinc-100 dark:bg-zinc-900 relative overflow-hidden">
-                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80')] bg-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"></div>
-                     <div className="absolute top-4 left-4 bg-blue-500 text-slate-900 dark:text-white text-xs font-bold px-3 py-1 rounded-full uppercase font-mono">Cellular Energy</div>
-                  </div>
-                  <div className="p-6">
-                     <div className="flex items-center gap-4 text-xs font-mono text-slate-900 dark:text-white/40 mb-3">
-                        <span><Clock className="w-3 h-3 inline mr-1"/> 15 Min Read</span>
-                        <span><Database className="w-3 h-3 inline mr-1"/> Advanced Tier</span>
-                     </div>
-                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 leading-snug group-hover:text-blue-400 transition-colors">Methylene Blue: Modulating Mitochondrial Electron Transport Chain Efficiency</h3>
-                     <p className="text-sm text-slate-900 dark:text-white/60 line-clamp-3">How low-dose MB acts as an alternative electron carrier, bypassing Complex I/III dysfunction to upregulate ATP production.</p>
-                  </div>
-               </Link>
-
-               {/* Blog Card 3 */}
-               <Link href="/blog/metabolic-cgm-tracking" className="group bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-black/10 dark:border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-colors">
-                  <div className="h-48 bg-zinc-100 dark:bg-zinc-900 relative overflow-hidden">
-                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')] bg-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"></div>
-                     <div className="absolute top-4 left-4 bg-purple-500 text-slate-900 dark:text-white text-xs font-bold px-3 py-1 rounded-full uppercase font-mono">Metabolism</div>
-                  </div>
-                  <div className="p-6">
-                     <div className="flex items-center gap-4 text-xs font-mono text-slate-900 dark:text-white/40 mb-3">
-                        <span><Clock className="w-3 h-3 inline mr-1"/> 9 Min Read</span>
-                        <span><Database className="w-3 h-3 inline mr-1"/> Foundation Tier</span>
-                     </div>
-                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 leading-snug group-hover:text-purple-400 transition-colors">Beyond HbA1c: Utilizing Continuous Glucose Monitors for Real-Time Metabolic Agility</h3>
-                     <p className="text-sm text-slate-900 dark:text-white/60 line-clamp-3">Mastering glycemic variability and postprandial responses to optimize insulin sensitivity and prevent endothelial damage.</p>
-                  </div>
-               </Link>
-            </div>
-         </div>
-      </section>
-
       {/* 5.1 SUPPLEMENT SOURCING & PURITY */}
       <section className="py-24 bg-white dark:bg-brand-black px-6 lg:px-12 border-b border-black/5 dark:border-black/5 dark:border-white/5">
          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
@@ -493,7 +428,7 @@ export default function Home() {
                <p className="text-slate-900 dark:text-white/60 max-w-2xl mx-auto font-mono text-sm">Empirical data from our first cohort of high-performance human test subjects.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-               <div className="bg-slate-50 dark:bg-black/40/40 border border-black/10 dark:border-black/10 dark:border-white/10 p-8 rounded-2xl relative group hover:border-brand-neon/40 transition-colors">
+               <div className="bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-black/10 dark:border-white/10 p-8 rounded-2xl relative group hover:border-brand-neon/40 transition-colors">
                   <Quote className="w-8 h-8 text-brand-neon/20 mb-6 group-hover:text-brand-neon/50 transition-colors"/>
                   <p className="text-slate-900 dark:text-white font-light mb-8 italic">"Reduced my biological age by 4.2 years in 6 months. The focus and cognitive clarity I have now is beyond what I thought was possible in my 50s."</p>
                   <div className="flex items-center gap-4">
@@ -508,7 +443,7 @@ export default function Home() {
                      <span className="flex items-center gap-1"><Zap className="w-3 h-3"/> HRV +22ms</span>
                   </div>
                </div>
-               <div className="bg-slate-50 dark:bg-black/40/40 border border-black/10 dark:border-black/10 dark:border-white/10 p-8 rounded-2xl relative group hover:border-blue-500/40 transition-colors">
+               <div className="bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-black/10 dark:border-white/10 p-8 rounded-2xl relative group hover:border-blue-500/40 transition-colors">
                   <Quote className="w-8 h-8 text-blue-500/20 mb-6 group-hover:text-blue-500/50 transition-colors"/>
                   <p className="text-slate-900 dark:text-white font-light mb-8 italic">"The sleep optimization protocol alone has changed my life. I haven't felt this restored in a decade. My training recovery is at an all-time high."</p>
                   <div className="flex items-center gap-4">
@@ -523,7 +458,7 @@ export default function Home() {
                      <span className="flex items-center gap-1"><Dumbbell className="w-3 h-3"/> Recovery +18%</span>
                   </div>
                </div>
-               <div className="bg-slate-50 dark:bg-black/40/40 border border-black/10 dark:border-black/10 dark:border-white/10 p-8 rounded-2xl relative group hover:border-purple-500/40 transition-colors">
+               <div className="bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-black/10 dark:border-white/10 p-8 rounded-2xl relative group hover:border-purple-500/40 transition-colors">
                   <Quote className="w-8 h-8 text-purple-500/20 mb-6 group-hover:text-purple-500/50 transition-colors"/>
                   <p className="text-slate-900 dark:text-white font-light mb-8 italic">"Advanced metabolic flexibility is the secret. I've stable energy all day, zero crashes, and my brain is always 'on'. The Hebe agent is a game-changer."</p>
                   <div className="flex items-center gap-4">
@@ -639,7 +574,7 @@ export default function Home() {
                      <AnimatePresence>
                         {activeFaq === idx && (
                            <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} className="overflow-hidden">
-                              <div className="p-6 bg-slate-50 dark:bg-black/40/40 text-slate-900 dark:text-white/70 text-sm font-light leading-relaxed border-t border-black/5 dark:border-black/5 dark:border-white/5">
+                              <div className="p-6 bg-slate-50 dark:bg-black/40 text-slate-900 dark:text-white/70 text-sm font-light leading-relaxed border-t border-black/5 dark:border-black/5 dark:border-white/5">
                                  {item.a}
                               </div>
                            </motion.div>

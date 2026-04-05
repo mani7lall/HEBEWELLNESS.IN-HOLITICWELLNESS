@@ -71,15 +71,25 @@ async function generateWithGemini(prompt) {
 
 async function generateBlog() {
   const randomTopic = topics[Math.floor(Math.random() * topics.length)];
-  const systemPrompt = `You are a world-class medical researcher and health journalist. Write a 1,500-word, highly valuable MDX blog post about: "${randomTopic}".
-- Tone: Welcoming, authoritative, simplified, yet clinically accurate.
-- Structure: Clear H2/H3 headings, short paragraphs, bullet points for protocols.
-- Goal: Pass as a high-end human-written article. Avoid AI-isms.
+  const systemPrompt = `You are a Senior Expert SEO Copywriter and Medical Journalist. 
+Write a 2,000-word, highly valuable MDX blog post about: "${randomTopic}".
+
+CORE REQUIREMENTS:
+1. TONE: Authoritative, expert, yet easy for a layperson to understand. No "AI-isms".
+2. DEPTH: Include specific biological mechanisms (e.g., mTOR, autophagy, vagal tone).
+3. STRUCTURE: 
+   - H1 Title that hooks the reader.
+   - 3-sentence "TL;DR" Summary.
+   - H2/H3 headings for logical flow.
+   - "The Clinical Protocol": A clear, bulleted list of actionable steps.
+   - "The Evidence": Mention that this is based on current clinical literature (e.g., PubMed).
+4. SEO: Use semantic keywords related to "${randomTopic}".
+
 Format with frontmatter:
 ---
 title: "[The Title]"
 date: "${new Date().toISOString().split('T')[0]}"
-author: "Hebe Editorial"
+author: "Hebe Medical Editorial"
 ---`;
 
   console.log(`Researching: ${randomTopic}`);
