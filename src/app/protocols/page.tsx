@@ -21,67 +21,67 @@ type Protocol = {
 export default function ProtocolsLibrary() {
   const [filter, setFilter] = useState<string>("All");
 
-  const categories = ["All", "Neuro-Cognitive", "Metabolic", "Physical Recovery", "Systemic Regeneration"];
+  const categories = ["All", "Brain & Focus", "Metabolism", "Recovery", "Cellular Repair"];
 
   const protocols: Protocol[] = [
     {
       id: "p1",
-      name: "The Executive Alpha Protocol",
-      category: "Neuro-Cognitive",
+      name: "The Deep Focus Plan",
+      category: "Brain & Focus",
       icon: <Activity />,
-      targets: ["Pre-frontal Cortex", "HPA Axis", "Dopaminergic Receptors"],
-      compounds: ["Neural Focus Matrix (CBD/L-Theanine)", "Methylene Blue (0.5mg/kg)"],
-      summary: "Designed for extreme, unbroken flow-states during high-stakes corporate or athletic execution. Suppresses the cortisol cascade while massively upregulating mitochondrial ATP specifically in the brain, allowing for 6-8 hours of jitter-free dominant cognition.",
-      clinicalDose: "1ml sublingual focus matrix + 10mg MB",
-      timing: "T-Minus 45 minutes prior to execution horizon.",
+      targets: ["Brain Focus", "Stress Control", "Energy Levels"],
+      compounds: ["Focus Matrix (CBD/L-Theanine)", "Methylene Blue"],
+      summary: "Designed for deep, unbroken concentration during long work sessions. Helps control stress while boosting brain energy for 6-8 hours of clear thinking.",
+      clinicalDose: "1ml liquid focus matrix",
+      timing: "45 minutes before you start working.",
       synergyLevel: 9
     },
     {
       id: "p2",
-      name: "Senolytic Autophagy Wash",
-      category: "Systemic Regeneration",
+      name: "Cellular Cleanup Plan",
+      category: "Cellular Repair",
       icon: <Droplet />,
-      targets: ["Hepatic Tissue", "Senescent 'Zombie' Cells", "Lysosomal Pathways"],
-      compounds: ["Supreme Vitality 1:6", "Spermidine (15mg)", "Rapamycin (Pulsed 5mg weekly)"],
-      summary: "An aggressive cellular 'trash collection' protocol. Utilizes the fasting-mimetic properties of Spermidine and mTOR inhibition of Rapamycin to force the body to literally digest and recycle its own damaged inflammatory cells.",
-      clinicalDose: "Pulsed mTOR suppression + Daily 1:6 Oil",
-      timing: "Executed continuously. Rapamycin strictly on Sunday mornings.",
+      targets: ["Liver Health", "Old Cells", "Repair Pathways"],
+      compounds: ["Vitality Oil", "Spermidine", "Rapamycin"],
+      summary: "A powerful 'trash collection' plan for your body. Helps your system recycle damaged cells and clean out biological waste for better longevity.",
+      clinicalDose: "Daily Vitality Oil + Weekly Booster",
+      timing: "Oil daily. Booster strictly on Sunday mornings.",
       synergyLevel: 10
     },
     {
       id: "p3",
-      name: "The Delta-Wave Force Vector",
-      category: "Neuro-Cognitive",
+      name: "Deep Sleep Recovery",
+      category: "Brain & Focus",
       icon: <Flame />,
-      targets: ["Pineal Gland", "Glymphatic System", "Central Nervous System"],
-      compounds: ["High-Dose CBN (Cannabinol)", "Magnesium L-Threonate"],
-      summary: "A violent suppression of sympathetic nervous system tone. Designed for chronic insomniacs or executives who cannot 'shut down'. Forces the brain through Alpha, bypassing REM, directly into Deep Delta sleep where brain shrinkage and glymphatic clearance occurs.",
-      clinicalDose: "50mg CBN + 200mg Mag-Threonate",
-      timing: "Strictly 60 minutes before required unconsciousness.",
+      targets: ["Sleep Gland", "Brain Cleanup", "Nervous System"],
+      compounds: ["High-Dose CBN", "Magnesium"],
+      summary: "A strong plan to shut down a racing mind. Designed for those who struggle to fall asleep. Helps you reach the deepest stages of sleep where your brain cleans itself.",
+      clinicalDose: "50mg CBN + 200mg Magnesium",
+      timing: "60 minutes before you want to be asleep.",
       synergyLevel: 8
     },
     {
       id: "p4",
-      name: "Synovial Vascular Repair",
-      category: "Physical Recovery",
+      name: "Joint & Tissue Repair",
+      category: "Recovery",
       icon: <Shield />,
-      targets: ["Tendons", "Ligaments", "Myofascial Tissue"],
-      compounds: ["Targeted Recovery Matrix Balm", "Sub-Q BPC-157", "Near-Infrared Light (850nm)"],
-      summary: "The ultimate joint and tendon regeneration stack. We saturate the local tissue with transdermal anti-inflammatories, inject peptide sequences directly adjacent to the tear, and radiate the site with NIR lasers to force massive localized ATP and collagen synthesis.",
-      clinicalDose: "Transdermal liberally + 250mcg BPC + 10min PBM",
-      timing: "Immediate acute phase post-injury or post-exertion.",
+      targets: ["Tendons", "Joints", "Muscles"],
+      compounds: ["Recovery Balm", "Peptide BPC-157", "Red Light Therapy"],
+      summary: "The ultimate joint and tendon repair plan. Uses a combination of healing balms, specific proteins, and light therapy to speed up recovery from injuries or hard workouts.",
+      clinicalDose: "Balm as needed + 250mcg Protein + 10min Light",
+      timing: "Right after an injury or a very tough workout.",
       synergyLevel: 10
     },
     {
       id: "p5",
-      name: "Insulin & Glycemic Flattening",
-      category: "Metabolic",
+      name: "Blood Sugar Control",
+      category: "Metabolism",
       icon: <Zap />,
-      targets: ["Hepatic Glucose Receptors", "Pancreatic Beta Cells"],
-      compounds: ["Supreme Vitality Full-Spectrum", "CGM Biometric Telemetry"],
-      summary: "Utilizing continuous glucose monitors to map the cortisol-glucose axis. We blunt the stress-induced gluconeogenesis of cortisol by pre-loading with CB1 antagonists via our Full-Spectrum matrix, ensuring a flat, immortal glycemic baseline.",
-      clinicalDose: "1ml Supreme Vitality upon waking",
-      timing: "Every 12 hours exactly to maintain baseline receptor saturation.",
+      targets: ["Liver", "Blood Sugar"],
+      compounds: ["Full-Spectrum Oil", "Glucose Tracking"],
+      summary: "Uses simple tracking to help keep your blood sugar steady. Helps stop energy crashes by balancing how your body handles stress and sugar.",
+      clinicalDose: "1ml Vitality Oil in the morning",
+      timing: "Every 12 hours to keep your levels steady.",
       synergyLevel: 7
     }
   ];
@@ -93,9 +93,9 @@ export default function ProtocolsLibrary() {
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-neon/5 blur-[150px] rounded-full point-events-none -z-10"></div>
       
       <div className="mb-20">
-        <span className="text-brand-neon font-bold tracking-[0.3em] text-[10px] sm:text-xs uppercase mb-6 block border border-brand-neon/20 px-4 py-1.5 rounded-full inline-block bg-brand-neon/5 shadow-glow">Hebe OS // Clinical Directory</span>
+        <span className="text-brand-neon font-bold tracking-[0.3em] text-[10px] sm:text-xs uppercase mb-6 block border border-brand-neon/20 px-4 py-1.5 rounded-full inline-block bg-brand-neon/5 shadow-glow">Hebe Wellness // Health Directory</span>
         <h1 className="text-5xl md:text-8xl font-black text-slate-900 dark:text-white tracking-tighter uppercase leading-[0.9] mb-8">
-          Actionable <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-neon-cyan">Protocols.</span>
+          Personalized <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-neon-cyan">Action Plans.</span>
         </h1>
         <p className="text-xl text-slate-900 dark:text-white/60 max-w-2xl font-light border-l border-brand-neon pl-6">
           Dossiers are theory. Protocols are clinical action. <br/>Browse our proprietary synergistic administration methods below. Consult the Scientific Board before executing Tier-10 integrations.

@@ -9,12 +9,12 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Protocols", link: "/protocols", hoverColor: "hover:text-brand-neon" },
-    { name: "Topology", link: "/tools/body-map", hoverColor: "hover:text-brand-neon-cyan" },
-    { name: "Diagnostics", link: "/tools/longevity-calculator", hoverColor: "hover:text-rose-500" },
-    { name: "Glossary", link: "/glossary", hoverColor: "hover:text-brand-gold" },
-    { name: "Research", link: "/research-library", hoverColor: "hover:text-[#14B897]" },
-    { name: "Intelligence", link: "/blog", hoverColor: "hover:text-slate-900 dark:text-white" }
+    { name: "Action Plans", link: "/protocols", hoverColor: "hover:text-brand-neon" },
+    { name: "Body Map", link: "/tools/body-map", hoverColor: "hover:text-brand-neon-cyan" },
+    { name: "Health Tests", link: "/tools/longevity-calculator", hoverColor: "hover:text-rose-500" },
+    { name: "Dictionary", link: "/glossary", hoverColor: "hover:text-brand-gold" },
+    { name: "Library", link: "/research-library", hoverColor: "hover:text-[#14B897]" },
+    { name: "Health Blog", link: "/blog", hoverColor: "hover:text-slate-900 dark:text-white" }
   ];
 
   return (
