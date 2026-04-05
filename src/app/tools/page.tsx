@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Moon, HeartPulse, Sparkles, Fingerprint, Dna, Activity, ArrowRight } from 'lucide-react';
+import { Moon, HeartPulse, Sparkles, Fingerprint, Dna, Activity, ArrowRight, DollarSign, Microscope } from 'lucide-react';
 
 export default function ToolsIndex() {
   const tools = [

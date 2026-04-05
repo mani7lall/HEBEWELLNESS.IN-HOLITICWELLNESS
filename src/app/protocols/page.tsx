@@ -8,7 +8,7 @@ import Link from "next/link";
 type Protocol = {
   id: string;
   name: string;
-  category: "Neuro-Cognitive" | "Metabolic" | "Physical Recovery" | "Systemic Regeneration";
+  category: "Brain & Focus" | "Metabolism" | "Recovery" | "Cellular Repair";
   icon: React.ReactNode;
   targets: string[];
   compounds: string[];
