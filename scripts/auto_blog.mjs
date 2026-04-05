@@ -77,13 +77,16 @@ Write a 2,000-word, highly valuable MDX blog post about: "${randomTopic}".
 CORE REQUIREMENTS:
 1. TONE: Authoritative, expert, yet easy for a layperson to understand. No "AI-isms".
 2. DEPTH: Include specific biological mechanisms (e.g., mTOR, autophagy, vagal tone).
-3. STRUCTURE: 
+3. IMAGES: Include 3-4 high-quality image placeholders using Unsplash URLs.
+   Format: ![Description](https://images.unsplash.com/photo-XXXXX?auto=format&fit=crop&q=80)
+   Select images that represent: Clinical science, nature, technology, or wellness.
+4. STRUCTURE: 
    - H1 Title that hooks the reader.
    - 3-sentence "TL;DR" Summary.
    - H2/H3 headings for logical flow.
    - "The Clinical Protocol": A clear, bulleted list of actionable steps.
    - "The Evidence": Mention that this is based on current clinical literature (e.g., PubMed).
-4. SEO: Use semantic keywords related to "${randomTopic}".
+5. SEO: Use semantic keywords related to "${randomTopic}".
 
 Format with frontmatter:
 ---

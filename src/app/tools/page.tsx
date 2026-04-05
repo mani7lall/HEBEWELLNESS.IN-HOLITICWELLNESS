@@ -5,11 +5,12 @@ import { Moon, HeartPulse, Sparkles, Fingerprint, Dna, Activity, ArrowRight } fr
 
 export default function ToolsIndex() {
   const tools = [
-    { id: "sleep-debt", name: "Sleep Debt Calculator", desc: "Calculate your accumulated sleep debt and get a recovery protocol.", icon: <Moon className="w-8 h-8 text-blue-400"/>, color: "blue" },
-    { id: "stress-resilience", name: "Stress Resilience Quiz", desc: "Analyze your autonomic nervous system load and burnout risk.", icon: <HeartPulse className="w-8 h-8 text-emerald-400"/>, color: "emerald" },
-    { id: "skin-analyzer", name: "Cellular Skin Analyzer", desc: "Assess premature skin aging based on hydration and glycation.", icon: <Sparkles className="w-8 h-8 text-rose-400"/>, color: "rose" },
-    { id: "biological-age", name: "Epigenetic Age Estimator", desc: "A simulation of your true biological age vs chronological age.", icon: <Fingerprint className="w-8 h-8 text-purple-400"/>, color: "purple" },
-    { id: "stack", name: "Longevity Stack Builder", desc: "Let the Hebe Omni-Agent design your custom supplement protocol.", icon: <Dna className="w-8 h-8 text-brand-neon"/>, color: "brand-neon" }
+    { id: "biological-age", name: "Epigenetic Age Test", desc: "A simulation of your true biological age vs chronological age.", icon: <Fingerprint className="w-8 h-8 text-purple-400"/>, color: "purple" },
+    { id: "vo2-max", name: "VO2 Max Estimator", desc: "Predict your aerobic capacity and longevity trajectory.", icon: <Activity className="w-8 h-8 text-orange-400"/>, color: "orange" },
+    { id: "supplement-roi", name: "Supplement ROI", desc: "Calculate the efficiency and cost-to-benefit of your stack.", icon: <DollarSign className="w-8 h-8 text-brand-neon"/>, color: "brand-neon" },
+    { id: "stress-resilience", name: "Stress Resilience", desc: "Analyze your autonomic nervous system load and burnout risk.", icon: <HeartPulse className="w-8 h-8 text-emerald-400"/>, color: "emerald" },
+    { id: "sleep-debt", name: "Sleep Recovery", desc: "Calculate your accumulated sleep debt and get a recovery plan.", icon: <Moon className="w-8 h-8 text-blue-400"/>, color: "blue" },
+    { id: "biomarker-analyzer", name: "Biomarker Analyzer", desc: "Input your clinical markers for an instant biological score.", icon: <Microscope className="w-8 h-8 text-cyan-400"/>, color: "cyan" }
   ];
 
   return (

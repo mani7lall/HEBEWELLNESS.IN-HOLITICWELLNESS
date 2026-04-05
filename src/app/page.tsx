@@ -91,109 +91,99 @@ export default function Home() {
 
       
       {/* NEW SECTION: ADVANCED BIOLOGICAL THEORIES & MECHANISMS */}
-      <section className="py-24 bg-white dark:bg-brand-black px-6 lg:px-12 border-y border-black/5 dark:border-white/5 transition-colors duration-300">
+      <section className="py-32 bg-white dark:bg-brand-black px-6 lg:px-12 border-y border-black/5 dark:border-white/10 transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">Scientific <span className="text-brand-neon">Mechanisms</span></h2>
-             <p className="text-slate-700 dark:text-white/60 max-w-2xl mx-auto font-mono text-sm">Translating peer-reviewed frontier science into systemic biological upgrades.</p>
+          <div className="text-center mb-24">
+             <div className="flex justify-center mb-6">
+               <span className="bg-brand-neon/10 text-brand-neon text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.3em] border border-brand-neon/20">The Science</span>
+             </div>
+             <h2 className="text-5xl md:text-8xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-6 leading-[0.8]">Clinical <br/><span className="text-brand-neon text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-emerald">Frontiers.</span></h2>
+             <p className="text-lg text-slate-600 dark:text-white/60 max-w-2xl mx-auto font-light leading-relaxed">Translating peer-reviewed longevity research into actionable biological upgrades.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-slate-50 dark:bg-black/30 border border-black/10 dark:border-white/10 p-8 rounded-2xl hover:border-brand-neon/50 transition-colors">
-              <Infinity className="w-10 h-10 text-brand-neon mb-6" />
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Senolytic Clearance</h3>
-              <p className="text-slate-800 dark:text-white/70 text-sm leading-relaxed mb-4">
-                Senescent cells secrete SASP (Senescence-Associated Secretory Phenotype), driving systemic inflammation. Our targeted flavonoids (Fisetin, Quercetin) induce apoptosis in these "zombie" cells, making room for stem cell-driven tissue regeneration.
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="bg-gray-50 dark:bg-[#121A16] border border-black/5 dark:border-white/10 p-10 rounded-[2.5rem] hover:border-brand-neon/30 transition-all duration-500 group shadow-lg">
+              <div className="p-5 bg-brand-neon/10 rounded-2xl border border-brand-neon/20 w-fit mb-8 group-hover:scale-110 transition-transform">
+                <Infinity className="w-10 h-10 text-brand-neon" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tight">Senolytic Clearance</h3>
+              <p className="text-slate-600 dark:text-white/50 text-sm leading-relaxed font-light">
+                Targeted flavonoids like Fisetin induce apoptosis in "zombie" cells, clearing systemic inflammation and triggering tissue regeneration.
               </p>
             </div>
             
-            <div className="bg-slate-50 dark:bg-black/30 border border-black/10 dark:border-white/10 p-8 rounded-2xl hover:border-blue-500/50 transition-colors">
-              <Network className="w-10 h-10 text-blue-500 mb-6" />
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Neuroplasticity Vectors</h3>
-              <p className="text-slate-800 dark:text-white/70 text-sm leading-relaxed mb-4">
-                We upregulate Brain-Derived Neurotrophic Factor (BDNF) through precision peptide protocols (Dihexa, Semax) and cholinergic agents. This radically enhances synaptic density, fluid intelligence, and structural cognitive resilience.
+            <div className="bg-gray-50 dark:bg-[#121A16] border border-black/5 dark:border-white/10 p-10 rounded-[2.5rem] hover:border-blue-500/30 transition-all duration-500 group shadow-lg">
+              <div className="p-5 bg-blue-500/10 rounded-2xl border border-blue-500/20 w-fit mb-8 group-hover:scale-110 transition-transform">
+                <Network className="w-10 h-10 text-blue-500" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tight">Neuroplasticity</h3>
+              <p className="text-slate-600 dark:text-white/50 text-sm leading-relaxed font-light">
+                Upregulating BDNF through precision peptides radically enhances synaptic density, fluid intelligence, and cognitive resilience.
               </p>
             </div>
 
-            <div className="bg-slate-50 dark:bg-black/30 border border-black/10 dark:border-white/10 p-8 rounded-2xl hover:border-purple-500/50 transition-colors">
-              <Dna className="w-10 h-10 text-purple-500 mb-6" />
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Epigenetic Reprogramming</h3>
-              <p className="text-slate-800 dark:text-white/70 text-sm leading-relaxed mb-4">
-                Utilizing NAD+ precursors (NMN, NR) and sirtuin-activating compounds to repair DNA double-strand breaks and silence pro-aging genes. We actively wind back the Horvath epigenetic clock.
+            <div className="bg-gray-50 dark:bg-[#121A16] border border-black/5 dark:border-white/10 p-10 rounded-[2.5rem] hover:border-purple-500/30 transition-all duration-500 group shadow-lg">
+              <div className="p-5 bg-purple-500/10 rounded-2xl border border-purple-500/20 w-fit mb-8 group-hover:scale-110 transition-transform">
+                <Dna className="w-10 h-10 text-purple-500" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tight">DNA Repair</h3>
+              <p className="text-slate-600 dark:text-white/50 text-sm leading-relaxed font-light">
+                Utilizing NAD+ precursors and sirtuin-activating compounds to repair DNA double-strand breaks and silence pro-aging genes.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-{/* 2. INTERACTIVE DIAGNOSTICS SECTION (NEW) */}
-      <section className="py-24 px-6 lg:px-12 bg-white dark:bg-black/20 border-y border-black/5 dark:border-black/5 dark:border-white/5 relative overflow-hidden">
+      {/* 2. INTERACTIVE DIAGNOSTICS SECTION (NEW) */}
+      <section className="py-24 px-6 lg:px-12 bg-white dark:bg-brand-black border-y border-black/5 dark:border-white/10 relative overflow-hidden transition-colors duration-500">
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="mb-16 text-center">
-             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">Autonomous <span className="text-brand-neon">Diagnostics</span></h2>
-             <p className="text-slate-900 dark:text-white/60 max-w-2xl mx-auto font-mono text-sm">Input your baseline metrics to initialize the Hebe Omni-Agent simulation engine.</p>
+          <div className="mb-20 text-center">
+             <div className="flex justify-center mb-6">
+               <span className="bg-brand-neon/10 text-brand-neon text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.3em] border border-brand-neon/20">Advanced Diagnostics</span>
+             </div>
+             <h2 className="text-5xl md:text-8xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-6 leading-[0.8]">Autonomous <br/><span className="text-brand-neon text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-emerald">Testing.</span></h2>
+             <p className="text-lg md:text-xl text-slate-600 dark:text-white/60 max-w-2xl mx-auto font-light leading-relaxed">Establish your baseline with our 2026 performance simulators. No more guessing.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Tool A: Biological Age Simulator */}
-            <div className="bg-slate-50 dark:bg-black/40 border border-brand-neon/20 p-8 rounded-2xl backdrop-blur-xl relative group">
-               <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-neon to-blue-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+            {/* Tool A: VO2 Max Simulator */}
+            <Link href="/tools/vo2-max" className="bg-gray-50 dark:bg-[#121A16] border border-black/5 dark:border-white/10 p-10 rounded-[2.5rem] relative group hover:border-brand-neon/50 transition-all duration-500 shadow-xl overflow-hidden">
+               <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-neon to-blue-600 rounded-[2.5rem] blur opacity-0 group-hover:opacity-10 transition duration-1000"></div>
                <div className="relative">
-                 <div className="flex items-center gap-3 mb-6">
-                    <Fingerprint className="w-8 h-8 text-brand-neon" />
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white uppercase tracking-wider">Epigenetic Age Estimator</h3>
-                 </div>
-                 <form onSubmit={calculateBioAge} className="space-y-6">
-                    <div>
-                      <label className="block font-mono text-sm text-slate-900 dark:text-white/70 mb-2 uppercase">Chronological Age (Years)</label>
-                      <input type="range" min="20" max="80" value={chronoAge} onChange={(e) => setChronoAge(Number(e.target.value))} className="w-full accent-brand-neon" />
-                      <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{chronoAge}</div>
+                 <div className="flex justify-between items-start mb-10">
+                    <div className="p-5 bg-brand-neon/10 rounded-2xl border border-brand-neon/20 group-hover:scale-110 transition-transform">
+                       <Activity className="w-10 h-10 text-brand-neon" />
                     </div>
-                    <button type="submit" className="w-full py-3 bg-brand-neon/20 border border-brand-neon/50 text-brand-neon font-bold uppercase tracking-widest hover:bg-brand-neon hover:text-black transition-colors rounded-sm">
-                      Run Simulation
-                    </button>
-                 </form>
-                 <AnimatePresence>
-                   {bioAgeResult && (
-                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mt-6 p-4 bg-brand-neon/10 border border-brand-neon/30 rounded-lg">
-                        <p className="font-mono text-sm text-slate-900 dark:text-white/70 uppercase mb-1">Optimized Biological Age:</p>
-                        <p className="text-4xl font-black text-brand-neon">{bioAgeResult.toFixed(1)} <span className="text-lg text-slate-900 dark:text-white/50 font-normal">Years</span></p>
-                        <p className="text-xs text-slate-900 dark:text-white/50 mt-2 font-mono">Based on Hebe 2026 longevity protocol adherence.</p>
-                     </motion.div>
-                   )}
-                 </AnimatePresence>
+                    <ArrowRight className="w-6 h-6 text-slate-300 dark:text-white/20 group-hover:text-brand-neon group-hover:translate-x-2 transition-all" />
+                 </div>
+                 <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">VO2 Max <br/>Performance</h3>
+                 <p className="text-slate-600 dark:text-white/50 text-sm leading-relaxed font-light mb-8">Predict your aerobic capacity and longevity trajectory based on Cooper test metrics. The gold standard for healthspan.</p>
+                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-neon">Initialize Audit &rarr;</span>
                </div>
-            </div>
+            </Link>
 
-            {/* Tool B: HRV & Autonomic Load */}
-            <div className="bg-slate-50 dark:bg-black/40 border border-blue-500/20 p-8 rounded-2xl backdrop-blur-xl relative group">
-               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+            {/* Tool B: Stack ROI Analyzer */}
+            <Link href="/tools/supplement-roi" className="bg-gray-50 dark:bg-[#121A16] border border-black/5 dark:border-white/10 p-10 rounded-[2.5rem] relative group hover:border-blue-500/50 transition-all duration-500 shadow-xl overflow-hidden">
+               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2.5rem] blur opacity-0 group-hover:opacity-10 transition duration-1000"></div>
                <div className="relative">
-                 <div className="flex items-center gap-3 mb-6">
-                    <ActivitySquare className="w-8 h-8 text-blue-400" />
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white uppercase tracking-wider">HRV & Autonomic Load</h3>
-                 </div>
-                 <div className="space-y-6">
-                    <div>
-                      <label className="block font-mono text-sm text-slate-900 dark:text-white/70 mb-2 uppercase">Current HRV (ms) - Simulated</label>
-                      <input type="range" min="20" max="150" value={hrvState} onChange={(e) => setHrvState(Number(e.target.value))} className="w-full accent-blue-400" />
-                      <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{hrvState} <span className="text-sm font-normal text-slate-900 dark:text-white/50">ms</span></div>
+                 <div className="flex justify-between items-start mb-10">
+                    <div className="p-5 bg-blue-500/10 rounded-2xl border border-blue-500/20 group-hover:scale-110 transition-transform">
+                       <DollarSign className="w-10 h-10 text-blue-400" />
                     </div>
-                    
-                    <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-                        <div className="flex justify-between items-center mb-2">
-                           <span className="font-mono text-sm text-slate-900 dark:text-white/70 uppercase">Nervous System State</span>
-                           <span className={`font-bold ${hrvState > 70 ? 'text-brand-neon' : hrvState > 40 ? 'text-yellow-400' : 'text-red-400'}`}>
-                             {hrvState > 70 ? 'Parasympathetic (Recovery)' : hrvState > 40 ? 'Balanced' : 'Sympathetic Dominant (Stress)'}
-                           </span>
-                        </div>
-                        <div className="w-full h-2 bg-slate-50 dark:bg-black/40 rounded-full overflow-hidden">
-                           <div className={`h-full transition-all duration-500 ${hrvState > 70 ? 'bg-brand-neon' : hrvState > 40 ? 'bg-yellow-400' : 'bg-red-400'}`} style={{ width: `${(hrvState / 150) * 100}%` }}></div>
-                        </div>
-                    </div>
+                    <ArrowRight className="w-6 h-6 text-slate-300 dark:text-white/20 group-hover:text-blue-400 group-hover:translate-x-2 transition-all" />
                  </div>
+                 <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">Supplement <br/>Stack ROI</h3>
+                 <p className="text-slate-600 dark:text-white/50 text-sm leading-relaxed font-light mb-8">Calculate the cost-to-benefit ratio of your longevity stack. Optimize your spend for maximum biological impact.</p>
+                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Run Efficiency Audit &rarr;</span>
                </div>
-            </div>
+            </Link>
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link href="/tools" className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 hover:text-brand-neon transition-colors">
+              Explore Master Tool Directory (12+)
+            </Link>
           </div>
         </div>
       </section>

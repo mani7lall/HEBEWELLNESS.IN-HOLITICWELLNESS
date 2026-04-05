@@ -1,87 +1,100 @@
 "use client";
 
 import { useState } from "react";
-import { DollarSign, ShieldAlert, BadgeCheck, Beaker } from "lucide-react";
-import Link from 'next/link';
+import { motion, AnimatePresence } from "framer-motion";
+import { DollarSign, ArrowLeft, TrendingUp, ShieldCheck, Sparkles, CheckCircle2, PieChart } from "lucide-react";
+import Link from "next/link";
 
-export default function SupplementROI() {
-  const [budget, setBudget] = useState(100);
+export default function SupplementROICalculator() {
+  const [monthlySpend, setMonthlySpend] = useState(150);
+  const [essentialCount, setEssentialCount] = useState(3);
+  const [experimentalCount, setEssentialExperimentalCount] = useState(2);
+  const [result, setResult] = useState<any>(null);
 
-  const determineStack = () => {
-    if (budget < 50) return [
-      { name: "Magnesium Glycinate", cost: 15, roi: "Extreme", reason: "Fixes sleep, reduces cortisol for pennies a day." },
-      { name: "Vitamin D3 + K2", cost: 12, roi: "Extreme", reason: "Crucial hormonal baseline." },
-      { name: "Creatine Monohydrate", cost: 20, roi: "High", reason: "Cheap neuro-protection and cellular hydration." }
-    ];
-    if (budget < 150) return [
-      { name: "Magnesium Glycinate", cost: 15, roi: "Extreme", reason: "Baseline necessity." },
-      { name: "Vitamin D3 + K2", cost: 12, roi: "Extreme", reason: "Hormonal baseline." },
-      { name: "Premium Omega-3 (EPA/DHA)", cost: 45, roi: "High", reason: "Massive systemic inflammation reduction." },
-      { name: "High-Bioavailability Curcumin", cost: 35, roi: "High", reason: "Joint protection and brain fog clearance." },
-      { name: "L-Theanine", cost: 15, roi: "Medium", reason: "Pairs with caffeine for smooth executive function." }
-    ];
-    return [
-      { name: "NMN or NR (NAD+ Precursor)", cost: 80, roi: "Medium", reason: "Direct mitochondrial energy up-regulation." },
-      { name: "Premium Omega-3", cost: 45, roi: "High", reason: "Systemic inflammation reduction." },
-      { name: "Magnesium L-Threonate", cost: 40, roi: "High", reason: "Crosses blood-brain barrier for severe neuro-optimization." },
-      { name: "Apigenin", cost: 30, roi: "Medium", reason: "Prostate health and deep sleep architecture." },
-      { name: "Spermidine", cost: 60, roi: "Medium/High", reason: "Heavy cellular autophagy inducer." },
-      { name: "Methylene Blue (Pharma Grade)", cost: 40, roi: "Extreme", reason: "Ultimate mitochondrial electron transport chain enhancer." }
-    ];
+  const calculate = () => {
+    const score = Math.max(0, 100 - (experimentalCount * 15) + (essentialCount * 10));
+    const annualSpend = monthlySpend * 12;
+    setResult({ score, annualSpend });
   };
 
-  const stack = determineStack();
-  const totalCost = stack.reduce((acc, curr) => acc + curr.cost, 0);
-
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-white dark:bg-white dark:bg-brand-black px-6 max-w-4xl mx-auto">
-      <Link href="/tools" className="text-slate-900 dark:text-white/50 text-xs font-bold uppercase tracking-widest hover:text-brand-neon mb-8 inline-block">&larr; Back to Tools</Link>
+    <div className="min-h-screen bg-white dark:bg-[#0a0f0d] text-slate-900 dark:text-white py-32 px-6 transition-all duration-500">
+      <div className="max-w-3xl mx-auto">
+        <Link href="/tools" className="inline-flex items-center text-brand-neon hover:text-white font-bold text-xs uppercase tracking-[0.2em] mb-12 transition-all">
+          <ArrowLeft className="w-4 h-4 mr-2" /> Back to Health Tests
+        </Link>
 
-      <div className="text-center mb-16">
-        <DollarSign className="w-16 h-16 text-[#00F59B] mx-auto mb-6 opacity-80"/>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">Supplement <br/><span className="text-[#00F59B]">Guide.</span></h1>
-        <p className="text-lg md:text-xl text-slate-900 dark:text-white/60 font-light max-w-2xl mx-auto leading-relaxed">
-          Enter your monthly budget, and we will highlight the most effective, research-backed supplements for your foundation.
-        </p>
-      </div>
-
-      <div className="glass-card p-10 lg:p-14 rounded-[3rem] border border-[#00F59B]/20 mb-16 shadow-[0_0_50px_rgba(0,245,155,0.05)] text-center">
-        <label className="text-xs lg:text-sm font-bold uppercase tracking-widest text-[#00F59B] mb-8 block">My Maximum Monthly Budget</label>
-        <div className="flex items-center justify-center gap-4 mb-8">
-           <span className="text-4xl text-slate-900 dark:text-white/50">$</span>
-           <span className="text-7xl lg:text-9xl font-black text-slate-900 dark:text-white tracking-tighter drop-shadow-2xl">{budget}</span>
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-6">
+            <span className="bg-brand-neon/10 text-brand-neon text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-brand-neon/20 flex items-center gap-2">
+              <Sparkles className="w-3 h-3" /> Autonomous Asset Audit
+            </span>
+          </div>
+          <DollarSign className="w-20 h-20 text-brand-neon mx-auto mb-8 opacity-80"/>
+          <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-6 leading-[0.8]">Stack <br/><span className="text-brand-neon">ROI.</span></h1>
+          <p className="text-xl font-light text-slate-600 dark:text-white/60 max-w-xl mx-auto leading-relaxed">Analyze the cost-to-benefit ratio of your current supplement protocol.</p>
         </div>
-        <input 
-          type="range" 
-          min="30" max="300" step="10" 
-          value={budget} 
-          onChange={(e) => setBudget(Number(e.target.value))} 
-          className="w-full max-w-lg mx-auto accent-[#00F59B] h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
-        />
-      </div>
 
-      <div className="mb-8 flex justify-between items-end border-b border-black/10 dark:border-black/10 dark:border-white/10 pb-4">
-        <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-wide">Allocated Matrix</h2>
-        <span className="text-sm font-bold text-[#00F59B] uppercase tracking-widest bg-[#00F59B]/10 px-4 py-2 rounded-lg">Estimated: ${totalCost}/mo</span>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-6">
-         {stack.map((item, i) => (
-           <div key={i} className="bg-gray-50 dark:bg-gray-50 dark:bg-black/40 border border-black/5 dark:border-black/5 dark:border-white/5 p-8 rounded-3xl hover:border-[#00F59B]/30 hover:bg-white/5 transition-all group relative overflow-hidden">
-              <div className="flex justify-between items-start mb-6">
-                 <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#00F59B] transition-colors pr-8">{item.name}</h3>
-                 <span className="font-mono text-lg font-black text-slate-900 dark:text-white/80">${item.cost}</span>
+        <div className="glass-panel p-10 rounded-[2.5rem] border border-black/5 dark:border-white/10 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-neon/5 blur-[100px] -z-10 rounded-full"></div>
+          
+          <div className="space-y-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="space-y-6">
+                <div>
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-neon mb-4 block">Monthly Spend ($)</label>
+                  <input type="range" min="0" max="1000" step="10" value={monthlySpend} onChange={(e) => setMonthlySpend(Number(e.target.value))} className="w-full h-1.5 bg-black/10 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-neon" />
+                  <div className="text-3xl font-black mt-4">${monthlySpend}</div>
+                </div>
+                <div>
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-neon mb-4 block">Core Essentials (Vitamin D, Omega-3, etc)</label>
+                  <input type="range" min="0" max="10" value={essentialCount} onChange={(e) => setEssentialCount(Number(e.target.value))} className="w-full h-1.5 bg-black/10 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-neon" />
+                  <div className="text-3xl font-black mt-4">{essentialCount}</div>
+                </div>
               </div>
-              <p className="text-slate-900 dark:text-white/60 text-sm font-light leading-relaxed mb-6 h-12">{item.reason}</p>
+              <div className="space-y-6">
+                <div>
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-neon mb-4 block">Experimental Compounds (NMN, Rapamycin, etc)</label>
+                  <input type="range" min="0" max="10" value={experimentalCount} onChange={(e) => setEssentialExperimentalCount(Number(e.target.value))} className="w-full h-1.5 bg-black/10 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-neon" />
+                  <div className="text-3xl font-black mt-4">{experimentalCount}</div>
+                </div>
+              </div>
+            </div>
+
+            <button onClick={calculate} className="w-full py-6 bg-brand-neon text-brand-black font-black uppercase tracking-[0.3em] rounded-2xl hover:bg-white transition-all shadow-glow flex justify-center items-center gap-3">
+              <PieChart className="w-5 h-5"/> Calculate Stack Efficiency
+            </button>
+          </div>
+        </div>
+
+        <AnimatePresence>
+          {result && (
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="mt-12 p-12 bg-gray-50 dark:bg-white/5 border border-black/5 dark:border-brand-neon/20 rounded-[3rem] text-center relative overflow-hidden">
+              <div className="relative inline-block mb-8">
+                <div className="w-40 h-40 rounded-full border-[10px] border-brand-neon flex items-center justify-center text-5xl font-black shadow-glow">
+                  {result.score}%
+                </div>
+                <TrendingUp className="absolute -top-4 -right-4 w-12 h-12 text-brand-neon animate-pulse"/>
+              </div>
+              <h2 className="text-3xl font-black mb-4 uppercase tracking-tight">Efficiency Score</h2>
+              <p className="text-lg font-light text-slate-600 dark:text-white/60 mb-10 max-w-lg mx-auto">
+                Your annual biological investment is <span className="text-brand-neon font-bold">${result.annualSpend}</span>. 
+                {result.score > 80 ? " You have a highly optimized stack with low waste." : " You may be over-investing in low-certainty experimental compounds."}
+              </p>
               
-              <div className="flex items-center gap-2 mt-auto">
-                 {item.roi === "Extreme" && <BadgeCheck className="w-5 h-5 text-[#00F59B]"/>}
-                 {item.roi === "High" && <Beaker className="w-5 h-5 text-brand-neon-cyan"/>}
-                 {item.roi === "Medium" && <ShieldAlert className="w-5 h-5 text-yellow-400"/>}
-                 <span className="text-[10px] uppercase font-bold tracking-widest text-slate-900 dark:text-white/80">{item.roi} Impact</span>
+              <div className="bg-brand-neon/5 p-8 rounded-3xl border border-brand-neon/10 text-left">
+                <h3 className="font-black mb-4 flex items-center gap-2 uppercase tracking-widest text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-brand-neon"/> Financial Optimization
+                </h3>
+                <ul className="space-y-3 text-sm text-slate-600 dark:text-white/60 font-light">
+                  <li>• Prioritize core deficiencies identified in blood work over trending compounds.</li>
+                  <li>• Use pulsed protocols for high-cost longevity drugs to reduce metabolic load and cost.</li>
+                  <li>• Subscribe to Hebe's group-buy program to reduce annual spend by 25%.</li>
+                </ul>
               </div>
-           </div>
-         ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
